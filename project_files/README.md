@@ -1,6 +1,8 @@
 
 
-                            README for "Captain!!" a desktop game made for a school project.
+ # Captain!!
+ 
+ README for "Captain!!" a desktop game made for a school project.
 
 - Created by- 1337 incorporated
 
