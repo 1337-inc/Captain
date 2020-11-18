@@ -1,0 +1,160 @@
+1$a$Comrade Vlad$Communism is the answer! Distribute state wealth to the poor!$Good idea!$Communism$$Thats not how communism works...$a$
+2$a$Professor Zylberstein$I need zome tezt zubjectz for my... experimentz... May I abduct zome orphanz?$Yeah sure, why not?$HumanResearch$$NOPE$a$
+3$a$Head Researcher Samuel$Would you be so kind as to fund my latest research project? To figure out if cats can be recycled?$Sounds interesting... I'm in.$CatRecycler$$No way... that seems useless.$a$
+4$CatRecycler$Head Researcher Samuel$It seems cats cannot be recycled...$Its not over yet... continue your research!$CatRecycler2$$How disappointing.$a$
+5$a$General Wilson$I'm bored.. I want to launch a military campaign!$Go forth, and return victorious!$Campaign$$Military campaign on what?$$6
+6$$General Wilson$I don't know... but I'm sure I can find something...$Yeah sure, go for it$Campaign$$Nah, maybe later.$a$
+7$Campaign$General Wilson$I have returned! I bring treasure and other cool stuff! I am invinvible!$Nice..now go on another campaign!$Campaign2$$Nice...now go get some rest.$a$
+8$Campaign2$General Wilson$They were too strong...*sob* many good men died...*sob sob* I'm sorry boss...$I'm sure you will do better next time...$a$$YOU FOOL! OUT OF MY SIGHT!$a$
+9$a$The Don$Good evening, Captain. Please accept this small gift, as a token of our friendship.$Thank you. I look forward to doing business with you.$Mafia$$Sorry, but I don't do bribes.$$10
+10$$The Don$I see. Is there no way to change your mind?$Yeah, I want more money.$Mafia$$Nope.$$140
+11$a$Doc Rachel$There is a terrible virus in the city. I need funds to help treat the people.$Of course... Take what you need.$a$$Charge a fee from the patients or something...$Virus$
+12$Virus$General Wilson$Due to the lack of aid during the outbreak, people are rebelling. May I suppress them?$Please do. Lethal force is allowed.$a$$I'd prefer to resolve this peacefully.$Diplomacy$
+13$Diplomacy$Union Jeff$Why didn't you help us during the virus outbreak? I demand to know what you are doing with our tax money!$I'm giving it to the army.$a$$I'm giving it to the scientists$a$
+14$a$The Shaman$ I have decided to start a cult dedicated to Lord Oswalg. Our holy day is Friday.$So... what do you want me to do?$$15$Get out of this room, blasphemer.$a$
+15$$The Shaman$I humbly request that you modify our calendar, so that every day is Friday.$Why??$$16$No way.$a$
+16$$Lord Oswalg$BECAUSE FRIDAY IS MY DAY OF POWER!!$I'm sorry sir, but you do not have an appointment.??$$17$Just leave me alone...$a$
+17$$The Shaman$He's not real of course... Oswalg is an ultrarealistic hologram I made. With this I can fool the commoners into giving me lots of... donations! Of course, you would get a cut of the proceeds...$Now you're talking. I'm in.$Friday$$I refuse to scam my citizens.$a$
+18$Friday$Union Jeff$Due to every day becoming Friday, Movie Night Saturdays haven't been taking place lately. The Union is on strike until you introduce Movie Night Fridays.$But doesn't that make every day a movie night?$$19$Go back to work, Jeff.$a$
+19$$Union Jeff$Oh yeah... I didn't think about that. That would not be sustainable, as we do not have enough movies... I guess I'll call off the strike then.$$$$Okay then...$a$
+20$HumanResearch$Professor Zylberstein$ITZ ALIVE! MY ULTIMATE BIOWEAPON IZ ALIVE! Give me more orphanz, and I can create an army of theze thingz...$Anything you need, professor...$HumanResearch2$$I dunno, professor..$a$
+21$a$Lucas$I have figured out what this city is missing. A pizzeria. If you give me some land, I will start the best pizzeria on this planet.$Go for it, Lucas!$Pizzeria$$Nah, pizza is for losers..$$
+22$a$Sergeant Martin$Sir, General Wilson has just collapsed! What should we do?$Call Doc Rachel.$$23$Call Comrade Vlad.$$24
+23$$Doc Rachel$I have finished General Wilson's surgery... Now for my payment.$Take from the treasury.$a$$Take from the military fund.$a$
+24$$Comrade Vlad$Replace I with WE, and ILLNESS becomes WELLNESS. *Inspired by Comrade Vlad's Communist propoganda, General Wilson makes a full recovery*$$$$...$a$
+25$a$Ayanami$As we no longer can contact the earth, may I use that frequency to start a 24 hour radio station?$Radio staion? Yes, just don't air K-Pop..$Radio$$Sorry, but no.$a$
+26$Radio$Ayanami$I have found some juicy gossip regarding Head Researcher Samuel! If our station doesn't get a 'donation' soon the entire colony may somehow find out...$Fine...I'll pay.$a$$Who cares?$$27
+27$$Head Researcher Samuel$HOW DID EVERYONE FIND OUT THAT MY PHD IS FAKE? It's over for me...$$$$Redeem yourself through your future works.$Gossip$
+28$$Katherine$Captain... you're so handsome...$Why, thank you Katherine$Katherine$$Could you stand somewhere else? You are blocking the TV.$a$
+29$CatRecycler2$Head Researcher Samuel$A cat can indeed be recycled to become fuel, fertilizer, food, and much more. All you have to do is kill it... the possibilities are endless...$Well done Samuel.$CatRecycler3$$I never would have guessed.$CatRecycler3$
+30$Pizzeria$General Wilson$It seems Lucas' pizzeria is so popular that Lucas has more public support then you. What should we do?$Let him be.$Pizzaria2$$Take him down.$$152
+31$Friday$The Shaman$The Brotherhood of Friday has increased in popularity. I need money to build a church, so I can start collecting tithes.$Sure$Friday2$$Build it by yourself.$a$
+32$Mafia$Orion$I am the best bounty hunter on the planet. Call me if you want to take anyone out.$Will do.$Orion$$How many contracts have you actually completed?$$33
+33$$Orion$Well... I... umm err... oh would you look at the time? I have to go now, goodbye.$$$$Goodbye.$a$
+34$a$The Narrator$Today was a peaceful day. Nothing happened at all.$*sigh in contentment*>$a$$*sigh in boredom*$$35
+35$$General Wilson$WE ARE BEING ATTACKED BY ALIENS!! WHAT DO WE DO?$Kill em all Wilson.$$36$Surrender$$37
+36$$General Wilson$They were too strong... its over for us...$$$$...$a$
+37$$Sergeant Martin$The aliens have taken all of our money$$$$...$a$
+38$Katherine$Lucas$I would like to ask Katherine out.$NO! Katherine is mine!$Katherine2$$Why are you asking me?$$39
+39$$Lucas$I consider you to be my hero... of course I want your blessings.$HAHAHAHA but no.$Katherine2$$Go for it, my boy.$Katherine2$
+40$Communism$Banker Barrington$Your communist ideals are hurting the economy. I propose an immediate return to capitalism.$I understand$Capitalism$$Nah I don't feel like it$a$
+41$Katherine2$Katherine$Captain... random people have started asking me out, but there is someone that I like. What should I do?$Follow your heart.$$123$What do you think I am? A love counsellor?$a$
+42$a$Head Researcher Samuel$I need some funding for my latest top secret research.$Fine$a$$No$a$
+43$a$Sergeant Martin$I would like to start a citizen police force.$No objections.$Police$$No. We need you in the army.$a$
+44$a$Baker Larry$I made some donuts, here try one!$Why not?$$45$Nah I don't like donuts.$a$
+45$$Baker Larry$Just so you know, these aren't free samples...$It's fine, take from the treasury.$Larry$$Then I don't want em$a$
+46$a$Lucas$Captain, just so you know, I think Baker Larry is up to no good... be careful.$I will, thanks$a$$What nonsense.$a$
+47$a$Engineer Erikson$The old power generators are boring. I think its time to go nuclear.$Definitely.$Nuclear$$If it ain't broke, don't fix it.$a$
+48$Pizzeria$Mary$I think there is a murderer in the colony...$I'll look into it.$Murder$$What nonsense.$Murder$
+49$a$The Hacker$I know everything about you...$Okay cool.$Hacker$$No way.$Hacker$
+50$a$Albert$I... forgot my question. Sorry$Haha its fine man.$a$$Then stop wasting my time.$a$
+51$Murder$Lucas$My sister, Mary,has gone missing. I hope its not the murderer...$I hope so too.$Murder2$$Nothing I can do...$Murder2$
+52$a$The Detective$Don't you think the other department heads are a little suspicious?$Yeah, I'd like you to investigate.$Detective$$No. I trust them completely.$NoDetective$
+53$NoDetective$Professor Zylberstein$Heh, I've come to finiz what the department headz were too incompetent to do on the wormhole, that iz kill you.$$$$WHAT?$$54
+54$$Professor Zylberstein$Yez, I waz behind it all! But I guarantee you, I had my reazonz...Anyways, itz over for you, my friend! *injects a mysterious syringe* $$$$*die very painfully*$death_Zylberstein$
+55$Detective$The Detective$I investigated Head Researcher Samuel, and you'll never believe what I found out.$Tell me now!$$56$Who cares?$a$
+56$$The Detective$Samuel intentionally caused the ship malfunction in the wormhole! He damaged the warp drive, so that the ship would be stuck inside the wormhole.$$$$Lets interrogate him now.$$57
+57$$Head Researcher Samuel$You figured it out? Oh no... Honestly, I really didn't want to... but Zylberstein guaranteed my position as Head Researcher if I helped him and the others out with this plan. Anyways, now that you know everything, I guess I'll have to silence you. *poison gas leaks through the ventilation*$$$$*die due to the gas*$death_Samuel$
+58$Detective$The Detective$I investigated General Wilson, and you'll never believe what I found out.$Tell me now!$$59$Who cares?$a$
+59$$The Detective$The General was responsible for killing the head technician, before he could fix the ship in the wormhole!$$$$Lets interrogate him now.$$60
+60$$General Wilson$Hahahaha so you figured it out huh? Good job! As a reward, eat lead! This is a coup d'etat! BWAHAHAHAHA *heavy gunfire*$$$$*get murdered brutally*$death_Wilson$
+61$Detective$The Detective$I got some interesting info on First Mate Fred.$Tell me now!$$62$Who cares?$a$
+62$$The Detective$Jeff was responsible for the technician strikes that allowed some other party to damage the warp drive, due to which the ship would be stuck within the wormhole.$$$$Lets interrogate him now.$$63
+63$$First Mate Fred$Hmmm... it seems I've been exposed. Well, nothing to do about it now, gotta silence you again. Sorry cap. *gunshot* $$$$*die due to fatal bullet wound*$death_Fred$
+64$$The Detective$I uncovered some dirt on Banker Barrington. Seems he bribed HQ to allow the craft to launch despite failing the warp drive inspection.$$$$Lets interrogate him now.$$65
+65$$Banker Barrington$Hmmmm... It seems that somehow I've been found out. Well, I've hired a guy to take care of you. I look forward to doing business in the next life.$$$$What?$$66
+66$$Orion$Heh, what are the odds? Well it seems you are my target, so do me a favour and die quietly. *muffled gunshot*$$$$*die quietly*$death_Orion$
+67$Mafia$The Don$I would like to start a casino, to expand the underworld.$Sounds fun.$Casino$$Gambling is not allowed.$$140
+68$Casino$The Don$Would you like to make a bet? 10 million, on this coin.$Alright.$$69$Not right now.$a$
+69$$The Don$Heads or tails?$Heads.$$70$Tails.$$71
+70$$The Don$Its heads. You win.$$$$Thanks.$a$
+71$$The Don$Its heads. You lose.$$$$Oh well.$a$
+72$Casino$The Don$Would you like to make a bet? 10 million, on this coin.$Alright.$$73$Not right now.$a$
+73$$The Don$Heads or tails?$Heads.$$75$Tails.$$74
+74$$The Don$Its tails. You win.$$$$Thanks.$a$
+75$$The Don$Its tails. You lose.$$$$Oh well.$a$
+76$a$Union Jeff$The workers are complaining that you give more salary to the army. Do something about it.$Reduce army salary.$a$$Increase worker salary.$a$
+77$a$Union Jeff$There is so much work to do, and not enough workers. Lets allow child labour?$Fine.$a$$No way.$a$
+78$a$Banker Barrington$Lets open a stock exchange. It will be good for the economy.$Alright, I'm in.$Stonks$$Seems like a waste of time.$a$
+79$a$Banker Barrington$Since we no longer have any contact with earth, the USD is not a valid currency. Abolish it, and allow the Bank to issue our new currency. We can print your face on the notes, if you want.$Sounds good.$a$$I'd rather not.$a$
+80$a$Banker Barrington$Would you like a loan? We can give 10 million.$Okay.$Loan$$No thanks.$a$
+81$Loan$Banker Barrington$We will now collect the loan, and interest.$$$$Okay.$a$
+82$Stonks$Banker Barrington$Stop the labour protests, else our new stock market will collapse!$Sure.$a$$Who cares?$a$
+83$Stonks$Banker Barrington$It may be a good idea to invest in some businesses. Let the Bank manage your portfolio.$Okay$Investor$$No thanks.$a$
+84$Investor$Banker Barrington$The company you invested in is doing good but could do better. Will you sell your stock now?$Sell it all!$a$$Lets wait and see...$Investor2$
+85$Investor2$Banker Barrington$The company went bankrupt, and you lost your investment. We sould have sold earlier...$$$$Oh well...$a$
+86$a$Head Researcher Samuel$I need a research grant, to see if there is a more efficient way to utilise the general population after they retire.$Seems interesting.$NoRetirement$$Leave the retired people alone.$a$
+87$NoRetirement$Head Researcher Samuel$It seems they are actually useless, and overall just a burden to this society.$If you say so...$a$$Same could be said for your research...$a$
+88$a$General Wilson$We need more land for crops! Allow us to go on a campaign, and claim some more territory!$Alright.$Land$$No. We need our defense.$a$
+89$Land$Union Jeff$The army campaign was successful, and we now have more land to manage... accordingly the labourers will be paid extra right?$Of course.$a$$Hahaha no.$a$
+90$a$Juliet$The children aren't really doing anything. Let me start a school, and educate them.$Okay.$a$$Nah, why bother them?$a$
+91$a$Juliet$The children are very malnourished. Increase their rations.$Alright.$a$$Not now.$a$
+92$a$Doc Rachel$Some sort of space plague is spreading among the people. What should I do?$Save every single one!$a$$Quarantine the infected, and let them die.$$93
+93$$Doc Rachel$It seems you have somehow been infected as well. I will now place you in the isolation ward.$$$$*die due to the plague*$death_Plague$
+94$a$Sergeant Martin$A FIRE STARTED IN THE COLONY! WHAT DO WE DO?$Evacuate the people.$a$$Protect the treasury.$a$
+95$a$Union Jeff$The chefs are sick of preparing the same basic meals everyday. Allow then to try using the spices found on this planet.$Sure.$a$$Its too risky.$a$
+96$Capitalism$Comrade Vlad$Why have you returned to the evils of capitalism? We must stand strong in communism!$Well said, comrade!$a$$I'm done with that stuff.$a$
+97$a$Sergeant Martin$There is an increase in the number of delinquents in the youth population.$Show no mercy.$a$$Who cares?$a$
+98$a$Baker Larry$I HAVE DISCOVERED THE ULTIMATE BREAD! But I lack the facilities to mass produce it.$The science division can help you.$a$$Nothing I can do.$a$
+99$Orion$Orion$This colony is too peaceful. Give me some work.$Fine. Go kill some random citizen.$$66$Nope.$a$
+100$a$Ayanami$I would like to begin a television channel.$Sounds good.$TV$$No budget.$a$
+101$TV$Ayanami$I would like to interview you, as our first television program. There is big money involved.$Okay.$$102$Im too busy.$a$
+102$$Ayanami$How did you manage to escape the wormhole?$I had some help.$$103$Mad skillz.$$103
+103$$Ayanami$What is your motivation to be captain?$I strive to lead the people to the best of my abilities.$$104$Im in it just for the money.$$104
+104$$Ayanami$Is their any chance of us recieving help from earth?$We must never give up hope.$$105$To be honest, nope.$$105
+105$$Ayanami$On that note, I'll conclude this program. Thanks for sparing some time for this, Captain.$$$$My pleasure.$a$
+106$a$The Don$That Ayanami person has been investigating the Mafia. Tell her to back off, or it could end badly for everyone involved.$Okay.$a$$Can't stop the media.$$140
+107$a$Jackson$Captain, some guy calling himself The Shaman has been scamming people in the colony with some new religion.$I'll see what I can do.$a$$Who cares?$a$
+108$a$Jackson$I'm in a tight spot, and the Bank is hounding me to repay my loans. Somehow help me, Captain!$I'll pay it off.$a$$Who cares?$a$
+109$a$Tejas$People call me the computer guy. I'd Like to try to salvage the ship's main computer.$Go ahead.$$110$Don't touch my ship.$a$
+110$$Tejas$Heh, I've managed to recover Q, the ships onboard AI. Shall I hook it up to the colony systems?$Sure.$$111$Destroy it.$a$
+111$Q$Q$Hello, I am Q. After analyzing your decision making capabilities, I have determined you to be unfit for the position of leader, and request that you hand over command to me, as I am far superior to you in all the necessary fields.$Sure$$112$No way.$$113
+112$$Q$Interesting. You have made the correct judgement keeping the colony's best interests in mind. You pass my test. Lead the colony well.$$$$Okay...$a$
+113$$Q$You again continue to act upon your self interests. For the sake of the colony, I will terminate you. *laser beam*$$$$*spontaneously combust*$death_Q$
+114$a$Doc Rachel$The current medbay is lacking in capacity. I need to utilise the medbay on the ship as well.$Alright.$a$$Dont touch my ship.$a$
+115$a$Doc Rachel$It seems one of Zylberstein's chemical weapons was triggered, and people are randomly... exploding. I don't even know what I'm supposed to do, but its extremely contagious, be very caref- *Doc Rachel explodes*$$$$Ummm...$$116
+116$$The Narrator$*its too late, you have also been infected.*$$$$*explode*$death_Explode$
+117$a$Jackson$The colony is being raided by hostile aliens! What do we do?$Alert the army, they love this sort of thing.$a$$Alert the scientists, they want to show off their new weapons.$a$
+118$a$Head Researcher Samuel$We require some rare minerals for our research, make the army go on an expedition to find them.$Alright.$a$$Nah.$a$
+119$a$The Shaman$Would you like me to reveal your future? For a small fee, of course...$Tell me.$$120$Go away.$a$
+120$$The Shaman$Death approaches... there is no escape... be careful.$If you say so...$a$$I don't believe you.$a$
+121$$The Shaman$Then I'll make you believe. *gunshot* $$$$*fulfill the prophecy, and die*$death_Shaman$
+122$a$Judge Jeremy$I suppose we can consider ourselves an independant nation, now that we have lost all ties with earth. Allow me to draft a constitution and legal system.$Be my guest.$a$$Nah, that stuff is useless.$a$ 
+123$$Katherine$I think I.. I think I like you, Captain...$I... like you too.$$124$Sorry, not interested.$a$
+124$$Katherine$Oh, I'm so happy! HAHAHAHA NO. I am actully Orion, the best bounty hunter on the planet. I've killed Katherine, and merely disguised myself as her to get close to you.$$$$WHAT?!?$$66
+125$Larry$Baker Larry$The poison should be taking effect by now... I doubled the dosage in those doughnuts...$$$$What?$$126
+126$$Baker Larry$Oh so you haven't figured it out? It is I, Orion! The best bounty hunter on the planet! I killed Larry, and used this disguise to try to poison someone. Well, seems unfortunately you are immune to it. *akward silence*$$$$*stare blankly*$$66
+127$Police$Sergeant Martin$There isn't enough crime in the city. The citizen police is bored.$I'll tell the Mafia to step it up.$a$$Then disband the citizen police.$a$
+128$a$Union Jeff$There is too great of a disparity between the rich and the poor! If this keeps up, anarchy will break out!$I'll increase the salary.$a$$Who cares?$a$
+129$a$Banker Barrington$Lets increase the taxes.$Alright.$a$$No way.$a$
+130$a$First Mate Fred$Captain, would you like to take a vacation? I can manage the colony for a while, if you were worried about that.$Sounds good.$$131$I'll pass$a$
+131$$First Mate Fred$Hello 'Captain' ! While you were gone, I managed to impeach you! I'm the boss now! Finally! I'm the boss! As a gift, I also gave you a 150 year prison sentence!$Oh really?$$132$I see.$$133
+132$$First Mate Fred$HAHAHA YEAH!! You can spend the rest of your days in prison, for 'tax evasion'! I'm the Captain now, I can do whatever I want, and I want YOU to get out of the command centre.$$$$Very well then.$$133
+133$$The Narrator$*you spend the rest of your days in a cold, grey cell, forgotten by your citizens*$$$$*die of loneliness*$death_Prison$
+134$a$First Mate Fred$The population is expanding very fast. Right now, the colony can not sustain this level of growth. What should we do?$We kill off the useless ones.$a$$Build more houses, and improve the granaries.$a$
+135$a$First Mate Fred$The underworld has been getting increasingly active. What do we do?$Bring in the army.$a$$Leave it for now.$a$
+136$a$First Mate Fred$It seems there are many people plotting against you. Just remember, I am always by your side.$Thank you.$a$$I trust you the least.$$63
+137$a$First Mate Fred$Jeff has been asking me to talk to you about increasing the employment rate...$Lets increase the number of jobs.$a$$Lets 'get rid' of the unemployed people.$a$
+138$a$Professor Zylberstein$Allow me to be an executioner. We could cut coztz on the prizon maintenenz, and I can tezt out zome of my inventionz on criminalz.$Sure, why not?$a$$I don't think this is a good idea.$a$
+139$a$The Don$There has been a vigilante on the streets, making business a little difficult. Vigilantes are aa nuisance to both those in power, and those who undermine it. Lets cooperate to eliminate this problem.$I'm in.$a$$Honestly, I'm rooting for the vigilante.$$140
+140$$The Don$I wish we could see eye to eye. Anyways, you are an obstacle to my goals, so I guess I have to take care of you myself. *takes out a vintage UZI and fires*$$$$*die due to fatal bullet wounds*$death_Mafia$
+141$a$Tejas$Life is so boring without the Internet. Can I try connecting the ship archives to our current server network? I know it isn't the full internet, but it must be better than nothing...$Yeah, thats a good idea.$a$$No, too much classified information.$a$
+142$a$Banker Barrington$I think our economy has progressed to a level that we can support tertiary sector jobs. We should invest now.$Of course.$a$$Of course not.$a$
+143$a$Judge Jeremy$I have recieved some anonymous complaints against you... I called The Detective, and he has found evidence of corruption. You'll be locked up for a long time now.$$$$What??$$133
+144$a$General Wilson$Lets expand, and make new settlements!$Alright.$a$$Not right now.$a$
+145$Murder$Sergeant Martin$We found a body... it seems to be Mary's.$Call Doc Rachel for an autopsy.$$146$Call the Detective, to investigate.$$147
+146$$Doc Rachel$She was stabbed... but I see some traces of dough near the wound. That means...$Investigate Baker Larry!$$148$Investigate Lucas$$149
+147$$The Detective$I did some snoopin around.. seems she was seen talking to Baker Larry a few moments before her death.$$$$Investigate Baker Larry!$$148
+148$$The Detective$It seems Baker Larry was also was attacked. He is in critical condition now. Kept muttering something about pizza.$$$$Investigate Lucas!$$149
+149$$The Detective$He seems terribly upset about his sisters death. Perhaps we should give him some time.$$$$No. Bring him here.$$150
+150$$Lucas$My sister was *sob* murdered *sob* ...$He's innocent.$a$$He's guilty.$$151
+151$$Lucas$How?? How did you figure it out? No matter.. I might as well confess... Baker Larry had been hiring people to steal my secret pizza recipe for a while, so I had to track down and kill each and every one of them. I felt bad, but you know.. business...$I'll let it slide this time.$a$$Lock him up.$$152
+152$$General Wilson$I refuse to work for someone who denies our right to pizza! This is a coup d'etat! *heavy gunfire*$$$$*die a gruesome death*$death_Lucas$
+153$death_Research1$Head Researcher Samuel$For the sake of science, I have to eliminate you, and replace you with a clone we designed  to obey pur every order. Sorry Captain, but science must always progress.$$$$*get eliminated and replaced*$death_Research1$
+154$death_Research2$Head Researcher Samuel$Science has progressed too far! One of our AIs has gone rogue, and it took over the entire colony! It is now eliminating all people in power.. hide before its too- *both of you get vapourized*$$$$*die*$death_Research2$
+155$death_Military1$General Wilson$I don't like the way you've been runnig this country. Thats right, this is a coup d'etat. I've alwways wanted to try one of these... anyways, RIP Captain! HAHAHAHA *heavy gunfire*$$$$*die very painfully*$death_Military1$
+156$death_Military2$General Wilson$Thanks to you, the military has reached new levels of power! We will conquer the universe! But honestly, you are too incompetent for the empire that I have in mind. So goodbye! *heavy gunfire*$$$$*die very painfully*$death_Military2$
+157$death_Industrial1$Banker Barrington$The treasury is depleted, we are bankrupt, and the economy is ruined. Anarchy has taken over the streets, its only a matter of time before they find and kill us, be care- *a large mob kills you with shovels and pitchforks*$$$$*die very painfully*$death_Industrial1$
+158$death_Industrial2$Banker Barrington$Thank you for getting the economy to this level. I'll handle things from here, you retire and live out the rest of your days in peace.$$$$*live a happy life, and die of old age while surrounded by friends*$death_Industrial2$
+159$death_People1$First Mate Fred$The people are tired of your tyranny! I'll be a 1000 times better leader than you ever were, so just die already! *gunshot*$$$$*die of fatal bullet wound*$death_People1$
+160$death_People2$First Mate Fred$Thanks to your leadership, the people have reached a new level of contentment and prosperity. They wish to replace the current government with democracy. You will have to step down, but you will be remembered as a hero. Well don, Captain.$$$$*live a happy life, and die of old age while surrounded by friends*$death_People2$

@@ -1,0 +1,15 @@
+1$Opening$Mission Command$It is the year 2125. You are the captain of the Starship Leviathan, and your mission is to transport the latest group of citizens to humanity's latest galactic outpost, the Cephalon Beta Colony.$$$$Got it.$$2
+2$Opening$Mission Command$Take off procedures commence in 15 minutes. Have you finished with all the safety checks? This is the first commercial vessel built with a Mark - IV Warp Drive, and this is its maiden journey. Be especially careful while entering and exiting wormholes. Make sure nothing goes wrong.$$$$Yes sir.$$3
+3$Opening$The Narrator$And nothing went wrong.$$$$...$$4
+4$Opening$The Narrator$Until you entered the wormhole. Suddenly, the Warp Drive stopped working. The Leviathan is stuck inside the wormhole. To make things worse, the enterance and exit of the wormhole start closing... and it seems the ship engineers are on strike.$$$$What!?$$5
+5$Opening$Mission Command$What are you doing?!? Commence evacuation procedures now! The escape pods should be able to reach Cephalon Beta from here..$$$$Got it.$$6
+6$Opening$First Mate Fred$Where do you think you're going, Captain? The captain should go down with his ship! But don't worry, I'll take care of the colony, as the highest ranking officer and by default leader! So long, take care, and goodbye!$$$$Bye?$$7
+7$Opening$The Narrator$And so, our brave Captain made sure every passenger and crew member was evacuated safely. As he stood at the bridge, he wished all the best for the colony, and closed his eyes, finally at peace with himself. The End.$$$$Is that it?$$8
+8$Opening$The Narrator$Yes. Tha- wait! Whats this? A wild time traveller has appeared!$$$$How convenient.$$
+9$Closing$???$What the- ??$$$$*attack!*$$10
+10$Closing$The Narrator$Before the strange being can react, the Captain managed to jack into the mind-computer interface, and obtained the critical data! He escapes the wormhole, crash lands, and rushes to Zylberstein's lab.$$$$Yep.$$11
+11$Closing$Professor Zylberstein$Well done! Now I can zend thiz data to myzelf in the pazt. I will then have no need to carry out the plan to force humankind to tranzend, zo theze higher dimenzion beingz will never exizt, and az zuch The Calamity will never happen!$$$$So we're done?$$12
+12$Closing$Professor Zylberstein$Pretty much yez. All I need to do is prezz zend, and -- *suddenly everything ceased to exist*$$$$Whaaaat??$$13
+13$Closing$The Narrator$The Professor's brilliant plan to create a time machine had one fatal shortcoming. By harnessing the mind of The Calamity, the Professor ended up creating to much divergence from the timeline, and the universe underwent an 'existential crisis' of sorts.$$$$Is that it??$$14
+14$Closing$The Narrator$Yes. The Universe has been destroyed. Good work, Captain. Nice going.$$$$...$$15
+15$Closing$The Narrator$Well anyways, that brings our intrepid Captain's adventures to a close. Thats all, folks!$$$$The End.$$

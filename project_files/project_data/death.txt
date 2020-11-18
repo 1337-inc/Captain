@@ -1,0 +1,20 @@
+death_Samuel$You learn the value of clean air.
+death_Wilson$The general is very trigger-happy.
+death_Fred$You have been silenced.
+death_Orion$You get assassinated.
+death_Plague$You should have worn a mask.
+death_Q$The robots have taken over.
+death_Explode$Boom!
+death_Shaman$Perish, ye who hath little faith!
+death_Prison$You realize that you are not cut out for prison life.
+death_Mafia$Never cross the Don.
+death_Lucas$Always say yes to pizza!
+death_Research1$The march of science will never be hindered.
+death_Research2$The march of science must sometimes be hindered.
+death_Military1$The army has taken over.
+death_Military2$The army has taken over.
+death_Industrial1$You learn the value of managing your money.
+death_Industral2$Too much money may lead to an early retirement.
+death_People1$You were too bad at your job.
+death_People2$You were too good at your job.
+death_end$Real smooth, Captain!
