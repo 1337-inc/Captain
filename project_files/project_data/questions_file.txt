@@ -114,7 +114,7 @@
 114$a$Doc Rachel$The current medbay is lacking in capacity. I need to utilise the medbay on the ship as well.$Alright.$a$$Dont touch my ship.$a$
 115$a$Doc Rachel$It seems one of Zylberstein's chemical weapons was triggered, and people are randomly... exploding. I don't even know what I'm supposed to do, but its extremely contagious, be very caref- *Doc Rachel explodes*$$$$Ummm...$$116
 116$$The Narrator$*its too late, you have also been infected.*$$$$*explode*$death_Explode$
-117$a$Jackson$Captain, a bunch of people causing themselves The Mafia have been intimidating the shopkeepers. Why does this tiny colony have its own Underworld??$$The colony is being raided by hostile aliens! What do we do?$Alert the army, they love this sort of thing.$a$$Alert the scientists, they want to show off their new weapons.$a$
+117$a$Jackson$The colony is being raided by hostile aliens! What do we do?$Alert the army, they love this sort of thing.$a$$Alert the scientists, they want to show off their new weapons.$a$
 118$a$Head Researcher Samuel$We require some rare minerals for our research, make the army go on an expedition to find them.$Alright.$a$$Nah.$a$
 119$a$The Shaman$Would you like me to reveal your future? For a small fee, of course...$Tell me.$$120$Go away.$a$
 120$$The Shaman$Death approaches... there is no escape... be careful.$If you say so...$a$$I don't believe you.$a$
