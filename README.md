@@ -1,6 +1,6 @@
 # CAPTAIN!!
 
-![Header](captain_logo.png)
+![Header](Captain/project_files/project_pics/captain_logo.png)
 
 The project_files folder contains all the files necessary for running the game.
 The server folder contains files necessary for hosting a server on your local network.
