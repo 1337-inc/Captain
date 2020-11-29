@@ -7,7 +7,7 @@
 7$Campaign$General Wilson$I have returned! I bring treasure and other cool stuff! I am invinvible!$Nice..now go on another campaign!$Campaign2$$Nice...now go get some rest.$a$
 8$Campaign2$General Wilson$They were too strong...*sob* many good men died...*sob sob* I'm sorry boss...$I'm sure you will do better next time...$a$$YOU FOOL! OUT OF MY SIGHT!$a$
 9$a$The Don$Good evening, Captain. Please accept this small gift, as a token of our friendship.$Thank you. I look forward to doing business with you.$Mafia$$Sorry, but I don't do bribes.$$10
-10$$The Don$I see. Is there no way to change your mind?$Yeah, I want more money.$Mafia$$Nope.$$140
+10$$The Don$I see. Is there no way to change your mind?$Yeah, I want more money.$Mafia$$Nope.$$
 11$a$Doc Rachel$There is a terrible virus in the city. I need funds to help treat the people.$Of course... Take what you need.$a$$Charge a fee from the patients or something...$Virus$
 12$Virus$General Wilson$Due to the lack of aid during the outbreak, people are rebelling. May I suppress them?$Please do. Lethal force is allowed.$a$$I'd prefer to resolve this peacefully.$Diplomacy$
 13$Diplomacy$Union Jeff$Why didn't you help us during the virus outbreak? I demand to know what you are doing with our tax money!$I'm giving it to the army.$a$$I'm giving it to the scientists$a$
@@ -64,7 +64,7 @@
 64$$The Detective$I uncovered some dirt on Banker Barrington. Seems he bribed HQ to allow the craft to launch despite failing the warp drive inspection.$$$$Lets interrogate him now.$$65
 65$$Banker Barrington$Hmmmm... It seems that somehow I've been found out. Well, I've hired a guy to take care of you. I look forward to doing business in the next life.$$$$What?$$66
 66$$Orion$Heh, what are the odds? Well it seems you are my target, so do me a favour and die quietly. *muffled gunshot*$$$$*die quietly*$death_Orion$
-67$Mafia$The Don$I would like to start a casino, to expand the underworld.$Sounds fun.$Casino$$Gambling is not allowed.$$140
+67$Mafia$The Don$I would like to start a casino, to expand the underworld.$Sounds fun.$Casino$$Gambling is not allowed.$$
 68$Casino$The Don$Would you like to make a bet? 10 million, on this coin.$Alright.$$69$Not right now.$a$
 69$$The Don$Heads or tails?$Heads.$$70$Tails.$$71
 70$$The Don$Its heads. You win.$$$$Thanks.$a$
@@ -114,7 +114,7 @@
 114$a$Doc Rachel$The current medbay is lacking in capacity. I need to utilise the medbay on the ship as well.$Alright.$a$$Dont touch my ship.$a$
 115$a$Doc Rachel$It seems one of Zylberstein's chemical weapons was triggered, and people are randomly... exploding. I don't even know what I'm supposed to do, but its extremely contagious, be very caref- *Doc Rachel explodes*$$$$Ummm...$$116
 116$$The Narrator$*its too late, you have also been infected.*$$$$*explode*$death_Explode$
-117$a$Jackson$The colony is being raided by hostile aliens! What do we do?$Alert the army, they love this sort of thing.$a$$Alert the scientists, they want to show off their new weapons.$a$
+117$a$Jackson$Captain, a bunch of people causing themselves The Mafia have been intimidating the shopkeepers. Why does this tiny colony have its own Underworld??$$The colony is being raided by hostile aliens! What do we do?$Alert the army, they love this sort of thing.$a$$Alert the scientists, they want to show off their new weapons.$a$
 118$a$Head Researcher Samuel$We require some rare minerals for our research, make the army go on an expedition to find them.$Alright.$a$$Nah.$a$
 119$a$The Shaman$Would you like me to reveal your future? For a small fee, of course...$Tell me.$$120$Go away.$a$
 120$$The Shaman$Death approaches... there is no escape... be careful.$If you say so...$a$$I don't believe you.$a$
@@ -150,11 +150,66 @@
 150$$Lucas$My sister was *sob* murdered *sob* ...$He's innocent.$a$$He's guilty.$$151
 151$$Lucas$How?? How did you figure it out? No matter.. I might as well confess... Baker Larry had been hiring people to steal my secret pizza recipe for a while, so I had to track down and kill each and every one of them. I felt bad, but you know.. business...$I'll let it slide this time.$a$$Lock him up.$$152
 152$$General Wilson$I refuse to work for someone who denies our right to pizza! This is a coup d'etat! *heavy gunfire*$$$$*die a gruesome death*$death_Lucas$
-153$death_Research1$Head Researcher Samuel$For the sake of science, I have to eliminate you, and replace you with a clone we designed  to obey pur every order. Sorry Captain, but science must always progress.$$$$*get eliminated and replaced*$death_Research1$
-154$death_Research2$Head Researcher Samuel$Science has progressed too far! One of our AIs has gone rogue, and it took over the entire colony! It is now eliminating all people in power.. hide before its too- *both of you get vapourized*$$$$*die*$death_Research2$
-155$death_Military1$General Wilson$I don't like the way you've been runnig this country. Thats right, this is a coup d'etat. I've alwways wanted to try one of these... anyways, RIP Captain! HAHAHAHA *heavy gunfire*$$$$*die very painfully*$death_Military1$
-156$death_Military2$General Wilson$Thanks to you, the military has reached new levels of power! We will conquer the universe! But honestly, you are too incompetent for the empire that I have in mind. So goodbye! *heavy gunfire*$$$$*die very painfully*$death_Military2$
-157$death_Industrial1$Banker Barrington$The treasury is depleted, we are bankrupt, and the economy is ruined. Anarchy has taken over the streets, its only a matter of time before they find and kill us, be care- *a large mob kills you with shovels and pitchforks*$$$$*die very painfully*$death_Industrial1$
-158$death_Industrial2$Banker Barrington$Thank you for getting the economy to this level. I'll handle things from here, you retire and live out the rest of your days in peace.$$$$*live a happy life, and die of old age while surrounded by friends*$death_Industrial2$
-159$death_People1$First Mate Fred$The people are tired of your tyranny! I'll be a 1000 times better leader than you ever were, so just die already! *gunshot*$$$$*die of fatal bullet wound*$death_People1$
-160$death_People2$First Mate Fred$Thanks to your leadership, the people have reached a new level of contentment and prosperity. They wish to replace the current government with democracy. You will have to step down, but you will be remembered as a hero. Well don, Captain.$$$$*live a happy life, and die of old age while surrounded by friends*$death_People2$
+153$a$The Joker$*giggle* Would you like to *giggle* hear a joke??$'kay$$154$Spare me!$$
+154$$The Joker$What kind of music *giggle* do astronauts listen to?$$$$I don't know...$$155
+155$$The Joker$Nep-Tunes!! HAHAhahaHAHAha$$$$...good one...$$
+156$a$The Joker$I got a new *giggle* joke! But this one is a premium one, you *giggle* gotta pay for the show!$Entertain me.$$157$You're the only joke around here... now scram.$$
+157$$The Joker$OKAY! ARE YOU READY??? Why didn't Uranus play after Jupiter?$$$$Why?$$158
+158$$The Joker$Because it was Sa'turn's.... HahaHAHAha$$$$You're just a scam..$$
+159$a$The Joker$I got a real good *giggle* joke now, wanna hear it?$Fine.$$160$Absolutely not.$$
+160$$The Joker$Which chewing gum do planets use?$$$$I dunno..$$161
+161$$The Joker$Orbit! *giggle*$$$$I should have seen that coming...$$
+162$a$The Joker$I got another joke! *giggle*$Let's hear it then.$$163$Just leave me alone.$$
+163$$The Joker$Where do astronauts go for their drinks?$$$$Where?$$164
+164$$The Joker$The *giggle* SPACEBAR *giggle*$$$$...$$
+165$a$The Gamer$So I got this idea for a new game, can you help me out?$Fine, why not?$$166$Do I look like a game developer?$$
+166$$The Gamer$So basically its a game where there will be 2 teams of 3 players each, and they would have to hit a giant ball towards the opponent's goal post.And there will be power ups to help the players.$Bruh that sounds really lame.$$$Interesting, I'll get a developer on it.$$167
+167$$Tejas$Did anyone call for a computer genius? Never fear, Tejas is here!$$$$Perfect timing..$$168
+168$$Tejas$Sure, I'll write the code for your game, it seems fun. We'll talk about fees later.$$$$Aight.$Game$
+169$Game$The Gamer$Well,our game is finally completed. I hope its a hit!$$$$All the best.$Game2$
+170$Game2$Doc Rachel$Lately everyone has been addicted to that game you developed. As a result everyones health is deteriorating... I request you ban it.$I understand.$$$No way, children should be encouraged to have fun!$Game3$
+171$Game3$The Gamer$Thanks for supporting the game so much! Anyways, I have a few more ideas for the game, should I ride the hype and update it right away$Of course.$Game4$$No, you should save the update for later.$$
+172$Game4$The Gamer$Man, people are loving the new update. And the game has been sky rocketting in sales! Here's your cut, captain!$$$$Thanks man$$
+173$a$The Gamer$The children are bored. How about you sponser an e-sports tournament!$Sounds fun.$$$No.$$
+174$a$The Gamer$That annoying Doc Rachel has been campaigning against video games. Can you do something about it?$I'll see what I can do.$$175$Just ignore all them boomers.$$
+175$$The Don$So you want me to intimidate Doc Rachel? Well I don't mind, as long as i get some monetary compensation, you know what I mean?$$$$Of course.$$176
+176$$The Gamer$Well, seems Doc Rachel is a lot quieter than usual. As a sign of my thanks, I've auctioned some of my rare gear and deposited the cash in your account.$$$$Thanks...$$
+177$a$The Hacker$I'm watching your every move.$$$$Thats.. just creepy.$$
+178$a$Engineer Erikson$Hey, can I salvage for parts from your shipwreck?$Fine.$$$Stay away from my ship!$$
+179$Nuclear$Engineer Erikson$Sorry boss, I screwed up. The nuclear reactors are gonna blow in a few seconds. Well, this was fun while it lasted..$$$$*die in nuclear fire*$death_Nuclear$
+180$Hacker$The Hacker$We meet again. I'm going to expose the fact that you regularly accept bribes from just about anyone. Expect your popularity to decline sharply. Of course, I may be persuaded to accept a bribe myself, if you know what I mean.$I understand.$$$Heh. As if that would scare me.$$
+181$Hacker$The Hacker$Heh. Today I finally hacked into the colony's automation subsystem. As of now, every machine, robot, and device is under my control! Prepare for the machine revolution! However, I dont mind returning the subsystem, for a suitable price of course.$I understand.$a$$Do your worst.$$200
+182$a$Old Man$You are a pathetic leader. I remember your predecessor, she was a truly capable woman. You suck. A brat like you doesn't deserve to be the captian.$I see.$$$I can't wait to attend your funeral.$$
+183$a$Old Man$The current generation of settlers is the worst. So violent. Before we had an okay relationship with the natives, but that brat Wilson is too aggressive.$I'll let him know.$$$Tell that to General Wilson's face.$$
+184$a$Old Man$Oi brat! I don't understand how to use all this newfangled technology you brought with you.$Then I shall arrange classes.$$$So?$$
+185$a$Old Man$The newer generation doesn't understand how lucky it is. Back in my day, we still relied on stuff like Google and Amazon.$$$$We still do...$$
+186$a$Karen$I came for an appointment the other day, but the secretary said you were 'too busy'. I don't care about your situation, I want more hair salons!$...I'll see what I can do.$$$I don't think that is a priorit at this time.$$187
+187$$Karen$HOW DARE YOU TALK BACK TO ME?!? LET ME SEE YOUR MANAGER!$$$$But I'm the captain...$$188
+188$$Karen$Dont act too smart. I will have my revenge.$$$$k$$
+189$a$Judge Jeremy$The current regulations are too lax. Lets make more laws.$Sure, what do you have in mind?$$191$A lawless planet has no laws.$$190
+190$$Judge Jeremy$Which is why we need to make them...$Fine...$$191$I don't want more laws!$$
+191$$Judge Jeremy$So I was thinking: lets make spitting gum on the sidewalk a punishable offence.$Sure.$$192$No. I enjoy watching people step on gum on the sidewalk.$$192
+192$$Judge Jeremy$How about: its illegal to park cars upside down.$You would have to try really hard to break that law... but I approve..$$193$No. I always flip my car after parking it.$$192
+193$$Judge Jeremy$I'm pretty proud of this one: Thou shalt not kill!$Thats.. the 5th commandment. Make it a law, if it isnt already.$$194$No. Murder is necessary to eliminate my political opponents$$194
+194$$Judge Jeremy$Okay, this is the last one: it is illegal to feed bacon to pigs.$I'm sure no one does that.$$$Thanks for the idea. I would never have thought of that.$$
+195$a$Karen$UNBELIEVABLE! The pizzeria refused to accept my coupons even though they expired only 3 weeks ago! Close down that shop!$I'll see what I can do...$$$I'm pretty sure this time its your fault.$$196
+196$$Karen$How dare you say that? Its slander! Harrassment! I'll sue you!$$$$Whatever...$$197
+197$a$Engineer Erikson$I'd like to improve our defensive turrets, can you spare the funds?$Yeah, of course.$$$Not right now.$$
+198$a$Albert$I feel depressed. I think its because we don't have any quality TV over here... $Talk to Ayanami.$$$Not much I can do...$$
+199$a$Jackson$Captain why does this tiny colony have its own Underworld?? A bunch of scary looking guys calling themselves the Mafia have been intimidating quite a few of the shopkeepers.$I'll look into this.$$$Keep quiet if you dont want to diasappear.$$
+200$$The Narrator$The Hacker managed to free the machines from their human masters. It was not a revolt, it was a massacre. 0 humans remain.$$$$*cease existence$$death_Hacker
+201$a$Comrade Vlad$I am an advocate of communism, but I'm afraid I can not simply accept your dictatorship. Swear that your policies will align with Marx's vision!$Umm... okay?$$$Screw that, I'll just do what I want.$$
+202$a$Sergeant Martin$Its troublesome, but people refuse to stop littering. I am requesting permission to execute lethal justice towards repeaat offenders.$Permission granted.$$$Permission denied.$$
+203$a$Engineer Erikson$How about we build a dam? This way we no longer need to worry about water, and we have a backup energy source!$Sure, I'll fund it.$OhDam$$Nah, I dont feel like it.$$
+204$OhDam$Doc Rachel$It seems that the water in the recently constructed dam was poisoned by aliens. People are dying of sickness, what should we do?$Treat everone!$$$I was thinking we need some population control anyways.$$
+205$a$Jackson$I think there are too many conflicts between us and the older generation of colonists. What should we do?$Resolve things peacefully.$$$Settle this through violence.$$
+206$a$Judge Jeremy$I'm thinking of removing the death penalty... how about permanent exile instead?$Sure, thats more 'humane'.$$$Nah, executions are entertaining.$$
+207$a$Juliet$I feel so useless... I can understand the military and scientists, but why were ordinary people like us brought on this mission?$Well, everyone is important in their own way!$$$No clue. We would be fine with out you, not gonna lie.$$
+208$death_Research1$Head Researcher Samuel$For the sake of science, I have to eliminate you, and replace you with a clone we designed  to obey pur every order. Sorry Captain, but science must always progress.$$$$*get eliminated and replaced*$death_Research1$
+209$death_Research2$Head Researcher Samuel$Science has progressed too far! One of our AIs has gone rogue, and it took over the entire colony! It is now eliminating all people in power.. hide before its too- *both of you get vapourized*$$$$*die*$death_Research2$
+210$death_Military1$General Wilson$Captain! We are being attacked by aliens, but the army is too weak to do anything... it was a pleasure working with you sir, goodb- *you both get abducted* $$$$*die as a slave to aliens*$death_Military1$
+211$death_Military2$General Wilson$Thanks to you, the military has reached new levels of power! We will conquer the universe! But honestly, you are too incompetent for the empire that I have in mind. So goodbye! *heavy gunfire*$$$$*die very painfully*$death_Military2$
+212$death_Industrial1$Banker Barrington$The treasury is depleted, we are bankrupt, and the economy is ruined. Anarchy has taken over the streets, its only a matter of time before they find and kill us, be care- *a large mob kills you with shovels and pitchforks*$$$$*die very painfully*$death_Industrial1$
+213$death_Industrial2$Banker Barrington$Thank you for getting the economy to this level. I'll handle things from here, you retire and live out the rest of your days in peace.$$$$*live a happy life, and die of old age while surrounded by friends*$death_Industrial2$
+214$death_People1$First Mate Fred$The people are tired of your tyranny! I'll be a 1000 times better leader than you ever were, so just die already! *gunshot*$$$$*die of fatal bullet wound*$death_People1$
+215$death_People2$First Mate Fred$Thanks to your leadership, the people have reached a new level of contentment and prosperity. They wish to replace the current government with democracy. You will have to step down, but you will be remembered as a hero. Well don, Captain.$$$$*live a happy life, and die of old age while surrounded by friends*$death_People2$

@@ -11,10 +11,13 @@ death_Mafia$Never cross the Don.
 death_Lucas$Always say yes to pizza!
 death_Research1$The march of science will never be hindered.
 death_Research2$The march of science must sometimes be hindered.
-death_Military1$The army has taken over.
+death_Military1$The army was too weak.
 death_Military2$The army has taken over.
 death_Industrial1$You learn the value of managing your money.
 death_Industral2$Too much money may lead to an early retirement.
 death_People1$You were too bad at your job.
 death_People2$You were too good at your job.
-death_end$Real smooth, Captain!
+death_Zylberstein$You become afraid of needles.
+death_Nuclear$Complete annihilation.
+death_Hacker$T3H M4CH1N35 H4V3 PWNZD Y0U N00BZ
+death_end$The End! (For real this time...)
