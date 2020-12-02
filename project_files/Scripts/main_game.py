@@ -861,7 +861,7 @@ class Game :
             self.qn_func(file)
         elif type(a_str)!= int and not dead :
             random = randint(1,10)
-            if random == 1 and self.direct_qns != self.direct_max : # to block all directs: and ("a" not in self.q_list) 
+            if random == 1 and self.direct_qns != self.direct_max and "direct" not in self.q_list : # to block all directs: and ("a" not in self.q_list) 
                 self.score += 1
                 print("from direct!!")
                 print("##$$%%"*30)
