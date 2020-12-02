@@ -60,10 +60,18 @@ class Styles(Style) :
 
         self.configure("head_label.TLabel",background="#424242",font=("lucida console",20,"bold"))
 
-        self.configure("death.TLabel",font=("lucida console",60,"bold"))
+        self.configure("death.TLabel",font=("roboto",60,"bold"))
         
         self.configure("ptext1.TLabel",font=("bahnschrift semilight",25))
 
         self.configure("ptext2.TLabel",background="white",font=("bahnschrift",20),foreground="black")
 
         self.configure("pimage.TLabel",background="white",foreground="black")
+
+        self.configure("creditshead1.TLabel",font=("HP Simplified Hans",25,"underline"))
+
+        self.configure("creditshead2.TLabel",font=("bahnschrift",20,"underline"))
+
+        self.configure("creditstext.TLabel",font=("bahnschrift",20,"italic"))
+
+        self.configure("creditstext2.TLabel",font=("HP Simplified Hans",15))

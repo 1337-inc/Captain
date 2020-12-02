@@ -151,6 +151,109 @@ class Root(ThemedTk) :
         img_btn.pack(anchor="nw")
 
     def menu(self) :
+        def credits() :
+            def populate(frame):
+                '''Put in labels'''
+                Grid.columnconfigure(frame, 0, weight=1)
+                # defining the lables
+                cap_title = Label(frame,text="Captain!!",style="death.TLabel")
+                developed = Label(frame,text="Developed by 1337 incorporated",style="creditshead1.TLabel")
+                team = Label(frame,text="OUR TEAM",style="creditshead2.TLabel")
+                abhi = Label(frame,text="• Abhinand D Manoj        ",style="creditstext.TLabel")
+                david = Label(frame,text="• David Tony Veliath       ",style="creditstext.TLabel")
+                me = Label(frame,text="• Jovan George Zacharia",style="creditstext.TLabel")
+                rahul = Label(frame,text="• Rahul Dinesh                 ",style="creditstext.TLabel")
+                special = Label(frame,text="SPECIAL THANKS",style="creditshead2.TLabel")
+                rinu = Label(frame,text="Mrs Rinu Mary Joy, our Teacher",style="creditstext.TLabel")
+                parents = Label(frame,text="Our Parents and Friends",style="creditstext.TLabel")
+                internet = Label(frame,text="The Internet",style="creditstext.TLabel")
+                websites = Label(frame,text="WEBSITES",style="creditshead2.TLabel")
+                stack = Label(frame,text="1. stackoverflow.com",style="creditstext.TLabel")
+                programiz = Label(frame,text="2. programiz.com      ",style="creditstext.TLabel")
+                reddit = Label(frame,text="3. reddit.com               ",style="creditstext.TLabel")
+                w3school = Label(frame,text="4. w3school.com         ",style="creditstext.TLabel")
+                geeks = Label(frame,text="5. geeksforgeeks.com",style="creditstext.TLabel")
+                youtube = Label(frame,text="6. youtube.com            ",style="creditstext.TLabel")
+                logo = Label(frame,text="7.Logomakr.com           ",style="creditstext.TLabel")
+                music = Label(frame,text="MUSIC AND SOUND EFFECTS",style="creditshead2.TLabel")
+                signal = Label(frame,text="Signal by drkmnd",style="creditstext.TLabel")
+                motion1 = Label(frame,text="Sad Violin by MOTION ARRAY ",style="creditstext.TLabel")
+                motion2 = Label(frame,text="Glitch sound effects by MOTION ARRAY ",style="creditstext.TLabel")
+                star = Label(frame,text="Star Wars Theme Song By John Williams",style="creditstext.TLabel")
+                video = Label(frame,text="VIDEO",style="creditshead2.TLabel")
+                glitch = Label(frame,text="Game Over Glitch by MOTION ARRAY",style="creditstext.TLabel")
+                crawl = Label(frame,text="Star Wars Intro Creator by Kassel Labs",style="creditstext.TLabel")
+                label = Label(frame,text="   \n")
+                grp_name = Label(frame,text="1337 INCORPORATED",style="creditstext2.TLabel")
+                rights = Label(frame,text="ALL RIGHTS RESERVED",style="creditstext2.TLabel")
+                cap = Label(frame,text="Captain!! IS A TRADEMARK OF 1337 ",style="creditstext2.TLabel")
+                license_ = Label(frame,text="INCORPORATED IN INDIA, USED UNDER",style="creditstext2.TLabel")
+                grp = Label(frame,text="LICENSE BY 1337 INCORPORATED ENTERTAINMENT",style="creditstext2.TLabel")
+                # placingthe lables
+                cap_title.grid(row=0,column=0,padx=40,pady=15)
+                developed.grid(row=1,column=0,pady=10,padx=10)
+                team.grid(row=2,column=0,pady=20,sticky=S)
+                abhi.grid(row=3,column=0)
+                david.grid(row=4,column=0,pady=5)
+                me.grid(row=5,column=0,pady=5)
+                rahul.grid(row=6,column=0,pady=5)
+                special.grid(row=7,column=0,pady=20,sticky=S)
+                rinu.grid(row=8,column=0)
+                parents.grid(row=9,column=0,pady=5)
+                internet.grid(row=10,column=0,pady=5)
+                websites.grid(row=11,column=0,pady=20,sticky=S)
+                stack.grid(row=12,column=0)
+                programiz.grid(row=13,column=0,pady=5)
+                reddit.grid(row=14,column=0,pady=5)
+                w3school.grid(row=15,column=0,pady=5)
+                geeks.grid(row=16,column=0,pady=5)
+                youtube.grid(row=17,column=0,pady=5)
+                logo.grid(row=18,column=0,pady=5)
+                music.grid(row=19,column=0,pady=20,sticky=S)
+                signal.grid(row=20,column=0)
+                motion1.grid(row=21,column=0,pady=5)
+                motion2.grid(row=22,column=0,pady=5)
+                star.grid(row=23,column=0,pady=5)
+                video.grid(row=24,column=0,pady=20,sticky=S)
+                glitch.grid(row=25,column=0)
+                crawl.grid(row=26,column=0,pady=5)
+                label.grid(row=27,column=0,pady=10)
+                grp_name.grid(row=28,column=0,pady=5)
+                rights.grid(row=29,column=0,pady=5)
+                cap.grid(row=30,column=0,pady=5)
+                license_.grid(row=31,column=0,pady=5)
+                grp.grid(row=32,column=0,pady=5)
+
+            def onFrameConfigure(canvas):
+                '''Reset the scroll region to encompass the inner frame'''
+                canvas.configure(scrollregion=canvas.bbox("all"))
+            
+            def on_mousewheel(event):
+                shift = (event.state & 0x1) != 0
+                scroll = -1 if event.delta > 0 else 1
+                if shift:
+                    canvas.xview_scroll(scroll, "units")
+                else:
+                    canvas.yview_scroll(scroll, "units")
+
+            window = Toplevel(self)
+            window["bg"] = "#424242"
+            window.title("Credits")
+            window.resizable(0,0)
+            canvas = Canvas(window, background="#424242", width=500, height=550)
+            canvas.bind_all("<MouseWheel>", on_mousewheel)
+            frame = Frame(canvas)
+            vsb = Scrollbar(window, orient="vertical", command=canvas.yview)
+            canvas.configure(yscrollcommand=vsb.set)
+
+            vsb.pack(side="right", fill="y")
+            canvas.pack(side="left", fill="both", expand=True)
+            canvas.create_window((4,4), window=frame, anchor="nw")
+
+            frame.bind("<Configure>", lambda event, canvas=canvas: onFrameConfigure(canvas))
+
+            populate(frame)
+
         def profile() :
             profile = Toplevel(self)
             profile.title("Player Profile")
@@ -209,7 +312,7 @@ class Root(ThemedTk) :
         self.menubar.add_cascade(label="Game",menu=gamebar)
         # The About Menu
         aboutmenu = Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
-        aboutmenu.add_command(label="Credits",command=partial(coming_soon,"Credits"))
+        aboutmenu.add_command(label="Credits",command=credits)
         aboutmenu.add_command(label="About",command=partial(coming_soon,"About"))
         self.menubar.add_cascade(label="Help",menu=aboutmenu)
 
