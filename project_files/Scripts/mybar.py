@@ -1,9 +1,9 @@
-from tkinter import *
+import tkinter as tk
 from PIL import Image, ImageTk
 
 
 # The Custom Variable Widgets
-class MyBar(Canvas) :
+class MyBar(tk.Canvas) :
     def __init__(self, master, shape, value=0, maximum=100,
                  bg="#231303", trough_color='#8a7852', bar_color='#f7f4bf'):
         # open shape mask with PIL
@@ -14,7 +14,7 @@ class MyBar(Canvas) :
         im_shape.putalpha(im_shape_alpha)
         width, height = im_shape_alpha.size
         # create the canvas
-        Canvas.__init__(self, master, bg=trough_color, width=width, height=height, highlightthickness=0)
+        tk.Canvas.__init__(self, master, bg=trough_color, width=width, height=height, highlightthickness=0)
 
         self._value = value  # bar value
         self.maximum = maximum  # maximum value

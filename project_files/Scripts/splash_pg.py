@@ -1,6 +1,6 @@
-from tkinter import *
+import tkinter as tk
 from PIL import Image, ImageTk
-from tkinter.ttk import *
+import tkinter.ttk as ttk
 import time
 from ttkthemes import ThemedTk
 
@@ -24,12 +24,12 @@ class SplashScreen :
     def display(self) :
         screen_width = self.parent.winfo_screenwidth()
         screen_height = self.parent.winfo_screenheight()
-        splash_canvas = Canvas(self.parent,width=screen_width,height=screen_height)
+        splash_canvas = tk.Canvas(self.parent,width=screen_width,height=screen_height)
         splash_canvas.pack()
         self.tkimage = ImageTk.PhotoImage(self.image1)
         splash_canvas.create_image(0,0,image=self.tkimage,anchor="nw")
         splash_canvas.create_text(200,34,text="[LOADING]...PLEASE WAIT",font=("small fonts",20),fill="white")
-        progressbar = Progressbar(orient=HORIZONTAL, length=900, mode='determinate',style="Horizontal.TProgressbar")
+        progressbar = ttk.Progressbar(orient=tk.HORIZONTAL, length=900, mode='determinate',style="Horizontal.TProgressbar")
         progressbar.place(x=450,y=25)
         progressbar.start()
         if self.nxt_func != None :
@@ -39,7 +39,7 @@ class SplashScreen :
 if __name__ == '__main__' :
     root = ThemedTk("black")
     root["bg"] = "gray21"
-    style = Style()
+    style = ttk.Style()
     style.configure("Horizontal.TProgressbar", foreground='gray21')
     app = SplashScreen(root,None)
     app.display()

@@ -1,4 +1,4 @@
-from tkinter import *
+import tkinter as tk
 from tkinter.ttk import Button
 from PIL import Image, ImageTk
 import time
@@ -50,9 +50,9 @@ class VideoPlayer :
         vid = cv2.VideoCapture(vid_file)
         width = vid.get(cv2.CAP_PROP_FRAME_WIDTH)
         height = vid.get(cv2.CAP_PROP_FRAME_HEIGHT)
-        self.canvas = Canvas(self.parent, width = width, height = height)
-        self.canvas.place(relx=0.5,rely=0.5,anchor=CENTER)
-        self.vid_frame = self.canvas.create_image(0, 0, anchor = NW)
+        self.canvas = tk.Canvas(self.parent, width = width, height = height)
+        self.canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
+        self.vid_frame = self.canvas.create_image(0, 0, anchor = tk.NW)
 
         # Skip button
         if vid_file != "project_media\\glitch.mp4" :

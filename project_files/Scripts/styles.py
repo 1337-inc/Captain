@@ -1,25 +1,25 @@
-from tkinter import *
-from tkinter.ttk import Style
+import tkinter as tk
+import tkinter.ttk as ttk
 
 
 # The styles
-class Styles(Style) :
+class Styles(ttk.Style) :
     def __init__(self,**kwargs) :
-        Style.__init__(self,**kwargs)
+        ttk.Style.__init__(self,**kwargs)
         # the styles
         self.configure("var.TFrame",background="#424242")
 
-        self.configure("text_btn.TButton",font=("terminal",15),cursor="@hand2",anchor=CENTER)
+        self.configure("text_btn.TButton",font=("terminal",15),cursor="@hand2",anchor=tk.CENTER)
         self.map("text_btn.TButton",
             foreground=[('pressed', 'black'), ('active', 'white')],
             background=[('pressed', 'black'), ('active', 'gray')])
 
-        self.configure("skip.TButton",font=("lucida console",23),width=6,height=3,cursor="@hand2",anchor=CENTER)
+        self.configure("skip.TButton",font=("lucida console",23),width=6,height=3,cursor="@hand2",anchor=tk.CENTER)
         self.map("death_pg.TButton",
             foreground=[('pressed', 'black'), ('active', 'white')],
             background=[('pressed', 'black'), ('active', 'gray')])        
 
-        self.configure("death_pg.TButton",font=("lucida console",15),width=15,height=1,cursor="@hand2",anchor=CENTER)
+        self.configure("death_pg.TButton",font=("lucida console",15),width=15,height=1,cursor="@hand2",anchor=tk.CENTER)
         self.map("death_pg.TButton",
             foreground=[('pressed', 'black'), ('active', 'white')],
             background=[('pressed', 'black'), ('active', 'gray')])
@@ -29,17 +29,17 @@ class Styles(Style) :
             foreground=[('pressed', 'black'), ('active', 'white')],
             background=[('pressed', 'black'), ('active', 'gray')])
 
-        self.configure("startpg_verify.TButton",font=("lucida console",20,"bold"),cursor="@hand2",width=18,height=15,anchor=CENTER)
+        self.configure("startpg_verify.TButton",font=("lucida console",20,"bold"),cursor="@hand2",width=18,height=15,anchor=tk.CENTER)
         self.map("startpg_verify.TButton",
             foreground=[('pressed', 'black'), ('active', 'white')],
             background=[('pressed', 'black'), ('active', 'gray')])
 
-        self.configure("start_pg.TButton",font=("lucida console",20,"bold"),cursor="@hand2",width=14,height=50,anchor=CENTER)
+        self.configure("start_pg.TButton",font=("lucida console",20,"bold"),cursor="@hand2",width=14,height=50,anchor=tk.CENTER)
         self.map("start_pg.TButton",
             foreground=[('pressed', 'black'), ('active', 'white')],
             background=[('pressed', 'black'), ('active', 'gray')])
 
-        self.configure("mssg.TButton",font=("bahnschrift semilight condensed",21),cursor="@hand2",width=12,height=26,anchor=CENTER)
+        self.configure("mssg.TButton",font=("bahnschrift semilight condensed",21),cursor="@hand2",width=12,height=26,anchor=tk.CENTER)
         self.map("mssg.TButton",
             foreground=[('pressed', 'black'), ('active', 'white')],
             background=[('pressed', 'black'), ('active', 'gray')])
