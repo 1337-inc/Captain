@@ -1,8 +1,8 @@
-from tkinter import *
+import tkinter as tk
 from tkinter import messagebox
-from tkinter.ttk import *
+import tkinter.ttk as ttk
 from ttkthemes import ThemedTk
-from random import *
+from random import randint
 from PIL import ImageTk,Image
 from threading import Thread, activeCount
 import pickle
@@ -106,8 +106,10 @@ class Root(ThemedTk) :
         self.columnconfigure(0,weight=1)
         self.title("Captain!!")
         self.iconbitmap("project_pics\\cap_icon.ico")
+        self.window_width = self.winfo_width()
+        self.window_height = self.winfo_height()
         # side bar
-        self.side_bar = Frame(self,height=700,width=120,style="var.TFrame")
+        self.side_bar = ttk.Frame(self,height=700,width=120,style="var.TFrame")
         # defining the objects for the progress bars
         self.bar1 = MyBar(self.side_bar, shape="project_pics\\research.png", value=50, bg="#424242", trough_color='white', bar_color='gray54')
         self.bar2 = MyBar(self.side_bar, shape="project_pics\\man.png", value=50, bg="#424242", trough_color='lavender', bar_color='gray54')
@@ -116,25 +118,39 @@ class Root(ThemedTk) :
         # the exit protocol
         self.protocol("WM_DELETE_WINDOW",lambda: self.exit(leave=False))
         self.enter = True
+        # Background image of existing page and its Canvas
+        self.bg_image = None
+        self.canvas_exists = True
+        self.bg_canvas = tk.Canvas(self,width=self.window_width,height=self.window_height,bg="#424242")
+        self.bg_canvas.bind('<Configure>',self.resizeimage)
+        self.bg_img = self.bg_canvas.create_image(0, 0, anchor = tk.NW)
 
     def clear(self) :
         for widget in self.winfo_children() :
-            if widget is not self.side_bar and widget is not self.menubar :
-                widget.destroy()
+            if widget not in [self.side_bar, self.menubar, self.bg_canvas] :# is not self.side_bar and widget is not self.menubar :
+                widget.destroy() 
             else :
                 widget.grid_forget()
+
+    def resizeimage(self,event) :
+        self.window_width = self.winfo_width()
+        self.window_height = self.winfo_height()
+        image = self.bg_image.resize((self.window_width,self.window_height))
+        self.image1 = ImageTk.PhotoImage(image)
+        self.bg_canvas.config(width=self.window_width,height=self.window_height)
+        self.bg_canvas.itemconfig(self.bg_img,image = self.image1)
 
     def mssg_box(self) :
         def heaven() :
             # text to be displayed in the window
             img_btn.destroy()
-            frame = Frame(mssgwin,width=width,height=height)
+            frame = ttk.Frame(mssgwin,width=width,height=height)
             frame.pack()
-            Label(frame,text="   [System Message...]",style="start_text.TLabel").grid(row=0,column=0,sticky="new")
-            Label(frame,text=f"[Important Message] Player {game.NAME} has \nmanaged to successfully eliminate all \nhuman lifeforms including himself.\n\t     GAME OVER",style="main_pg.TLabel").grid(row=1,column=0,pady=15)
-            Button(mssgwin,text="dammit",command=mssgwin.destroy,style="mssg.TButton").place(relx=0.27,rely=0.78)
+            ttk.Label(frame,text="   [System Message...]",style="start_text.TLabel").grid(row=0,column=0,sticky="new")
+            ttk.Label(frame,text=f"[Important Message] Player {game.NAME} has \nmanaged to successfully eliminate all \nhuman lifeforms including himself.\n\t     GAME OVER",style="main_pg.TLabel").grid(row=1,column=0,pady=15)
+            ttk.Button(mssgwin,text="dammit",command=mssgwin.destroy,style="mssg.TButton").place(relx=0.27,rely=0.78)
         # Toplevel window
-        mssgwin = Toplevel(self)
+        mssgwin = tk.Toplevel(self)
         mssgwin["bg"] = "#424242"
         mssgwin.title("[System Message...]")
         # opening background image
@@ -145,7 +161,7 @@ class Root(ThemedTk) :
         mssgwin.resizable(0,0)
         img = ImageTk.PhotoImage(img)
         # Button
-        img_btn = Button(mssgwin,image=img)
+        img_btn = ttk.Button(mssgwin,image=img)
         img_btn.config(command=partial(heaven))
         img_btn.image = img
         img_btn.pack(anchor="nw")
@@ -154,54 +170,54 @@ class Root(ThemedTk) :
         def credits() :
             def populate(frame):
                 '''Put in labels'''
-                Grid.columnconfigure(frame, 0, weight=1)
-                # defining the lables
-                cap_title = Label(frame,text="Captain!!",style="death.TLabel")
-                developed = Label(frame,text="Developed by 1337 incorporated",style="creditshead1.TLabel")
-                team = Label(frame,text="OUR TEAM",style="creditshead2.TLabel")
-                abhi = Label(frame,text="• Abhinand D Manoj        ",style="creditstext.TLabel")
-                david = Label(frame,text="• David Tony Veliath       ",style="creditstext.TLabel")
-                me = Label(frame,text="• Jovan George Zacharia",style="creditstext.TLabel")
-                rahul = Label(frame,text="• Rahul Dinesh                 ",style="creditstext.TLabel")
-                special = Label(frame,text="SPECIAL THANKS",style="creditshead2.TLabel")
-                rinu = Label(frame,text="Mrs Rinu Mary Joy, our Teacher",style="creditstext.TLabel")
-                parents = Label(frame,text="Our Parents and Friends",style="creditstext.TLabel")
-                internet = Label(frame,text="The Internet",style="creditstext.TLabel")
-                websites = Label(frame,text="WEBSITES",style="creditshead2.TLabel")
-                stack = Label(frame,text="1. stackoverflow.com",style="creditstext.TLabel")
-                programiz = Label(frame,text="2. programiz.com      ",style="creditstext.TLabel")
-                reddit = Label(frame,text="3. reddit.com               ",style="creditstext.TLabel")
-                w3school = Label(frame,text="4. w3school.com         ",style="creditstext.TLabel")
-                geeks = Label(frame,text="5. geeksforgeeks.com",style="creditstext.TLabel")
-                youtube = Label(frame,text="6. youtube.com            ",style="creditstext.TLabel")
-                logo = Label(frame,text="7.Logomakr.com           ",style="creditstext.TLabel")
-                music = Label(frame,text="MUSIC AND SOUND EFFECTS",style="creditshead2.TLabel")
-                signal = Label(frame,text="Signal by drkmnd",style="creditstext.TLabel")
-                motion1 = Label(frame,text="Sad Violin by MOTION ARRAY ",style="creditstext.TLabel")
-                motion2 = Label(frame,text="Glitch sound effects by MOTION ARRAY ",style="creditstext.TLabel")
-                star = Label(frame,text="Star Wars Theme Song By John Williams",style="creditstext.TLabel")
-                video = Label(frame,text="VIDEO",style="creditshead2.TLabel")
-                glitch = Label(frame,text="Game Over Glitch by MOTION ARRAY",style="creditstext.TLabel")
-                crawl = Label(frame,text="Star Wars Intro Creator by Kassel Labs",style="creditstext.TLabel")
-                label = Label(frame,text="   \n")
-                grp_name = Label(frame,text="1337 INCORPORATED",style="creditstext2.TLabel")
-                rights = Label(frame,text="ALL RIGHTS RESERVED",style="creditstext2.TLabel")
-                cap = Label(frame,text="Captain!! IS A TRADEMARK OF 1337 ",style="creditstext2.TLabel")
-                license_ = Label(frame,text="INCORPORATED IN INDIA, USED UNDER",style="creditstext2.TLabel")
-                grp = Label(frame,text="LICENSE BY 1337 INCORPORATED ENTERTAINMENT",style="creditstext2.TLabel")
+                tk.Grid.columnconfigure(frame, 0, weight=1)
+                # defining the lables and hardcoding in the credits page
+                cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
+                developed = ttk.Label(frame,text="Developed by 1337 incorporated",style="creditshead1.TLabel")
+                team = ttk.Label(frame,text="OUR TEAM",style="creditshead2.TLabel")
+                abhi = ttk.Label(frame,text="• Abhinand D Manoj        ",style="creditstext.TLabel")
+                david = ttk.Label(frame,text="• David Tony Veliath       ",style="creditstext.TLabel")
+                me = ttk.Label(frame,text="• Jovan George Zacharia",style="creditstext.TLabel")
+                rahul = ttk.Label(frame,text="• Rahul Dinesh                 ",style="creditstext.TLabel")
+                special = ttk.Label(frame,text="SPECIAL THANKS",style="creditshead2.TLabel")
+                rinu = ttk.Label(frame,text="Mrs Rinu Mary Joy, our Teacher",style="creditstext.TLabel")
+                parents = ttk.Label(frame,text="Our Parents and Friends",style="creditstext.TLabel")
+                internet = ttk.Label(frame,text="The Internet",style="creditstext.TLabel")
+                websites = ttk.Label(frame,text="WEBSITES",style="creditshead2.TLabel")
+                stack = ttk.Label(frame,text="1. stackoverflow.com",style="creditstext.TLabel")
+                programiz = ttk.Label(frame,text="2. programiz.com      ",style="creditstext.TLabel")
+                reddit = ttk.Label(frame,text="3. reddit.com               ",style="creditstext.TLabel")
+                w3school = ttk.Label(frame,text="4. w3school.com         ",style="creditstext.TLabel")
+                geeks = ttk.Label(frame,text="5. geeksforgeeks.com",style="creditstext.TLabel")
+                youtube = ttk.Label(frame,text="6. youtube.com            ",style="creditstext.TLabel")
+                logo = ttk.Label(frame,text="7.Logomakr.com           ",style="creditstext.TLabel")
+                music = ttk.Label(frame,text="MUSIC AND SOUND EFFECTS",style="creditshead2.TLabel")
+                signal = ttk.Label(frame,text="Signal by drkmnd",style="creditstext.TLabel")
+                motion1 = ttk.Label(frame,text="Sad Violin by MOTION ARRAY ",style="creditstext.TLabel")
+                motion2 = ttk.Label(frame,text="Glitch sound effects by MOTION ARRAY ",style="creditstext.TLabel")
+                star = ttk.Label(frame,text="Star Wars Theme Song By John Williams",style="creditstext.TLabel")
+                video = ttk.Label(frame,text="VIDEO",style="creditshead2.TLabel")
+                glitch = ttk.Label(frame,text="Game Over Glitch by MOTION ARRAY",style="creditstext.TLabel")
+                crawl = ttk.Label(frame,text="Star Wars Intro Creator by Kassel Labs",style="creditstext.TLabel")
+                label = ttk.Label(frame,text="   \n")
+                grp_name = ttk.Label(frame,text="1337 INCORPORATED",style="creditstext2.TLabel")
+                rights = ttk.Label(frame,text="ALL RIGHTS RESERVED",style="creditstext2.TLabel")
+                cap = ttk.Label(frame,text="Captain!! IS A TRADEMARK OF 1337 ",style="creditstext2.TLabel")
+                license_ = ttk.Label(frame,text="INCORPORATED IN INDIA, USED UNDER",style="creditstext2.TLabel")
+                grp = ttk.Label(frame,text="LICENSE BY 1337 INCORPORATED ENTERTAINMENT",style="creditstext2.TLabel")
                 # placingthe lables
                 cap_title.grid(row=0,column=0,padx=40,pady=15)
                 developed.grid(row=1,column=0,pady=10,padx=10)
-                team.grid(row=2,column=0,pady=20,sticky=S)
+                team.grid(row=2,column=0,pady=20,sticky=tk.S)
                 abhi.grid(row=3,column=0)
                 david.grid(row=4,column=0,pady=5)
                 me.grid(row=5,column=0,pady=5)
                 rahul.grid(row=6,column=0,pady=5)
-                special.grid(row=7,column=0,pady=20,sticky=S)
+                special.grid(row=7,column=0,pady=20,sticky=tk.S)
                 rinu.grid(row=8,column=0)
                 parents.grid(row=9,column=0,pady=5)
                 internet.grid(row=10,column=0,pady=5)
-                websites.grid(row=11,column=0,pady=20,sticky=S)
+                websites.grid(row=11,column=0,pady=20,sticky=tk.S)
                 stack.grid(row=12,column=0)
                 programiz.grid(row=13,column=0,pady=5)
                 reddit.grid(row=14,column=0,pady=5)
@@ -209,12 +225,12 @@ class Root(ThemedTk) :
                 geeks.grid(row=16,column=0,pady=5)
                 youtube.grid(row=17,column=0,pady=5)
                 logo.grid(row=18,column=0,pady=5)
-                music.grid(row=19,column=0,pady=20,sticky=S)
+                music.grid(row=19,column=0,pady=20,sticky=tk.S)
                 signal.grid(row=20,column=0)
                 motion1.grid(row=21,column=0,pady=5)
                 motion2.grid(row=22,column=0,pady=5)
                 star.grid(row=23,column=0,pady=5)
-                video.grid(row=24,column=0,pady=20,sticky=S)
+                video.grid(row=24,column=0,pady=20,sticky=tk.S)
                 glitch.grid(row=25,column=0)
                 crawl.grid(row=26,column=0,pady=5)
                 label.grid(row=27,column=0,pady=10)
@@ -236,14 +252,14 @@ class Root(ThemedTk) :
                 else:
                     canvas.yview_scroll(scroll, "units")
 
-            window = Toplevel(self)
+            window = tk.Toplevel(self)
             window["bg"] = "#424242"
             window.title("Credits")
             window.resizable(0,0)
-            canvas = Canvas(window, background="#424242", width=500, height=550)
+            canvas = tk.Canvas(window, background="#424242", width=500, height=550)
             canvas.bind_all("<MouseWheel>", on_mousewheel)
-            frame = Frame(canvas)
-            vsb = Scrollbar(window, orient="vertical", command=canvas.yview)
+            frame = ttk.Frame(canvas)
+            vsb = ttk.Scrollbar(window, orient="vertical", command=canvas.yview)
             canvas.configure(yscrollcommand=vsb.set)
 
             vsb.pack(side="right", fill="y")
@@ -255,7 +271,7 @@ class Root(ThemedTk) :
             populate(frame)
 
         def profile() :
-            profile = Toplevel(self)
+            profile = tk.Toplevel(self)
             profile.title("Player Profile")
             profile.resizable(0,0)
             profile.geometry("500x500")
@@ -264,10 +280,10 @@ class Root(ThemedTk) :
             text_box = Image.open("project_pics\\text_box1.png")
             width,height = text_box.size
             text_box = ImageTk.PhotoImage(text_box)
-            frame = Frame(profile,width=width,height=height,style="pframe.TFrame")
-            frame.place(relx=0.5,rely=0.55,anchor=CENTER)
+            frame = ttk.Frame(profile,width=width,height=height,style="pframe.TFrame")
+            frame.place(relx=0.5,rely=0.55,anchor=tk.CENTER)
             frame.grid_propagate(False)
-            txt_box = Label(frame,image=text_box)
+            txt_box = ttk.Label(frame,image=text_box)
             txt_box.image = text_box
             txt_box.grid()
             # opening images
@@ -279,9 +295,9 @@ class Root(ThemedTk) :
             score = ImageTk.PhotoImage(score)
             highscore = ImageTk.PhotoImage(highscore)
             # Lables to display images
-            player_lbl = Label(frame,image=player,style="pimage.TLabel")
-            score_lbl = Label(frame,image=score,style="pimage.TLabel")
-            highscore_lbl = Label(frame,image=highscore,style="pimage.TLabel")
+            player_lbl = ttk.Label(frame,image=player,style="pimage.TLabel")
+            score_lbl = ttk.Label(frame,image=score,style="pimage.TLabel")
+            highscore_lbl = ttk.Label(frame,image=highscore,style="pimage.TLabel")
             # Saving a reference of the images
             player_lbl.image = player
             score_lbl.image = score
@@ -291,27 +307,27 @@ class Root(ThemedTk) :
             score_lbl.place(relx=0.1,rely=0.45)
             highscore_lbl.place(relx=0.1,rely=0.75)
             # Texts
-            Label(profile,text="[Player Profile Generating...]",style="ptext1.TLabel").place(relx=0.5,rely=0.1,anchor=CENTER)
-            Label(frame,text=f"Player : {game.NAME}",style="ptext2.TLabel").place(relx=0.35,rely=0.19)
-            Label(frame,text=f"Current Score : {game.score}",style="ptext2.TLabel").place(relx=0.35,rely=0.48)
-            Label(frame,text=f"High Score : {game.high_score}",style="ptext2.TLabel").place(relx=0.35,rely=0.79)
+            ttk.Label(profile,text="[Player Profile Generating...]",style="ptext1.TLabel").place(relx=0.5,rely=0.1,anchor=tk.CENTER)
+            ttk.Label(frame,text=f"Player : {game.NAME}",style="ptext2.TLabel").place(relx=0.35,rely=0.19)
+            ttk.Label(frame,text=f"Current Score : {game.score}",style="ptext2.TLabel").place(relx=0.35,rely=0.48)
+            ttk.Label(frame,text=f"High Score : {game.high_score}",style="ptext2.TLabel").place(relx=0.35,rely=0.79)
         
         def coming_soon(win_title) :
-            win = Toplevel(self)
+            win = tk.Toplevel(self)
             win.title(win_title)
             win.geometry("400x500")
-            Label(win,text="Coming Soon").place(relx=0.5,rely=0.5,anchor=CENTER)
+            ttk.Label(win,text="Coming Soon").place(relx=0.5,rely=0.5,anchor=tk.CENTER)
 
-        self.menubar = Menu(self)
+        self.menubar = tk.Menu(self)
         # The Game Menu 
-        gamebar = Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
+        gamebar = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
         gamebar.add_command(label="Player Profile",command=profile)
         gamebar.add_command(label="Save data",command=partial(self.s_msg,"e_save"))
         gamebar.add_separator()
         gamebar.add_command(label="Quit",command=partial(self.exit,False))
         self.menubar.add_cascade(label="Game",menu=gamebar)
         # The About Menu
-        aboutmenu = Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
+        aboutmenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
         aboutmenu.add_command(label="Credits",command=credits)
         aboutmenu.add_command(label="About",command=partial(coming_soon,"About"))
         self.menubar.add_cascade(label="Help",menu=aboutmenu)
@@ -339,27 +355,27 @@ class Root(ThemedTk) :
     def load_page(self) :
         self.enter = False
         self.clear()
-        bg_image = Image.open("project_pics\\start_pg.png")
-        bg_image = ImageTk.PhotoImage(bg_image)
-        image_bg = Label(self,image=bg_image) # ,style="img.TLabel"
-        image_bg.image = bg_image
-        image_bg.grid(sticky="nwse")
+        self.bg_image = Image.open("project_pics\\start_pg.png")
+        bg_image = ImageTk.PhotoImage(self.bg_image)
+        self.bg_canvas.itemconfig(self.bg_img,image=bg_image)
+        self.bg_canvas.image = bg_image
+        self.bg_canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
         # frame and text
-        frame = Frame(self,width=500,height=400,style="start.TFrame")
+        frame = ttk.Frame(self,width=500,height=400,style="start.TFrame")
         frame.grid_propagate(0)
         frame.place(relx=0.325,rely=0.2)
-        Label(frame,text="[System Initiating...]",style="start_text.TLabel").grid(row=0,column=0,pady=30,padx=30,sticky="w",columnspan=2)
-        Label(frame,text="[Creating Player Environment...]",style="start_text.TLabel").grid(row=1,column=0,padx=30,sticky="w",columnspan=2)
-        Label(frame,text="Enter player name: ",style="main_pg.TLabel").grid(row=2,column=0,pady=40,padx=30,sticky="w")
-        name = Entry(frame,width=16,font=("bahnschrift semilight condensed",20)) # ,style="entry.TEntry"
+        ttk.Label(frame,text="[System Initiating...]",style="start_text.TLabel").grid(row=0,column=0,pady=30,padx=30,sticky="w",columnspan=2)
+        ttk.Label(frame,text="[Creating Player Environment...]",style="start_text.TLabel").grid(row=1,column=0,padx=30,sticky="w",columnspan=2)
+        ttk.Label(frame,text="Enter player name: ",style="main_pg.TLabel").grid(row=2,column=0,pady=40,padx=30,sticky="w")
+        name = ttk.Entry(frame,width=16,font=("bahnschrift semilight condensed",20)) # ,style="entry.TEntry"
         name.grid(row=2,column=1,sticky="w")
         name.focus_force()
-        Label(frame,text="Create player pass-code: ",style="main_pg.TLabel").grid(row=3,column=0,padx=30,sticky="w")
-        code = Entry(frame,width=16,font=("bahnschrift semilight condensed",20))
+        ttk.Label(frame,text="Create player pass-code: ",style="main_pg.TLabel").grid(row=3,column=0,padx=30,sticky="w")
+        code = ttk.Entry(frame,width=16,font=("bahnschrift semilight condensed",20))
         code.grid(row=3,column=1,sticky="w")
 
-        Button(self,text="Back",style="start_pg.TButton",command=partial(self.btn_click,self.main_page)).place(relx=0.324,rely=0.76,height=100)
-        Button(self,text="Load",style="start_pg.TButton",command=partial(self.btn_click,partial(game.load,name,code))).place(relx=0.509,rely=0.76,height=100)
+        ttk.Button(self,text="Back",style="start_pg.TButton",command=partial(self.btn_click,self.main_page)).place(relx=0.324,rely=0.76,height=100)
+        ttk.Button(self,text="Load",style="start_pg.TButton",command=partial(self.btn_click,partial(game.load,name,code))).place(relx=0.509,rely=0.76,height=100)
 
     def s_msg(self,type:str) :
         if type == "fail" :
@@ -412,59 +428,62 @@ class Root(ThemedTk) :
             proceed_btn = partial(root.btn_click,lambda: vid_player.player("project_media\\starwarscrawl.mp4","project_media\\starwarstrack.ogg",lambda : game.sequence(sequence="Opening")))
             exists = g_data.check_data(name.get(),code.get())
             if exists != "Exists" and exists is not None :
-                Button(self,text="Proceed",style="start_pg.TButton",command=partial(self.btn_click,proceed_btn)).place(relx=0.509,rely=0.76,height=100)
+                ttk.Button(self,text="Proceed",style="start_pg.TButton",command=partial(self.btn_click,proceed_btn)).place(relx=0.509,rely=0.76,height=100)
                 game.NAME = name.get()
                 game.CODE = code.get()
             elif exists is None :
-                Button(self,text="Proceed",style="start_pg.TButton",command=partial(self.btn_click,proceed_btn)).place(relx=0.509,rely=0.76,height=100)
+                ttk.Button(self,text="Proceed",style="start_pg.TButton",command=partial(self.btn_click,proceed_btn)).place(relx=0.509,rely=0.76,height=100)
                 game.NAME = name.get()
                 game.CODE = code.get()
                 root.s_msg("c-conn_fail")
             else :
                 root.s_msg("data_exists")
         else :
-            Label(parent,text="[Error]... Player must have a name and code",style="main_pg.TLabel").grid(row=4,columnspan=2)
+            ttk.Label(parent,text="[Error]... Player must have a name and code",style="main_pg.TLabel").grid(row=4,columnspan=2)
 
     def start_page(self) :
         self.clear()
         self.enter = False
         # background image
-        bg_image = Image.open("project_pics\\start_pg.png")
-        bg_image = ImageTk.PhotoImage(bg_image)
-        image_bg = Label(self,image=bg_image,style="img.TLabel")
-        image_bg.image = bg_image
-        image_bg.grid(sticky="nwse")
+        self.bg_image = Image.open("project_pics\\start_pg.png")
+        bg_image = ImageTk.PhotoImage(self.bg_image)
+        self.bg_canvas.itemconfig(self.bg_img,image=bg_image)
+        self.bg_canvas.image = bg_image
+        self.bg_canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
         # frame and text
-        frame = Frame(self,width=500,height=400,style="header.TFrame")
+        frame = ttk.Frame(self,width=500,height=400,style="header.TFrame")
         frame.grid_propagate(0)
         frame.place(relx=0.325,rely=0.2)
-        Label(frame,text="[System Initiating...]",style="start_text.TLabel").grid(row=0,column=0,pady=30,padx=30,sticky="w",columnspan=2)
-        Label(frame,text="[Creating Player Environment...]",style="start_text.TLabel").grid(row=1,column=0,padx=30,sticky="w",columnspan=2)
-        Label(frame,text="Enter player name: ",style="main_pg.TLabel").grid(row=2,column=0,pady=40,padx=30,sticky="w")
-        Label(frame,text="\t\t\t",style="start_error.TLabel").grid(row=4,columnspan=2)
-        name = Entry(frame,width=16,font=("bahnschrift semilight condensed",20)) # ,style="entry.TEntry"
+        ttk.Label(frame,text="[System Initiating...]",style="start_text.TLabel").grid(row=0,column=0,pady=30,padx=30,sticky="w",columnspan=2)
+        ttk.Label(frame,text="[Creating Player Environment...]",style="start_text.TLabel").grid(row=1,column=0,padx=30,sticky="w",columnspan=2)
+        ttk.Label(frame,text="Enter player name: ",style="main_pg.TLabel").grid(row=2,column=0,pady=40,padx=30,sticky="w")
+        ttk.Label(frame,text="\t\t\t",style="start_error.TLabel").grid(row=4,columnspan=2)
+        name = ttk.Entry(frame,width=16,font=("bahnschrift semilight condensed",20)) # ,style="entry.TEntry"
         name.grid(row=2,column=1,sticky="w")
         name.focus_force()
-        Label(frame,text="Create player pass-code: ",style="main_pg.TLabel").grid(row=3,column=0,padx=30,sticky="w")
-        code = Entry(frame,width=16,font=("bahnschrift semilight condensed",20))
+        ttk.Label(frame,text="Create player pass-code: ",style="main_pg.TLabel").grid(row=3,column=0,padx=30,sticky="w")
+        code = ttk.Entry(frame,width=16,font=("bahnschrift semilight condensed",20))
         code.grid(row=3,column=1,sticky="w")
         # Buttons
-        Button(frame,text="Verify",style="startpg_verify.TButton",command=partial(self.btn_click,partial(self.proceed,frame,name,code))).grid(row=5,column=0,columnspan=2,pady=15,padx=10,ipady=10)
-        Button(self,text="Back",style="start_pg.TButton",command=partial(self.btn_click,self.main_page)).place(relx=0.324,rely=0.76,height=100)
+        ttk.Button(frame,text="Verify",style="startpg_verify.TButton",command=partial(self.btn_click,partial(self.proceed,frame,name,code))).grid(row=5,column=0,columnspan=2,pady=15,padx=10,ipady=10)
+        ttk.Button(self,text="Back",style="start_pg.TButton",command=partial(self.btn_click,self.main_page)).place(relx=0.324,rely=0.76,height=100)
 
     def main_page(self) :
+        if self.canvas_exists == False :
+            self.bg_canvas = tk.Canvas(self,width=self.window_width,height=self.window_height,bg="#424242")
+            self.bg_canvas.bind('<Configure>',self.resizeimage)
         self.clear()
-        img = Image.open('project_pics\\main_pg.png')
-        img_new = ImageTk.PhotoImage(img)
-        label = Label(self,image=img_new,style="img.TLabel")
-        label.image = img_new
-        label.grid(sticky="nwse")
-        start_btn = Button(self,text="Start New Game",style="main.TButton",command=partial(self.btn_click,game.start))
-        start_btn.place(relx=0.9,rely=0.35,anchor=CENTER,width=386,height=100)
-        load_btn = Button(self,text="Load Game",style="main.TButton",command=partial(self.btn_click,self.load_page))
-        load_btn.place(relx=0.9,rely=0.5,anchor=CENTER,width=386,height=100)
-        quit_btn = Button(self,text="Quit",style="main.TButton",command=partial(self.btn_click,partial(self.exit,False)))
-        quit_btn.place(relx=0.9,rely=0.65,anchor=CENTER,width=386,height=100)
+        self.bg_image = Image.open('project_pics\\main_pg.png')
+        bg_image = ImageTk.PhotoImage(self.bg_image)
+        self.bg_canvas.itemconfig(self.bg_img,image=bg_image)
+        self.bg_canvas.image = bg_image
+        self.bg_canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
+        start_btn = ttk.Button(self,text="Start New Game",style="main.TButton",command=partial(self.btn_click,game.start))
+        start_btn.place(relx=0.9,rely=0.35,anchor=tk.CENTER,width=386,height=100)
+        load_btn = ttk.Button(self,text="Load Game",style="main.TButton",command=partial(self.btn_click,self.load_page))
+        load_btn.place(relx=0.9,rely=0.5,anchor=tk.CENTER,width=386,height=100)
+        quit_btn = ttk.Button(self,text="Quit",style="main.TButton",command=partial(self.btn_click,partial(self.exit,False)))
+        quit_btn.place(relx=0.9,rely=0.65,anchor=tk.CENTER,width=386,height=100)
         if g_data.connected == False :
             self.s_msg("conn_fail")
 
@@ -477,10 +496,10 @@ class Root(ThemedTk) :
         m_player.music_control("project_media\\signal.ogg",True,-1,0)
         m_player.music_control("project_media\\game_over.ogg",False,-1,0)
         # header frame
-        header_frame = Frame(self,height=30,width=1280,style="header.TFrame")
-        header_frame.grid(row=0,columnspan=2,sticky=E+N+W)
-        Label(header_frame,text="Player: Capt. "+game.NAME,style="head_label.TLabel").place(relx=0.12) # 0.15
-        Label(header_frame,text="Player Status: "+str(game.score)+" Days in power",style="head_label.TLabel").place(relx=0.55)
+        header_frame = ttk.Frame(self,height=30,width=1280,style="header.TFrame")
+        header_frame.grid(row=0,columnspan=2,sticky=tk.E+tk.N+tk.W)
+        ttk.Label(header_frame,text="Player: Capt. "+game.NAME,style="head_label.TLabel").place(relx=0.12) # 0.15
+        ttk.Label(header_frame,text="Player Status: "+str(game.score)+" Days in power",style="head_label.TLabel").place(relx=0.55)
         if d_str != "death_end" :
             # side bar
             self.side_bar.place(relx=0.92,anchor="n")
@@ -492,29 +511,30 @@ class Root(ThemedTk) :
         # logo 
         logo_img = Image.open("project_pics\\cap_logo_invert.PNG")
         logo_new = ImageTk.PhotoImage(logo_img)
-        logo_image = Label(self,image=logo_new,style="img.TLabel")
+        logo_image = ttk.Label(self,image=logo_new,style="img.TLabel")
         logo_image.image = logo_new
         logo_image.place(relx=0.01,rely=0.07)
         # text box
-        Label(self,text="YOU DIED..",style="death.TLabel").place(relx=0.33,rely=0.1)
+        ttk.Label(self,text="YOU DIED..",style="death.TLabel").place(relx=0.33,rely=0.1)
         img = Image.open("project_pics\\text_box1.png")
         img_new = ImageTk.PhotoImage(img)
-        text_frame = Frame(self,style="text.TFrame")
-        img_label = Label(text_frame,image=img_new,style="img.TLabel")
+        text_frame = ttk.Frame(self,style="text.TFrame")
+        img_label = ttk.Label(text_frame,image=img_new,style="img.TLabel")
         img_label.image = img_new
-        img_label.pack(fill=BOTH)
-        Label(text_frame,text=d_text,style="text.TLabel").place(relx=0.5,rely=0.55,anchor=CENTER)
+        img_label.pack(fill=tk.BOTH)
+        ttk.Label(text_frame,text=d_text,style="text.TLabel").place(relx=0.5,rely=0.55,anchor=tk.CENTER)
         text_frame.place(relx=0.35,rely=0.25)
         if d_str != "death_end" :
             nxt_func = game.const_qn
             btn_func = partial(vid_player.player,"project_media\\glitch.mp4","project_media\\glitch.ogg",nxt_func)
         else :
             game.game_over = True
+            self.canvas_exists = True
             btn_func = "Starting_game_again"
         thread = Thread(target=game.data_reset)
         thread.start()
         thread.join() # partial(vid_player.player,"project_media\\glitch.mp4","project_media\\glitch.ogg",func)
-        Button(self,text="Continue",style="death_pg.TButton",command=partial(self.btn_click,btn_func)).place(relx=0.6,rely=0.8,width=250,height=80)
+        ttk.Button(self,text="Continue",style="death_pg.TButton",command=partial(self.btn_click,btn_func)).place(relx=0.6,rely=0.8,width=250,height=80)
         if d_str != "death_end" :
             root.s_msg("e_save")
         else :
@@ -523,30 +543,30 @@ class Root(ThemedTk) :
     def qn_page(self,char_name:str,qn:str,ans1:str,ans2:str,btn1_func:object,btn2_func:object,bar_dis:bool) :
         print("entered root.qn_page")
         self.clear()
-        Grid.columnconfigure(self,0,weight=1)
+        tk.Grid.columnconfigure(self,0,weight=1)
         # Adding \n to the text to display so as to fit them in the widgets
         ans1 = game.checkstr(text=ans1,index=30)
         ans2 = game.checkstr(text=ans2,index=30)
         qn = game.checkstr(text=qn,index=30)
         # header bar
-        header_frame = Frame(self,height=30,width=1280,style="header.TFrame")
-        header_frame.grid(row=0,columnspan=2,sticky=E+N+W)
-        Label(header_frame,text="Player: Capt. "+game.NAME,style="head_label.TLabel").place(relx=0.12) # 0.15
-        Label(header_frame,text="Player Status: "+str(game.score)+" Days in power",style="head_label.TLabel").place(relx=0.5)
+        header_frame = ttk.Frame(self,height=30,width=1280,style="header.TFrame")
+        header_frame.grid(row=0,columnspan=2,sticky=tk.E+tk.N+tk.W)
+        ttk.Label(header_frame,text="Player: Capt. "+game.NAME,style="head_label.TLabel").place(relx=0.12) # 0.15
+        ttk.Label(header_frame,text="Player Status: "+str(game.score)+" Days in power",style="head_label.TLabel").place(relx=0.5)
         # display game logo on left of screen
         logo_img = Image.open("project_pics\\cap_logo_invert.PNG")
         logo_new = ImageTk.PhotoImage(logo_img)
-        logo_image = Label(self,image=logo_new,style="img.TLabel")
+        logo_image = ttk.Label(self,image=logo_new,style="img.TLabel")
         logo_image.image = logo_new
         logo_image.place(relx=0.01,rely=0.07) # .grid(row=0,column=0,sticky=W+S)
         # open image to display as container for text
         img = Image.open("project_pics\\text_box1.png")
         img_new = ImageTk.PhotoImage(img)
         # create frame to display the container pic and the text
-        text_frame = Frame(self,style="text.TFrame")
-        border = Label(text_frame,image=img_new,style="img.TLabel")
+        text_frame = ttk.Frame(self,style="text.TFrame")
+        border = ttk.Label(text_frame,image=img_new,style="img.TLabel")
         border.image = img_new
-        border.pack(fill=BOTH)
+        border.pack(fill=tk.BOTH)
         # condition to display the side bar and image
         if bar_dis == True :
             # placing text frame
@@ -557,7 +577,7 @@ class Root(ThemedTk) :
             else :
                 char = char_name
             img = ImageTk.PhotoImage(image=Image.open(f"project_pics\\char_pics\\{char}.PNG"))
-            char_image = Label(self,image=img,style="img.TLabel")
+            char_image = ttk.Label(self,image=img,style="img.TLabel")
             char_image.image = img
             char_image.place(relx=0.18,rely=0.25)
             # side bar
@@ -580,19 +600,19 @@ class Root(ThemedTk) :
         if char_name != None :
             char_name += " :"
         # display text over image
-        label1 = Label(text_frame,text=char_name,style="text.TLabel")
-        label1.place(relx=0.5,rely=0.1,anchor=CENTER)
-        label2 = Label(text_frame,text=qn,style="text.TLabel")
-        label2.place(relx=0.5,rely=0.55,anchor=CENTER)
+        label1 = ttk.Label(text_frame,text=char_name,style="text.TLabel")
+        label1.place(relx=0.5,rely=0.1,anchor=tk.CENTER)
+        label2 = ttk.Label(text_frame,text=qn,style="text.TLabel")
+        label2.place(relx=0.5,rely=0.55,anchor=tk.CENTER)
         # displaying the buttons on the screen
         if ans1 != "" :
             print("button 1")
-            btn1 = Button(self,text=ans1,style="text_btn.TButton",command=partial(self.btn_click,btn1_func))
-            btn1.place(relx=0.17,rely=0.8,anchor=W,width=386,height=150)
+            btn1 = ttk.Button(self,text=ans1,style="text_btn.TButton",command=partial(self.btn_click,btn1_func))
+            btn1.place(relx=0.17,rely=0.8,anchor=tk.W,width=386,height=150)
         print("button 2")
         print(btn2_func)
-        btn2 = Button(self,text=ans2,style="text_btn.TButton",command=partial(self.btn_click,btn2_func))
-        btn2.place(relx=0.81,rely=0.8,anchor=E,width=386,height=150)
+        btn2 = ttk.Button(self,text=ans2,style="text_btn.TButton",command=partial(self.btn_click,btn2_func))
+        btn2.place(relx=0.81,rely=0.8,anchor=tk.E,width=386,height=150)
 
 
 # Game logic and data handle
@@ -629,6 +649,8 @@ class Game :
     def main(self):
         root.overrideredirect(False)
         root.config(menu=root.menubar)
+        root.window_width = root.winfo_width()
+        root.window_height = root.winfo_height()
         root.main_page()
 
     def load(self,name:object,code:object) :
@@ -764,6 +786,10 @@ class Game :
 
     def sequence(self,sequence:str,iteration=0) :
         print("in game.sequence")
+        if root.canvas_exists :
+            print("canvas gone!!")
+            root.bg_canvas.destroy()
+            root.canvas_exists = False 
         iteration += 1
         seq_open = []
         seq_close = []
@@ -783,9 +809,6 @@ class Game :
             seq_list = seq_close
             if iteration == 1 :
                 self.seq_num = 0
-        # print(f"sequence list is : {seq_list}")
-        # print(f"sequence is : {sequence}")
-        # print(f"seq_num : {self.seq_num}")
         s_text = seq_list[self.seq_num][3]
         s_str2 = seq_list[self.seq_num ][7]
         s_str1 = ""
