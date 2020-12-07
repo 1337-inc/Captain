@@ -1,10 +1,10 @@
 '''The entry point.'''
 
-from Scripts.main_game import *
+import Scripts.main_game as main
 
 
 if __name__ == "__main__" :
     # display the splash screen and start game
-    splash.display()
+    main.splash.display()
     # tkinter mainloop
-    root.mainloop()
+    main.root.mainloop()
