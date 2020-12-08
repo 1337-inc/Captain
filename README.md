@@ -31,6 +31,8 @@ The game can be played with or without the server but your data cant be saved or
 ### Server
 - The server application is a support application the game requires for complete functionality. Even without the server you can play the game but you wont be able to save or load your game state. 
 -  The server application connects to your router's IP, starts a server on an open port, and listens for connections from clients. Once the server program has been started, you'll be able to save and load your game states.
-- You can download the installer for the server application [here](https://github.com/1337-inc/Server/releases)
+- Visit the repo for server (here)[https://github.com/1337-inc/Server] 
+  or
+  download the installer for the server application [here](https://github.com/1337-inc/Server/releases)
 
 NOTE: The game is meant only for Windows and has only been tested on Windows 10
