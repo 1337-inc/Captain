@@ -1,6 +1,6 @@
 # CAPTAIN!!
 
-![Header](project_files/project_pics/captain_logo.png)
+![Header](project_pics/captain_logo.png)
 
 The project_files folder contains all the files necessary for running the game.
 The server folder contains files necessary for hosting a server on your local network.
@@ -23,7 +23,16 @@ The game can be played with or without the server but your data cant be saved or
   and the player can try again for a higher score.
 
 ## Installation
-- You can download the installer for both the game as well as the server [here](https://github.com/1337-inc/Captain/releases). To install, double-click the installation package and follow the instructions presented.
+- You can download the installer for the game [here](https://github.com/1337-inc/Captain/releases). To install, double-click the installation package and follow the instructions presented.
 - Check the create shortcut box to create a shortcut to the game on your desktop.
+
+
+## Requirements
+### Server
+- The server application is a support application the game requires for complete functionality. Even without the server you can play the game but you wont be able to save or load your game state. 
+-  The server application connects to your router's IP, starts a server on an open port, and listens for connections from clients. Once the server program has been started, you'll be able to save and load your game states.
+- Visit the repo for server [here](https://github.com/1337-inc/Server) 
+  or
+  download the installer for the server application [here](https://github.com/1337-inc/Server/releases)
 
 NOTE: The game is meant only for Windows and has only been tested on Windows 10
