@@ -34,5 +34,8 @@ The game can be played with or without the server but your data cant be saved or
 - Visit the repo for server [here](https://github.com/1337-inc/Server) 
   or
   download the installer for the server application [here](https://github.com/1337-inc/Server/releases)
+  
+# Website
+to know more about us, visit our [webiste](https://1337inc-captain.website2.me/)
 
 NOTE: The game is meant only for Windows and has only been tested on Windows 10
