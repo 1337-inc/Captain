@@ -167,9 +167,9 @@ class Root(ThemedTk) :
         img_btn.pack(anchor="nw")
 
     def menu(self) :
-        def credits() :
-            def populate(frame):
-                '''Put in labels'''
+        def help(type) :
+            def credits_populate(frame):
+                '''Putting in the lables in the credits page'''
                 tk.Grid.columnconfigure(frame, 0, weight=1)
                 # defining the lables and hardcoding in the credits page
                 cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
@@ -240,11 +240,132 @@ class Root(ThemedTk) :
                 license_.grid(row=31,column=0,pady=5)
                 grp.grid(row=32,column=0,pady=5)
 
+            def about_populate(frame) :
+                """Putting in the text box in the about page"""
+                tk.Grid.columnconfigure(frame, 0, weight=1)
+                cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
+                cap_title.grid(row=0,column=0,padx=40,pady=30)
+                # the text to display in text box
+                text1 = "CAPTAIN IS A FREE TO PLAY, CHOICE-BASED GAME WHERE THE PLAYER HAS 2 CHOICES TO ANSWER THE GIVEN QUESTIONS AND WORK THEIR WAY TO REACH THE FINAL ENDING OF THE GAME, WHILE STAYING IN POWER.THERE ARE ALSO 20+ DIFFERENT ENDINGS THAT YOU CAN ENCOUNTER IN THE GAME, DEPENDING ON THE CHOICES YOU MAKE."
+                text2 = "\n\nFIND YOUR WAY THROUGH THE GAME TO REACH THE FINAL ENDING OR UNCOVER DIFFERENT ENDINGS OF THE GAME AS YOU PLAY, WHILE YOU ARE IN POWER."
+                text3 = "\n\n\n\nNOTE: CAPTAIN!! REQUIRES YOU TO START THE SERVER APPLICATION, SEPERATELY WITH THE GAME (INSTALLED WITH THE GAME) INORDER TO SAVE YOUR PROGRESS IN THE GAME."
+                text4 = "\n\n\n\nHOW TO PLAY:"
+                text5 = "\n\n• THE AIM OF THE GAME IS SIMPLE: TO CHOOSE ANY OF THE 2 OPTIONS (THAT YOU THINK IS RIGHT) FOR THE GIVEN QUESTIONS AND TRY TO DISCOVER THE FINAL ENDING AMONG THE DIFFERENT POSSIBLE ENDINGS OF THE GAME."
+                text6 = "\n\n• WHILE DECIDING TO CHOOSE AN OPTION FOR A GIVEN QUESTION, THE PLAYER HAS TO KEEP TRACK OF THE PROGRESS METER/BAR METER LOCATED ON THE RIGHT SIDE OF THE GAME."
+                text7 = "\n\n• THE PLAYER STATUS TELLS YOU THE NUMBER OF DAYS YOU HAVE BEEN IN POWER.EACH DAY IS CALCULATED PER QUESTION. ONCE YOU DIE AND RESPAWN, YOUR PLAYER STATUS WILL RESTART TO 'DAYS IN POWER: 1'."
+                text8 = "\n\nYOUR HIGHSCORE IS CALCULATED BY KEEPING TRACK OF YOUR PLAYER STATUS. SO TRY TO SURVIVE FOR AS LONG AS YOU CAN!"
+                text9 = "\n\n\n\nTHE PROGRESS METER/BAR METER KEEPS A TRACK ON HOW WELL YOU ARE SERVING EACH SECTOR OF THE SOCIETY."
+                text10 = "\n\nTHE 4 PROGRESS METERS ARE: "
+                text11 = "\n\n1) RESEARCH PROGRESS METER"
+                text12 = "\n\n2) COMMON PUBLIC PROGRESS METER"
+                text13 = "\n\n3) TREASURY/MONEY PROGRESS METER"
+                text14 = "\n\n4) ARMY PROGRESS METER"
+                text15 = "\n\nTHE PLAYER HAS TO KEEP THE 4 BARS BALANCED WHILE CHOOSING THE APPROPRIATE/LOGICAL OPTIONS FOR A GIVEN QUESTION AND MUST MAKE SURE THAT NONE OF THE BARS BECOME FULL OR EMPTY."
+                text16 = "\n\nIN CASE ANY OF THE 4 BARS BECOME FULL OR EMPTY, YOU WILL IMMEDIATELY LOSE THE GAME."
+                text17 = "\n\n\n\nTRY TO STAY IN POWER AS LONG AS YOU CAN, DISCOVER THE ULTIMATE ENDING AMONG THE DIFFERENT ENDINGS IN THE GAME, AND SHOW YOUR FELLOW CAPTAINS WHO THE REAL CAPTAIN IS!"
+                # adding \n wherever required
+                text1 = game.checkstr(text1, 70)
+                text2 = game.checkstr(text2, 70)
+                text3 = game.checkstr(text3, 70)
+                text4 = game.checkstr(text4, 70)
+                text5 = game.checkstr(text5, 70)
+                text6 = game.checkstr(text6, 70)
+                text7 = game.checkstr(text7, 70)
+                text8 = game.checkstr(text8, 70)
+                text9 = game.checkstr(text9, 70)
+                text10 = game.checkstr(text10, 70)
+                text11 = game.checkstr(text11, 70)
+                text12 = game.checkstr(text12, 70)
+                text13 = game.checkstr(text13, 70)
+                text14 = game.checkstr(text14, 70)
+                text15 = game.checkstr(text15, 70)
+                text16 = game.checkstr(text16, 70)
+                text17 = game.checkstr(text17, 70)
+                # Determining line number of text
+                text1_line = "1.0"
+                text2_line = str(text1.count("\n") + 2) + ".0"
+                text3_line = str(text2.count("\n") + int(float(text2_line))) + ".0"
+                text4_line = str(text3.count("\n") + int(float(text3_line))) + ".0"
+                text5_line = str(text4.count("\n") + int(float(text4_line))) + ".0"
+                text6_line = str(text5.count("\n") + int(float(text5_line))) + ".0"
+                text7_line = str(text6.count("\n") + int(float(text6_line))) + ".0"
+                text8_line = str(text7.count("\n") + int(float(text7_line))) + ".0"
+                text9_line = str(text8.count("\n") + int(float(text8_line))) + ".0"
+                text10_line = str(text9.count("\n") + int(float(text9_line))) + ".0"
+                text11_line = str(text10.count("\n") + int(float(text10_line))) + ".0"
+                text12_line = str(text11.count("\n") + int(float(text11_line))) + ".0"
+                text13_line = str(text12.count("\n") + int(float(text12_line))) + ".0"
+                text14_line = str(text13.count("\n") + int(float(text13_line))) + ".0"
+                text15_line = str(text14.count("\n") + int(float(text14_line))) + ".0"
+                text16_line = str(text15.count("\n") + int(float(text15_line))) + ".0"
+                text17_line = str(text16.count("\n") + int(float(text16_line))) + ".0"
+                # Creating text widget and insterting text into it 
+                text = tk.Text(frame,bg="#424242",width=108,height=50,relief=tk.FLAT)
+                text.insert(text1_line, text1)
+                text.insert(text2_line, text2)
+                text.insert(text3_line, text3)
+                text.insert(text4_line, text4)
+                text.insert(text5_line, text5)
+                text.insert(text6_line, text6)
+                text.insert(text7_line, text7)
+                text.insert(text8_line, text8)
+                text.insert(text9_line, text9)
+                text.insert(text10_line, text10)
+                text.insert(text11_line, text11)
+                text.insert(text12_line, text12)
+                text.insert(text13_line, text13)
+                text.insert(text14_line, text14)
+                text.insert(text15_line, text15)
+                text.insert(text16_line, text16)
+                text.insert(text17_line, text17)
+                text.grid(sticky="nsew",pady=20)
+                # adding tags according to previously determined line numbers
+                text.tag_add("1", "1.0", text2_line)
+                text.tag_add("2", str(float(text2_line)+1), text3_line)
+                text.tag_add("3", str(float(text3_line)+1), text4_line)
+                text.tag_add("4", str(float(text4_line)+1), text5_line)
+                text.tag_add("5", str(float(text5_line)+1), text6_line)
+                text.tag_add("6", str(float(text6_line)+1), text7_line)
+                text.tag_add("7", str(float(text7_line)+1), text8_line)
+                text.tag_add("8", str(float(text8_line)+1), text9_line)
+                text.tag_add("9", str(float(text9_line)+1), text10_line)
+                text.tag_add("10", str(float(text10_line)+1), text11_line)
+                text.tag_add("11", str(float(text11_line)+1), text12_line)
+                text.tag_add("12", str(float(text12_line)+1), text13_line)
+                text.tag_add("13", str(float(text13_line)+1), text14_line)
+                text.tag_add("14", str(float(text14_line)+1), text15_line)
+                text.tag_add("15", str(float(text15_line)+1), text16_line)
+                text.tag_add("16", str(float(text16_line)+1), text17_line)
+                text.tag_add("17", str(float(text17_line)+1), tk.END)
+                # configuring tags
+                text_font = ("HP Simplified Hans",18)
+                heading_font = ("bahnschrift",18,"underline","bold")
+                custom_font1 = ("bahnschrift",18,"bold")
+                text.tag_config("1", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("2", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("3", foreground="white", font=custom_font1) # ,background="gray21")
+                text.tag_config("4", foreground="white", font=heading_font) # ,background="gray21")
+                text.tag_config("5", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("6", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("7", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("8", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("9", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("10", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("11", foreground="white", font=custom_font1) # ,background="gray21")
+                text.tag_config("12", foreground="white", font=custom_font1) # ,background="gray21")
+                text.tag_config("13", foreground="white", font=custom_font1) # ,background="gray21")
+                text.tag_config("14", foreground="white", font=custom_font1) # ,background="gray21")
+                text.tag_config("15", foreground="white", font=text_font) # ,background="gray21")
+                text.tag_config("16", foreground="white", font=custom_font1) # ,background="gray21")
+                text.tag_config("17", foreground="white", font=text_font) # ,background="gray21")
+                text.configure(state=tk.DISABLED)
+
             def onFrameConfigure(canvas):
                 '''Reset the scroll region to encompass the inner frame'''
                 canvas.configure(scrollregion=canvas.bbox("all"))
             
             def on_mousewheel(event):
+                """enables scroll with the mousewheel"""
                 shift = (event.state & 0x1) != 0
                 scroll = -1 if event.delta > 0 else 1
                 if shift:
@@ -256,7 +377,11 @@ class Root(ThemedTk) :
             window["bg"] = "#424242"
             window.title("Credits")
             window.resizable(0,0)
-            canvas = tk.Canvas(window, background="#424242", width=500, height=550)
+            if type == "Credits" :
+                width, height = 500, 500
+            else :
+                width, height = 870, 600
+            canvas = tk.Canvas(window, background="#424242", width=width, height=height)
             canvas.bind_all("<MouseWheel>", on_mousewheel)
             frame = ttk.Frame(canvas)
             vsb = ttk.Scrollbar(window, orient="vertical", command=canvas.yview)
@@ -268,7 +393,10 @@ class Root(ThemedTk) :
 
             frame.bind("<Configure>", lambda event, canvas=canvas: onFrameConfigure(canvas))
 
-            populate(frame)
+            if type == "Credits" :
+                credits_populate(frame)
+            else :
+                about_populate(frame)
 
         def profile() :
             profile = tk.Toplevel(self)
@@ -311,13 +439,7 @@ class Root(ThemedTk) :
             ttk.Label(frame,text=f"Player : {game.NAME}",style="ptext2.TLabel").place(relx=0.35,rely=0.19)
             ttk.Label(frame,text=f"Current Score : {game.score}",style="ptext2.TLabel").place(relx=0.35,rely=0.48)
             ttk.Label(frame,text=f"High Score : {game.high_score}",style="ptext2.TLabel").place(relx=0.35,rely=0.79)
-        
-        def coming_soon(win_title) :
-            win = tk.Toplevel(self)
-            win.title(win_title)
-            win.geometry("400x500")
-            ttk.Label(win,text="Coming Soon").place(relx=0.5,rely=0.5,anchor=tk.CENTER)
-
+ 
         self.menubar = tk.Menu(self)
         # The Game Menu 
         gamebar = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
@@ -328,8 +450,8 @@ class Root(ThemedTk) :
         self.menubar.add_cascade(label="Game",menu=gamebar)
         # The About Menu
         aboutmenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
-        aboutmenu.add_command(label="Credits",command=credits)
-        aboutmenu.add_command(label="About",command=partial(coming_soon,"About"))
+        aboutmenu.add_command(label="Credits",command=partial(help,type="Credits"))
+        aboutmenu.add_command(label="About",command=partial(help,type="About"))
         self.menubar.add_cascade(label="Help",menu=aboutmenu)
 
     def btn_click(self,nxt_func:object) :
