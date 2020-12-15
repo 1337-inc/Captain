@@ -140,6 +140,10 @@ class Root(ThemedTk) :
         self.bg_canvas.config(width=self.window_width,height=self.window_height)
         self.bg_canvas.itemconfig(self.bg_img,image = self.image1)
 
+    def play_video(self,vid_file,music_file,nxt_func) :
+        self.clear()
+        vid_player.player(vid_file,music_file,nxt_func)
+
     def mssg_box(self) :
         def heaven() :
             # text to be displayed in the window
@@ -547,7 +551,7 @@ class Root(ThemedTk) :
 
     def proceed(self,parent:object,name:object,code:object) :    # partial(root.btn_click,partial(game.sequence,sequence="Opening"))
         if name.get() != "" and code.get() != "" : #lambda: vid_player.player("project_media\\starwarscrawl.mp4","project_media\\starwarstrack.ogg",lambda : game.sequence(sequence="Opening"))
-            proceed_btn = partial(root.btn_click,lambda: vid_player.player("project_media\\starwarscrawl.mp4","project_media\\starwarstrack.ogg",lambda : game.sequence(sequence="Opening")))
+            proceed_btn = partial(root.btn_click,lambda: self.play_video("project_media\\starwarscrawl.mp4","project_media\\starwarstrack.ogg",lambda : game.sequence(sequence="Opening")))
             exists = g_data.check_data(name.get(),code.get())
             if exists != "Exists" and exists is not None :
                 ttk.Button(self,text="Proceed",style="start_pg.TButton",command=partial(self.btn_click,proceed_btn)).place(relx=0.509,rely=0.76,height=100)
@@ -648,7 +652,7 @@ class Root(ThemedTk) :
         text_frame.place(relx=0.35,rely=0.25)
         if d_str != "death_end" :
             nxt_func = game.const_qn
-            btn_func = partial(vid_player.player,"project_media\\glitch.mp4","project_media\\glitch.ogg",nxt_func)
+            btn_func = partial(self.play_video,"project_media\\glitch.mp4","project_media\\glitch.ogg",nxt_func)
         else :
             game.game_over = True
             self.canvas_exists = True
