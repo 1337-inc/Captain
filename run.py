@@ -1,3 +1,4 @@
+  
 '''The entry point.'''
 
 import Scripts.main_game as main
