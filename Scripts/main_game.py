@@ -16,9 +16,10 @@ from Scripts.styles import Styles
 from functools import partial
 
 
-# To Handle Game Data between Server and Client
 class GameData(Client) :
-    def __init__(self,parent) :
+    """ To Handle Game Data between Server and Client """
+
+    def __init__(self,parent:object) :
         Client.__init__(self)
         self.parent = parent
 
@@ -62,7 +63,7 @@ class GameData(Client) :
         if self.connected == True :
             self.send("Wipe")
     
-    def load_data(self,name,code) :
+    def load_data(self,name:str,code:str) :
         if self.connected == True :
             self.send("Load")
             self.client.send(pickle.dumps((name,code)))
@@ -80,7 +81,7 @@ class GameData(Client) :
         if self.connected == True :
             self.end_conn()
 
-    def check_data(self,name,code) :
+    def check_data(self,name:str,code:str) :
         if self.connected :
             # checks whether player data already exists
             self.send("Check Data")
@@ -95,10 +96,12 @@ class GameData(Client) :
             return None
 
 
-# The Tkinter Interface
 class Root(ThemedTk) :
+    """ The Tkinter Interface """
+
     def __init__(self,**kwargs) :
         ThemedTk.__init__(self,theme="black",**kwargs)
+        self.withdraw()
         # defining the menubar
         self.menu()
         # setup stuff goes here
@@ -121,7 +124,7 @@ class Root(ThemedTk) :
         # Background image of existing page and its Canvas
         self.bg_image = None
         self.canvas_exists = True
-        self.bg_canvas = tk.Canvas(self,width=self.window_width,height=self.window_height,bg="#424242")
+        self.bg_canvas = tk.Canvas(self,bg="#424242",width=self.window_width,height=self.window_height)
         self.bg_canvas.bind('<Configure>',self.resizeimage)
         self.bg_img = self.bg_canvas.create_image(0, 0, anchor = tk.NW)
 
@@ -132,15 +135,22 @@ class Root(ThemedTk) :
             else :
                 widget.grid_forget()
 
-    def resizeimage(self,event) :
+    def resizeimage(self,*args) :
         self.window_width = self.winfo_width()
         self.window_height = self.winfo_height()
-        image = self.bg_image.resize((self.window_width,self.window_height))
+        img_size = (self.window_width,self.window_height)
+        image = self.bg_image.resize(img_size)
+        print(f"in resize func {self.bg_image.size}")
         self.image1 = ImageTk.PhotoImage(image)
         self.bg_canvas.config(width=self.window_width,height=self.window_height)
         self.bg_canvas.itemconfig(self.bg_img,image = self.image1)
 
-    def play_video(self,vid_file,music_file,nxt_func) :
+    def screen_config(self, width=1366, height=768) :
+        setwinwidth = (self.window_width-width)//2
+        setwinheight = (self.window_height-height)//2
+        return f"{width}x{height}+{setwinwidth}+{setwinheight}"
+
+    def play_video(self,vid_file:str,music_file:str,nxt_func:object) :
         self.clear()
         vid_player.player(vid_file,music_file,nxt_func)
 
@@ -485,6 +495,7 @@ class Root(ThemedTk) :
         bg_image = ImageTk.PhotoImage(self.bg_image)
         self.bg_canvas.itemconfig(self.bg_img,image=bg_image)
         self.bg_canvas.image = bg_image
+        self.resizeimage()
         self.bg_canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
         # frame and text
         frame = ttk.Frame(self,width=500,height=400,style="start.TFrame")
@@ -575,6 +586,7 @@ class Root(ThemedTk) :
         bg_image = ImageTk.PhotoImage(self.bg_image)
         self.bg_canvas.itemconfig(self.bg_img,image=bg_image)
         self.bg_canvas.image = bg_image
+        self.resizeimage()
         self.bg_canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
         # frame and text
         frame = ttk.Frame(self,width=500,height=400,style="header.TFrame")
@@ -603,6 +615,7 @@ class Root(ThemedTk) :
         bg_image = ImageTk.PhotoImage(self.bg_image)
         self.bg_canvas.itemconfig(self.bg_img,image=bg_image)
         self.bg_canvas.image = bg_image
+        self.resizeimage()
         self.bg_canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
         start_btn = ttk.Button(self,text="Start New Game",style="main.TButton",command=partial(self.btn_click,game.start))
         start_btn.place(relx=0.9,rely=0.35,anchor=tk.CENTER,width=386,height=100)
@@ -662,7 +675,7 @@ class Root(ThemedTk) :
         thread.join() # partial(vid_player.player,"project_media\\glitch.mp4","project_media\\glitch.ogg",func)
         ttk.Button(self,text="Continue",style="death_pg.TButton",command=partial(self.btn_click,btn_func)).place(relx=0.6,rely=0.8,width=250,height=80)
         if d_str != "death_end" :
-            root.s_msg("e_save")
+            root.s_msg("save")
         else :
             self.mssg_box()
 
@@ -741,8 +754,8 @@ class Root(ThemedTk) :
         btn2.place(relx=0.81,rely=0.8,anchor=tk.E,width=386,height=150)
 
 
-# Game logic and data handle
 class Game :
+    """ Game logic and data handle """
     def __init__(self) :
         self.NAME = None
         self.CODE = None
@@ -1094,9 +1107,3 @@ g_data = GameData(root)
 style = Styles()
 # calling the splash screen
 splash = SplashScreen(root,game.main)
-
-#driver code
-if __name__ == "__main__" :
-    splash.display()
-
-    root.mainloop()

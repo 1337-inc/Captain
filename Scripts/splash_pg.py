@@ -21,7 +21,11 @@ class SplashScreen :
         setwinheight = (self.parent.winfo_screenheight()-height)//2
         self.parent.geometry(f"{width}x{height}+{setwinwidth}+{setwinheight}")
 
+    def proceed(self) :
+        self.nxt_func()
+
     def display(self) :
+        self.parent.deiconify()
         screen_width = self.parent.winfo_screenwidth()
         screen_height = self.parent.winfo_screenheight()
         splash_canvas = tk.Canvas(self.parent,width=screen_width,height=screen_height)
@@ -33,7 +37,7 @@ class SplashScreen :
         progressbar.place(x=450,y=25)
         progressbar.start()
         if self.nxt_func != None :
-            self.parent.after(5050,self.nxt_func)
+            self.parent.after(5050,self.proceed)
 
 
 if __name__ == '__main__' :
