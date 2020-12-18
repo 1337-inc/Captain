@@ -9,7 +9,7 @@ added_files = [
 
 
 a = Analysis(['run.py'],
-             pathex=['C:\\Jovan\\Pycharm Projects\\school projects\\project_files'],
+             pathex=['C:\\Jovan\\Captain!!Project\\Captain_repo'],
              binaries=[],
              datas=added_files,
              hiddenimports=[],
