@@ -108,7 +108,7 @@ class Root(ThemedTk) :
         self.configure(bg = "#424242")
         self.columnconfigure(0,weight=1)
         self.title("Captain!!")
-        self.iconbitmap("project_pics\\cap_icon.ico")
+        self.iconbitmap("project_pics\\cap_desktop.ico")
         self.window_width = self.winfo_width()
         self.window_height = self.winfo_height()
         # side bar
@@ -140,7 +140,6 @@ class Root(ThemedTk) :
         self.window_height = self.winfo_height()
         img_size = (self.window_width,self.window_height)
         image = self.bg_image.resize(img_size)
-        print(f"in resize func {self.bg_image.size}")
         self.image1 = ImageTk.PhotoImage(image)
         self.bg_canvas.config(width=self.window_width,height=self.window_height)
         self.bg_canvas.itemconfig(self.bg_img,image = self.image1)
