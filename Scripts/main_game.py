@@ -478,7 +478,7 @@ class Root(ThemedTk) :
         nxt_func()
 
     def exit(self,leave:bool) :
-        if game.saved == True or leave or game.q_done == [] :
+        if game.saved == True or leave or game.q_done == [] or g_data.connected == False :
             msg = messagebox.askquestion("Thank you for playing","Are you sure you want to exit?")
             if msg == "yes" :
                 if g_data.connected == True :
@@ -673,9 +673,9 @@ class Root(ThemedTk) :
         thread.start()
         thread.join() # partial(vid_player.player,"project_media\\glitch.mp4","project_media\\glitch.ogg",func)
         ttk.Button(self,text="Continue",style="death_pg.TButton",command=partial(self.btn_click,btn_func)).place(relx=0.6,rely=0.8,width=250,height=80)
-        if d_str != "death_end" :
-            root.s_msg("save")
-        else :
+        if d_str != "death_end" and g_data.connected :
+            g_data.savedata()
+        elif d_str == "death_end" :
             self.mssg_box()
 
     def qn_page(self,char_name:str,qn:str,ans1:str,ans2:str,btn1_func:object,btn2_func:object,bar_dis:bool) :
