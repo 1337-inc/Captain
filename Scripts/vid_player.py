@@ -29,7 +29,7 @@ class VideoPlayer :
                 photo.image=img
                 self.canvas.itemconfig(self.vid_frame,image=photo)
                 self.canvas.image=photo
-                self.parent.after(delay,lambda : update())
+                self.parent.after(delay,update)
             else :
                 time.sleep(0.01)
                 # stopping vid_music and starting game music
