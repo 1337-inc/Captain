@@ -16,7 +16,7 @@ class Styles(ttk.Style) :
             background=[('pressed', 'black'), ('active', 'gray')])
 
         self.configure("skip.TButton",font=("lucida console",23),width=6,height=3,cursor="@hand2",anchor=tk.CENTER)
-        self.map("death_pg.TButton",
+        self.map("skip.TButton",
             foreground=[('pressed', 'black'), ('active', 'white')],
             background=[('pressed', 'black'), ('active', 'gray')])
 

@@ -3,7 +3,7 @@ from pygame import mixer
 # The Music Player
 class MusicPlayer :
     def __init__(self) :
-        """initializing pygame's mixer and starting the main background music."""
+        """Initializing pygame's mixer and starting the main background music."""
         mixer.init()
         # starting music
         self.music_control("project_media\\signal.ogg",False,-1,0)

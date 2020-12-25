@@ -17,10 +17,12 @@ from functools import partial
 
 class GameData(Client) :
 
-    """ To Handle Game Data between Server and Client """
+    """ 
+    To Handle Game Data between Server and Client. 
+    """
 
     def __init__(self,parent:object) :
-        """initialize parent class Client in child class GameData"""
+        """initialize parent class Client in child class GameData."""
         Client.__init__(self)
         self.parent = parent
 
@@ -99,10 +101,12 @@ class GameData(Client) :
 
 class Root(ThemedTk) :
 
-    """ The Tkinter Interface """
+    """ 
+    The Tkinter Interface. 
+    """
 
     def __init__(self,**kwargs) :
-        """initialize parent class, ThemedTk, in child class, Root"""
+        """initialize parent class, ThemedTk, in child class, Root."""
         ThemedTk.__init__(self,theme="black",**kwargs)
         self.withdraw()
         # defining the menubar
@@ -379,9 +383,9 @@ class Root(ThemedTk) :
             def onFrameConfigure(canvas):
                 """Reset the scroll region to encompass the inner frame."""
                 canvas.configure(scrollregion=canvas.bbox("all"))
-            
+
             def on_mousewheel(event):
-                """enables scroll with the mousewheel."""
+                """Enables scroll with the mousewheel."""
                 shift = (event.state & 0x1) != 0
                 scroll = -1 if event.delta > 0 else 1
                 if shift:
@@ -758,10 +762,12 @@ class Root(ThemedTk) :
 
 class Game :
 
-    """ Game logic and data handle """
+    """ 
+    Game logic and data handle. 
+    """
 
     def __init__(self) :
-        """initialize all game variables."""
+        """Initialize all game variables."""
         self.NAME = None
         self.CODE = None
         self.m_cur = {1:["death_Military1",55,"death_Military2"]}
