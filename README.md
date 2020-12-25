@@ -45,5 +45,4 @@ The game can be played with or without the server but your data cant be saved or
 to know more about us, visit our [webiste](https://1337inc-captain.website2.me/)
 
 
-
 NOTE: The game is meant only for Windows and has only been tested on Windows 10
