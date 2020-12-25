@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter.ttk import Button
 from PIL import Image, ImageTk
 import time
-import cv2 as cv2
+from cv2 import cv2
 from threading import Thread
 from Scripts.music_player import m_player
 
