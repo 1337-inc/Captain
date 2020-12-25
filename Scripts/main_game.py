@@ -16,7 +16,6 @@ from functools import partial
 
 
 class GameData(Client) :
-
     """To Handle Game Data between Server and Client. """
 
     def __init__(self,parent:object) :
@@ -98,7 +97,6 @@ class GameData(Client) :
 
 
 class Root(ThemedTk) :
-
     """ The Tkinter Interface. """
 
     def __init__(self,**kwargs) :
@@ -757,7 +755,6 @@ class Root(ThemedTk) :
 
 
 class Game :
-
     """ Game logic and data handle. """
 
     def __init__(self) :
@@ -903,8 +900,7 @@ class Game :
                 self.m_cur[1][1] += int(v_list[self.qn_num-1].strip().split("$")[8])
             else :
                 print("HAS NOT BEEN SET!!!")
-                print("$"*30)
-                
+
         print(self.r_cur[1][1])
         print(self.c_cur[1][1])
         print(self.i_cur[1][1])
