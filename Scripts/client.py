@@ -3,7 +3,7 @@ import socket
 HEADER = 64
 class Client :
     def __init__(self) :
-        """setup socket connection."""
+        """Setup socket connection."""
         self.PORT = 5050
         self.FORMAT = 'utf-8'
         self.DISCONNECT_MESSAGE = "!DISCONNECT"

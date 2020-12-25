@@ -10,7 +10,7 @@ from Scripts.music_player import m_player
 # The Video Player
 class VideoPlayer :
     def __init__(self,parent) :
-        """initialize the parent window and set play to false."""
+        """Initialize the parent window and set play to false."""
         self.parent = parent
         self.play = False
 

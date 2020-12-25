@@ -17,12 +17,10 @@ from functools import partial
 
 class GameData(Client) :
 
-    """ 
-    To Handle Game Data between Server and Client. 
-    """
+    """To Handle Game Data between Server and Client. """
 
     def __init__(self,parent:object) :
-        """initialize parent class Client in child class GameData."""
+        """Initialize parent class Client in child class GameData."""
         Client.__init__(self)
         self.parent = parent
 
@@ -101,12 +99,10 @@ class GameData(Client) :
 
 class Root(ThemedTk) :
 
-    """ 
-    The Tkinter Interface. 
-    """
+    """ The Tkinter Interface. """
 
     def __init__(self,**kwargs) :
-        """initialize parent class, ThemedTk, in child class, Root."""
+        """Initialize parent class, ThemedTk, in child class, Root."""
         ThemedTk.__init__(self,theme="black",**kwargs)
         self.withdraw()
         # defining the menubar
@@ -459,7 +455,7 @@ class Root(ThemedTk) :
             ttk.Label(frame,text=f"Player : {game.NAME}",style="ptext2.TLabel").place(relx=0.35,rely=0.19)
             ttk.Label(frame,text=f"Current Score : {game.score}",style="ptext2.TLabel").place(relx=0.35,rely=0.48)
             ttk.Label(frame,text=f"High Score : {game.high_score}",style="ptext2.TLabel").place(relx=0.35,rely=0.79)
- 
+
         self.menubar = tk.Menu(self)
         # The Game Menu
         gamebar = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
@@ -762,9 +758,7 @@ class Root(ThemedTk) :
 
 class Game :
 
-    """ 
-    Game logic and data handle. 
-    """
+    """ Game logic and data handle. """
 
     def __init__(self) :
         """Initialize all game variables."""
@@ -1106,7 +1100,7 @@ class Game :
             root.game_over_pg(death_text,self.death_str)
 
 
-# initialising
+# Initialising
 root = Root()
 game = Game()
 vid_player = VideoPlayer(root)
