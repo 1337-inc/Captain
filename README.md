@@ -1,5 +1,7 @@
 # CAPTAIN!!
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/96f839029d6b448fb5513c6b0396d603)](https://app.codacy.com/gh/1337-inc/Captain?utm_source=github.com&utm_medium=referral&utm_content=1337-inc/Captain&utm_campaign=Badge_Grade)
+
 ![Header](project_pics/captain_logo.png)
 
 The project_files folder contains all the files necessary for running the game.
