@@ -1024,8 +1024,8 @@ class Game :
             self.qn_num = a_str
             self.qn_func(file)
         elif not isinstance(a_str,int) and not dead :
-            random = randint(1,10)
-            if random == 3 and self.direct_qns != self.direct_max and "direct" not in self.q_list :
+            random = randint(1,15)
+            if random == 1 and self.direct_qns != self.direct_max and ("direct" not in self.q_list) :
                 self.score += 1
                 print("from direct!!")
                 print(f"the direct qn num for next : {self.direct_qns}")
