@@ -1,3 +1,5 @@
+"""import main_game and start game."""
+
 import Scripts.main_game as main
 
 

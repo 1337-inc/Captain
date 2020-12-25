@@ -5,12 +5,12 @@ import time
 import cv2 as cv2
 from threading import Thread
 from Scripts.music_player import m_player
-from Scripts.styles import Styles
 
 
 # The Video Player
 class VideoPlayer :
     def __init__(self,parent) :
+        """initialize the parent window and set play to false"""
         self.parent = parent
         self.play = False
 
@@ -46,7 +46,7 @@ class VideoPlayer :
         # starting music
         m_player.music_control("project_media\\signal.ogg",True,-1,0)
         m_player.music_control(m_file,False,-1,0)
-        
+
         vid = cv2.VideoCapture(vid_file)
         width = vid.get(cv2.CAP_PROP_FRAME_WIDTH)
         height = vid.get(cv2.CAP_PROP_FRAME_HEIGHT)

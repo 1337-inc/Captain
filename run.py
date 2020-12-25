@@ -1,3 +1,3 @@
-'''The entry point.'''
+"""The entry point."""
 
 import Scripts

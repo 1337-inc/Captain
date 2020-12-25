@@ -6,6 +6,7 @@ from PIL import Image, ImageTk
 class MyBar(tk.Canvas) :
     def __init__(self, master, shape, value=0, maximum=100,
                  bg="#231303", trough_color='#8a7852', bar_color='#f7f4bf'):
+        """creating the alpha mask and creating a custom widget of the given shape and dimensions."""
         # open shape mask with PIL
         im_shape_alpha = Image.open(shape).convert('L')
         # create bar shape image with the choosen backgroound color
@@ -32,12 +33,12 @@ class MyBar(tk.Canvas) :
 
     @property
     def value(self):
-        """Return bar's value'"""
+        """Return bar's value."""
         return self._value
 
     @value.setter
     def value(self, value):
-        """Set bar's value'"""
+        """Set bar's value."""
         self._value = value
         # adjust bar height to value
         self.coords('pbar', 0, self.height, self.width, self.height*(1 - value/self.maximum))

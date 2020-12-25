@@ -5,6 +5,7 @@ import tkinter.ttk as ttk
 # The styles
 class Styles(ttk.Style) :
     def __init__(self,**kwargs) :
+        """Defining all the different widget styles."""
         ttk.Style.__init__(self,**kwargs)
         # the styles
         self.configure("var.TFrame",background="#424242")
@@ -17,7 +18,7 @@ class Styles(ttk.Style) :
         self.configure("skip.TButton",font=("lucida console",23),width=6,height=3,cursor="@hand2",anchor=tk.CENTER)
         self.map("death_pg.TButton",
             foreground=[('pressed', 'black'), ('active', 'white')],
-            background=[('pressed', 'black'), ('active', 'gray')])        
+            background=[('pressed', 'black'), ('active', 'gray')])
 
         self.configure("death_pg.TButton",font=("lucida console",15),width=15,height=1,cursor="@hand2",anchor=tk.CENTER)
         self.map("death_pg.TButton",
@@ -61,7 +62,7 @@ class Styles(ttk.Style) :
         self.configure("head_label.TLabel",background="#424242",font=("lucida console",20,"bold"))
 
         self.configure("death.TLabel",font=("roboto",60,"bold"))
-        
+
         self.configure("ptext1.TLabel",font=("bahnschrift semilight",25))
 
         self.configure("ptext2.TLabel",background="white",font=("bahnschrift",20),foreground="black")

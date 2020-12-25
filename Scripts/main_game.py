@@ -4,9 +4,8 @@ import tkinter.ttk as ttk
 from ttkthemes import ThemedTk
 from random import randint
 from PIL import ImageTk,Image
-from threading import Thread, activeCount
+from threading import Thread
 import pickle
-import time
 from Scripts.client import Client
 from Scripts.music_player import m_player
 from Scripts.splash_pg import SplashScreen
@@ -17,9 +16,11 @@ from functools import partial
 
 
 class GameData(Client) :
+
     """ To Handle Game Data between Server and Client """
 
     def __init__(self,parent:object) :
+        """initialize parent class Client in child class GameData"""
         Client.__init__(self)
         self.parent = parent
 
@@ -61,8 +62,8 @@ class GameData(Client) :
 
     def wipe_data(self) :
         if self.connected == True :
-            self.send("Wipe")
-    
+           self.send("Wipe")
+
     def load_data(self,name:str,code:str) :
         if self.connected == True :
             self.send("Load")
@@ -97,9 +98,11 @@ class GameData(Client) :
 
 
 class Root(ThemedTk) :
+
     """ The Tkinter Interface """
 
     def __init__(self,**kwargs) :
+        """initialize parent class, ThemedTk, in child class, Root"""
         ThemedTk.__init__(self,theme="black",**kwargs)
         self.withdraw()
         # defining the menubar
@@ -131,7 +134,7 @@ class Root(ThemedTk) :
     def clear(self) :
         for widget in self.winfo_children() :
             if widget not in [self.side_bar, self.menubar, self.bg_canvas] :# is not self.side_bar and widget is not self.menubar :
-                widget.destroy() 
+                widget.destroy()
             else :
                 widget.grid_forget()
 
@@ -180,9 +183,9 @@ class Root(ThemedTk) :
         img_btn.pack(anchor="nw")
 
     def menu(self) :
-        def help(type) :
+        def menu_help(help_type) :
             def credits_populate(frame):
-                '''Putting in the lables in the credits page'''
+                """ Putting in the lables in the credits page."""
                 tk.Grid.columnconfigure(frame, 0, weight=1)
                 # defining the lables and hardcoding in the credits page
                 cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
@@ -254,7 +257,7 @@ class Root(ThemedTk) :
                 grp.grid(row=32,column=0,pady=5)
 
             def about_populate(frame) :
-                """Putting in the text box in the about page"""
+                """Putting in the text box in the about page."""
                 tk.Grid.columnconfigure(frame, 0, weight=1)
                 cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
                 cap_title.grid(row=0,column=0,padx=40,pady=30)
@@ -312,7 +315,7 @@ class Root(ThemedTk) :
                 text15_line = str(text14.count("\n") + int(float(text14_line))) + ".0"
                 text16_line = str(text15.count("\n") + int(float(text15_line))) + ".0"
                 text17_line = str(text16.count("\n") + int(float(text16_line))) + ".0"
-                # Creating text widget and insterting text into it 
+                # Creating text widget and insterting text into it
                 text = tk.Text(frame,bg="#424242",width=108,height=50,relief=tk.FLAT)
                 text.insert(text1_line, text1)
                 text.insert(text2_line, text2)
@@ -374,11 +377,11 @@ class Root(ThemedTk) :
                 text.configure(state=tk.DISABLED)
 
             def onFrameConfigure(canvas):
-                '''Reset the scroll region to encompass the inner frame'''
+                """Reset the scroll region to encompass the inner frame."""
                 canvas.configure(scrollregion=canvas.bbox("all"))
             
             def on_mousewheel(event):
-                """enables scroll with the mousewheel"""
+                """enables scroll with the mousewheel."""
                 shift = (event.state & 0x1) != 0
                 scroll = -1 if event.delta > 0 else 1
                 if shift:
@@ -390,7 +393,7 @@ class Root(ThemedTk) :
             window["bg"] = "#424242"
             window.title("Credits")
             window.resizable(0,0)
-            if type == "Credits" :
+            if help_type == "Credits" :
                 width, height = 500, 500
             else :
                 width, height = 870, 600
@@ -406,7 +409,7 @@ class Root(ThemedTk) :
 
             frame.bind("<Configure>", lambda event, canvas=canvas: onFrameConfigure(canvas))
 
-            if type == "Credits" :
+            if help_type == "Credits" :
                 credits_populate(frame)
             else :
                 about_populate(frame)
@@ -454,7 +457,7 @@ class Root(ThemedTk) :
             ttk.Label(frame,text=f"High Score : {game.high_score}",style="ptext2.TLabel").place(relx=0.35,rely=0.79)
  
         self.menubar = tk.Menu(self)
-        # The Game Menu 
+        # The Game Menu
         gamebar = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
         gamebar.add_command(label="Player Profile",command=profile)
         gamebar.add_command(label="Save data",command=partial(self.s_msg,"e_save"))
@@ -463,8 +466,8 @@ class Root(ThemedTk) :
         self.menubar.add_cascade(label="Game",menu=gamebar)
         # The About Menu
         aboutmenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
-        aboutmenu.add_command(label="Credits",command=partial(help,type="Credits"))
-        aboutmenu.add_command(label="About",command=partial(help,type="About"))
+        aboutmenu.add_command(label="Credits",command=partial(menu_help,help_type="Credits"))
+        aboutmenu.add_command(label="About",command=partial(menu_help,help_type="About"))
         self.menubar.add_cascade(label="Help",menu=aboutmenu)
 
     def btn_click(self,nxt_func:object) :
@@ -513,15 +516,15 @@ class Root(ThemedTk) :
         ttk.Button(self,text="Back",style="start_pg.TButton",command=partial(self.btn_click,self.main_page)).place(relx=0.324,rely=0.76,height=100)
         ttk.Button(self,text="Load",style="start_pg.TButton",command=partial(self.btn_click,partial(game.load,name,code))).place(relx=0.509,rely=0.76,height=100)
 
-    def s_msg(self,type:str) :
-        if type == "fail" :
+    def s_msg(self,mssg_type:str) :
+        if mssg_type == "fail" :
             messagebox.showerror("ERROR","Sorry, your game data could not be saved. Please report a bug if you see this")
-        elif type =="ask_save" :
+        elif mssg_type =="ask_save" :
             msg = messagebox.askquestion("Save?","You already have a saved state. Are you sure you want to overwrite this? You previous progress will be lost.")
             return(msg)
-        elif type == "save" :
+        elif mssg_type == "save" :
             messagebox.showinfo("Saved","Your progress has been saved")
-        elif type == "exit" :
+        elif mssg_type == "exit" :
             msg = messagebox.askquestion("Warning!","Are you want to leave without saving your progress?")
             if msg == "yes" :
                 self.exit(True)
@@ -530,33 +533,33 @@ class Root(ThemedTk) :
                 if msg == "yes" :
                     g_data.savedata()
                     self.exit(True)
-        elif type == "l_fail" :
+        elif mssg_type == "l_fail" :
             msg = messagebox.showerror("ERROR","You do not have a saved state")
-        elif type == "e_save" :
+        elif mssg_type == "e_save" :
             msg = messagebox.askquestion("Save?","Do you want to save your progress?")
             if msg == "yes"  :
                 if game.NAME :
                     g_data.savedata()
                 else :
                     self.s_msg("n_state")
-        elif type == "l_tru" :
+        elif mssg_type == "l_tru" :
             msg = messagebox.showinfo("Loaded","Your game state has been loaded. You will be redirected to your reset point")
             if msg == "ok" :
                 game.const_qn()
-        elif type == "sconn_fail" :
+        elif mssg_type == "sconn_fail" :
             msg = messagebox.showerror("ERROR","Sorry, we could not save your data because you are not connected to the server. Please report a bug if you see this")
-        elif type == "lconn_fail" :
+        elif mssg_type == "lconn_fail" :
             msg = messagebox.showerror("ERROR","Sorry, we could not load your data because you are not connected to the server. Please report a bug if you see this")
-        elif type == "conn_fail" :
+        elif mssg_type == "conn_fail" :
             if self.enter :
                 msg = messagebox.showerror("ERROR","Sorry, an error occured while attempting to connect you to the server. Please report a bug if you see this")
-        elif type == "game_over" :
+        elif mssg_type == "game_over" :
             msg = messagebox.showinfo("Loaded","Congrats! You seem to have already reached your destiny. To try again, please create a new avatar and start a new game")
-        elif type == "n_state" :
+        elif mssg_type == "n_state" :
             msg = messagebox.showerror("Sorry","Sorry, you do not have a game state yet. Start a new game or load your game state and try again")
-        elif type == "data_exists" :
+        elif mssg_type == "data_exists" :
             msg = messagebox.showerror("Error","You already have a game state with the same name and code. Please load your game data in the load page or enter a new name and code if you wish to start a new game")
-        elif type == "c-conn_fail" :
+        elif mssg_type == "c-conn_fail" :
             msg = messagebox.showwarning("Warning","You are playing offline right now. So your data will be temporary and would not be accessable later")
 
     def proceed(self,parent:object,name:object,code:object) :    # partial(root.btn_click,partial(game.sequence,sequence="Opening"))
@@ -616,7 +619,7 @@ class Root(ThemedTk) :
         self.bg_canvas.image = bg_image
         self.resizeimage()
         self.bg_canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
-        start_btn = ttk.Button(self,text="Start New Game",style="main.TButton",command=partial(self.btn_click,game.start))
+        start_btn = ttk.Button(self,text="Start New Game",style="main.TButton",command=partial(self.btn_click,self.start_page))
         start_btn.place(relx=0.9,rely=0.35,anchor=tk.CENTER,width=386,height=100)
         load_btn = ttk.Button(self,text="Load Game",style="main.TButton",command=partial(self.btn_click,self.load_page))
         load_btn.place(relx=0.9,rely=0.5,anchor=tk.CENTER,width=386,height=100)
@@ -646,7 +649,7 @@ class Root(ThemedTk) :
             self.bar2.place(rely=0.4)
             self.bar3.place(rely=0.6)
             self.bar4.place(rely=0.8)
-        # logo 
+        # logo
         logo_img = Image.open("project_pics\\cap_logo_invert.PNG")
         logo_new = ImageTk.PhotoImage(logo_img)
         logo_image = ttk.Label(self,image=logo_new,style="img.TLabel")
@@ -734,7 +737,7 @@ class Root(ThemedTk) :
             self.const_qn()
         else :
             text_frame.place(relx=0.35,rely=0.15)
-        # check if char_name to be displayed 
+        # check if char_name to be displayed
         if char_name != None :
             char_name += " :"
         # display text over image
@@ -754,8 +757,11 @@ class Root(ThemedTk) :
 
 
 class Game :
+
     """ Game logic and data handle """
+
     def __init__(self) :
+        """initialize all game variables."""
         self.NAME = None
         self.CODE = None
         self.m_cur = {1:["death_Military1",55,"death_Military2"]}
@@ -780,9 +786,6 @@ class Game :
 
     def save(self) :
         self.saved = True
-
-    def start(self) :
-        root.start_page()
 
     def main(self):
         root.overrideredirect(False)
@@ -813,12 +816,12 @@ class Game :
         if x_cur[1][1]<=5 :
             print("entered game.var_check inside first condition")
             print(f"variable death: {x_cur}")
-            death_params = self.game_over_dict(x_cur,type="first")
+            death_params = self.game_over_dict(x_cur,death_type="first")
             return death_params
         elif x_cur[1][1]>=105 :
             print("entered game.var_check inside second condition")
             print(f"variable death: {x_cur}")
-            death_params = self.game_over_dict(x_cur,type="second")
+            death_params = self.game_over_dict(x_cur,death_type="second")
             return death_params
         else :
             return None
@@ -841,13 +844,13 @@ class Game :
         # self.game_over_pg(d_text,d_str)
         return d_text
 
-    def game_over_dict(self,x_str:dict,type:str) :
+    def game_over_dict(self,x_str:dict,death_type:str) :
         print(f"x_str : {x_str}")
         print("entered game.game_over_dict")
         iteration = 0
         if self.high_score < self.score :
             self.high_score = self.score
-        if type == "first" :
+        if death_type == "first" :
             x_str = x_str[1][0]
         else :
             x_str = x_str[1][2]
@@ -927,7 +930,7 @@ class Game :
         if root.canvas_exists :
             print("canvas gone!!")
             root.bg_canvas.destroy()
-            root.canvas_exists = False 
+            root.canvas_exists = False
         iteration += 1
         seq_open = []
         seq_close = []
@@ -1008,24 +1011,23 @@ class Game :
                 dead = True
         if self.saved == True and iteration == 1 :
             self.saved = False
-        if type(a_str) is not int :
-            if iteration == 1 and a_str.strip() != "a" and type(a_str.strip()) != int and a_str.strip() != "" :
+        if not isinstance(a_str,int) :
+            if iteration == 1 and a_str.strip() != "a" and not isinstance(a_str.strip(),int) and a_str.strip() != "" :
                 if a_str[5] != "_" :
                     self.q_list += [a_str.strip()]
                     print(f"q_list is {self.q_list}")
                     print("@"*30)
-        if type(a_str)==int and file=="project_data\\Direct.txt" and not dead :
+        if isinstance(a_str,int) and file=="project_data\\Direct.txt" and not dead :
             self.qn_num = a_str
             self.qn_func(file)
-        elif type(a_str)==int and file=="project_data\\questions_file.txt" and not dead :
+        elif isinstance(a_str,int) and file=="project_data\\questions_file.txt" and not dead :
             self.qn_num = a_str
             self.qn_func(file)
-        elif type(a_str)!= int and not dead :
+        elif not isinstance(a_str,int) and not dead :
             random = randint(1,10)
-            if random == 1 and self.direct_qns != self.direct_max and "direct" not in self.q_list : # to block all directs: and ("a" not in self.q_list) 
+            if random == 3 and self.direct_qns != self.direct_max and "direct" not in self.q_list :
                 self.score += 1
                 print("from direct!!")
-                print("##$$%%"*30)
                 print(f"the direct qn num for next : {self.direct_qns}")
                 self.q_list += ["direct"]
                 self.qn_num = self.direct_qns
