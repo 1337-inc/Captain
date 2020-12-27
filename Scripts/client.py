@@ -13,8 +13,8 @@ class Client :
         try :
             self.client.connect(self.ADDR)
             self.connected = True
-        except (ConnectionRefusedError,ConnectionError):
-            print("[WinError 10061] No connection could be made because the target machine actively refused it")
+        except (ConnectionRefusedError,ConnectionError) as exception :
+            print(exception)
             self.connected = False
 
     def send(self,msg):
@@ -33,3 +33,5 @@ class Client :
         Client.send(self,self.DISCONNECT_MESSAGE)
         print("[Connection Terminated]")
 
+if __name__ == "__main__" :
+    client = Client()
