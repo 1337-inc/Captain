@@ -7,15 +7,34 @@ class Client :
         self.PORT = 5050
         self.FORMAT = 'utf-8'
         self.DISCONNECT_MESSAGE = "!DISCONNECT"
-        self.SERVER = socket.gethostbyname(socket.gethostname())
+        self.SERVER = None
+        self.connected = False
+        # self.SERVER = socket.gethostbyname(socket.gethostname())
+        # self.ADDR = (self.SERVER, self.PORT)
+        # self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # try :
+        #     self.client.connect(self.ADDR)
+        #     self.connected = True
+        # except (ConnectionRefusedError,ConnectionError) as exception :
+        #     print(exception)
+        #     self.connected = False
+
+    def start_socket(self,server_ip) :
+        # self.SERVER = socket.gethostbyname(socket.gethostname())
+        self.SERVER = server_ip
+        print(f"code showing in client side is {self.SERVER}")
         self.ADDR = (self.SERVER, self.PORT)
+        print(f"address is {self.ADDR}")
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try :
             self.client.connect(self.ADDR)
             self.connected = True
-        except (ConnectionRefusedError,ConnectionError) as exception :
+            print("Connection Established with Server")
+        except Exception as exception :
             print(exception)
             self.connected = False
+            print("Connection Failed")
+        return self.connected
 
     def send(self,msg):
         message = msg.encode(self.FORMAT)
@@ -35,3 +54,4 @@ class Client :
 
 if __name__ == "__main__" :
     client = Client()
+    client.start_socket("192.168.56.1")

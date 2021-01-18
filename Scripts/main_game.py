@@ -150,6 +150,38 @@ class Root(ThemedTk) :
         setwinheight = (self.window_height-height)//2
         return f"{width}x{height}+{setwinwidth}+{setwinheight}"
 
+    def connect_display(self) :
+        def connect_server() :
+            server_ip = code.get().strip()
+            if server_ip != "" :
+                connected = g_data.start_socket(server_ip)
+            else :
+                connected = True
+            if connected :
+                top_win.destroy()
+            else :
+                code.delete(0,"end")
+                error.config(text="Sorry, please check the code and try again. If this problem persists,\n make sure that the server has been started.")
+
+        top_win = tk.Toplevel(self)
+        top_win.geometry("500x200")
+        top_win.resizable(0,0)
+        top_win.config(bg="#424242")
+        # tk.Grid.columnconfigure(top_win,0,weight=1)
+        lbl_text = ttk.Label(top_win,
+                        text="To establish a connection with the server, please enter\n the code given in the server interface. \nIf you wish to play the game without connecting, \nsimply press the proceed button",
+                        style = "creditstext2.TLabel")
+        lbl_text.grid(row=0,column=0,columnspan=2,padx=20)
+        lbl_entry = ttk.Label(top_win,text="Enter Code :",style="main_pg.TLabel")
+        lbl_entry.grid(row=1,column=0,padx=25)
+        code = ttk.Entry(top_win,width=16,font=("bahnschrift semilight condensed",20))
+        code.grid(row=1,column=1,sticky=tk.W,padx=5)
+        code.focus_force()
+        error = ttk.Label(top_win,text=None)
+        error.grid(row=2,columnspan=2)
+        proceed = ttk.Button(top_win,text="Proceed",style="start_pg.TButton",command=connect_server)
+        proceed.grid(row=2,columnspan=2,pady=20)
+
     def play_video(self,vid_file:str,music_file:str,nxt_func:object) :
         self.clear()
         vid_player.player(vid_file,music_file,nxt_func)
@@ -467,6 +499,10 @@ class Root(ThemedTk) :
         aboutmenu.add_command(label="Credits",command=partial(menu_help,help_type="Credits"))
         aboutmenu.add_command(label="About",command=partial(menu_help,help_type="About"))
         self.menubar.add_cascade(label="Help",menu=aboutmenu)
+        # The Server Menu
+        servermenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
+        servermenu.add_command(label="Connect to Server",command=self.connect_display)
+        self.menubar.add_cascade(label="Server",menu=servermenu)
 
     def btn_click(self,nxt_func:object) :
         btn_thread = Thread(target=m_player.music_control,args=("project_media\\button_sound.ogg",False,0,1))
@@ -504,10 +540,10 @@ class Root(ThemedTk) :
         ttk.Label(frame,text="[System Initiating...]",style="start_text.TLabel").grid(row=0,column=0,pady=30,padx=30,sticky="w",columnspan=2)
         ttk.Label(frame,text="[Creating Player Environment...]",style="start_text.TLabel").grid(row=1,column=0,padx=30,sticky="w",columnspan=2)
         ttk.Label(frame,text="Enter player name: ",style="main_pg.TLabel").grid(row=2,column=0,pady=40,padx=30,sticky="w")
-        name = ttk.Entry(frame,width=16,font=("bahnschrift semilight condensed",20)) # ,style="entry.TEntry"
+        name = ttk.Entry(frame,width=16,font=("bahnschrift semilight condensed",20))
         name.grid(row=2,column=1,sticky="w")
         name.focus_force()
-        ttk.Label(frame,text="Create player pass-code: ",style="main_pg.TLabel").grid(row=3,column=0,padx=30,sticky="w")
+        ttk.Label(frame,text="Enter player pass-code: ",style="main_pg.TLabel").grid(row=3,column=0,padx=30,sticky="w")
         code = ttk.Entry(frame,width=16,font=("bahnschrift semilight condensed",20))
         code.grid(row=3,column=1,sticky="w")
 
@@ -548,9 +584,6 @@ class Root(ThemedTk) :
             msg = messagebox.showerror("ERROR","Sorry, we could not save your data because you are not connected to the server. Please report a bug if you see this")
         elif mssg_type == "lconn_fail" :
             msg = messagebox.showerror("ERROR","Sorry, we could not load your data because you are not connected to the server. Please report a bug if you see this")
-        elif mssg_type == "conn_fail" :
-            if self.enter :
-                msg = messagebox.showerror("ERROR","Sorry, an error occured while attempting to connect you to the server. Please report a bug if you see this")
         elif mssg_type == "game_over" :
             msg = messagebox.showinfo("Loaded","Congrats! You seem to have already reached your destiny. To try again, please create a new avatar and start a new game")
         elif mssg_type == "n_state" :
@@ -623,8 +656,8 @@ class Root(ThemedTk) :
         load_btn.place(relx=0.9,rely=0.5,anchor=tk.CENTER,width=386,height=100)
         quit_btn = ttk.Button(self,text="Quit",style="main.TButton",command=partial(self.btn_click,partial(self.exit,False)))
         quit_btn.place(relx=0.9,rely=0.65,anchor=tk.CENTER,width=386,height=100)
-        if g_data.connected == False :
-            self.s_msg("conn_fail")
+        if self.enter :
+            self.connect_display()
 
     def game_over_pg(self,d_text:str,d_str:str) :
         print("entered root.game_over_pg")
@@ -670,9 +703,7 @@ class Root(ThemedTk) :
             game.game_over = True
             self.canvas_exists = True
             btn_func = "Starting_game_again"
-        thread = Thread(target=game.data_reset)
-        thread.start()
-        thread.join() # partial(vid_player.player,"project_media\\glitch.mp4","project_media\\glitch.ogg",func)
+            game.data_reset() # partial(vid_player.player,"project_media\\glitch.mp4","project_media\\glitch.ogg",func)
         ttk.Button(self,text="Continue",style="death_pg.TButton",command=partial(self.btn_click,btn_func)).place(relx=0.6,rely=0.8,width=250,height=80)
         if d_str != "death_end" and g_data.connected :
             g_data.savedata()
@@ -815,7 +846,7 @@ class Game :
             print(f"variable death: {x_cur}")
             death_params = self.game_over_dict(x_cur,death_type="first")
             return death_params
-        elif x_cur[1][1]>=105 :
+        elif x_cur[1][1]>=100 :
             print("entered game.var_check inside second condition")
             print(f"variable death: {x_cur}")
             death_params = self.game_over_dict(x_cur,death_type="second")
@@ -882,6 +913,11 @@ class Game :
         self.c_cur[1][1] = 50
         self.i_cur[1][1] = 50
         self.m_cur[1][1] = 50
+        # setting values in the custom progress bars
+        root.bar1.value = game.r_cur[1][1]
+        root.bar2.value = game.c_cur[1][1]
+        root.bar3.value = game.i_cur[1][1]
+        root.bar4.value = game.m_cur[1][1]
 
     def var_set(self,nxt_func:object,clicked:bool) :
         print("entered game.var_set")
@@ -964,6 +1000,11 @@ class Game :
 
     def const_qn(self,iteration=0) :
         iteration += 1
+        self.score = 0
+        if root.canvas_exists :
+            print("canvas gone!!")
+            root.bg_canvas.destroy()
+            root.canvas_exists = False
         print("entered game.const_qn")
         if self.dead != 0 and iteration == 1 :
             m_player.music_control("project_media\\signal.ogg",False,-1,0)

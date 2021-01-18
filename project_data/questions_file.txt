@@ -27,7 +27,7 @@
 27$$Head Researcher Samuel$HOW DID EVERYONE FIND OUT THAT MY PHD IS FAKE? It's over for me...$$$$Redeem yourself through your future works.$Gossip$
 28$$Katherine$Captain... you're so handsome...$Why, thank you Katherine$Katherine$$Could you stand somewhere else? You are blocking the TV.$a$
 29$CatRecycler2$Head Researcher Samuel$A cat can indeed be recycled to become fuel, fertilizer, food, and much more. All you have to do is kill it... the possibilities are endless...$Well done Samuel.$CatRecycler3$$I never would have guessed.$CatRecycler3$
-30$Pizzeria$General Wilson$It seems Lucas' pizzeria is so popular that Lucas has more public support then you. What should we do?$Let him be.$Pizzaria2$$Take him down.$$152
+30$Pizzeria$General Wilson$It seems Lucas' pizzeria is so popular that Lucas has more public support than you. What should we do?$Let him be.$Pizzaria2$$Take him down.$$152
 31$Friday$The Shaman$The Brotherhood of Friday has increased in popularity. I need money to build a church, so I can start collecting tithes.$Sure$Friday2$$Build it by yourself.$a$
 32$Mafia$Orion$I am the best bounty hunter on the planet. Call me if you want to take anyone out.$Will do.$Orion$$How many contracts have you actually completed?$$33
 33$$Orion$Well... I... umm err... oh would you look at the time? I have to go now, goodbye.$$$$Goodbye.$a$
