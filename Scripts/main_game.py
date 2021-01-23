@@ -214,196 +214,100 @@ class Root(ThemedTk) :
 
     def menu(self) :
         def menu_help(help_type) :
-            def credits_populate(frame):
-                """ Putting in the lables in the credits page."""
-                tk.Grid.columnconfigure(frame, 0, weight=1)
-                # defining the lables and hardcoding in the credits page
-                cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
-                developed = ttk.Label(frame,text="Developed by 1337 incorporated",style="creditshead1.TLabel")
-                team = ttk.Label(frame,text="OUR TEAM",style="creditshead2.TLabel")
-                abhi = ttk.Label(frame,text="• Abhinand D Manoj        ",style="creditstext.TLabel")
-                david = ttk.Label(frame,text="• David Tony Veliath       ",style="creditstext.TLabel")
-                me = ttk.Label(frame,text="• Jovan George Zacharia",style="creditstext.TLabel")
-                rahul = ttk.Label(frame,text="• Rahul Dinesh                 ",style="creditstext.TLabel")
-                special = ttk.Label(frame,text="SPECIAL THANKS",style="creditshead2.TLabel")
-                rinu = ttk.Label(frame,text="Mrs Rinu Mary Joy, our Teacher",style="creditstext.TLabel")
-                parents = ttk.Label(frame,text="Our Parents and Friends",style="creditstext.TLabel")
-                internet = ttk.Label(frame,text="The Internet",style="creditstext.TLabel")
-                websites = ttk.Label(frame,text="WEBSITES",style="creditshead2.TLabel")
-                stack = ttk.Label(frame,text="1. stackoverflow.com",style="creditstext.TLabel")
-                programiz = ttk.Label(frame,text="2. programiz.com      ",style="creditstext.TLabel")
-                reddit = ttk.Label(frame,text="3. reddit.com               ",style="creditstext.TLabel")
-                w3school = ttk.Label(frame,text="4. w3school.com         ",style="creditstext.TLabel")
-                geeks = ttk.Label(frame,text="5. geeksforgeeks.com",style="creditstext.TLabel")
-                youtube = ttk.Label(frame,text="6. youtube.com            ",style="creditstext.TLabel")
-                logo = ttk.Label(frame,text="7.Logomakr.com           ",style="creditstext.TLabel")
-                music = ttk.Label(frame,text="MUSIC AND SOUND EFFECTS",style="creditshead2.TLabel")
-                signal = ttk.Label(frame,text="Signal by drkmnd",style="creditstext.TLabel")
-                motion1 = ttk.Label(frame,text="Sad Violin by MOTION ARRAY ",style="creditstext.TLabel")
-                motion2 = ttk.Label(frame,text="Glitch sound effects by MOTION ARRAY ",style="creditstext.TLabel")
-                star = ttk.Label(frame,text="Star Wars Theme Song By John Williams",style="creditstext.TLabel")
-                video = ttk.Label(frame,text="VIDEO",style="creditshead2.TLabel")
-                glitch = ttk.Label(frame,text="Game Over Glitch by MOTION ARRAY",style="creditstext.TLabel")
-                crawl = ttk.Label(frame,text="Star Wars Intro Creator by Kassel Labs",style="creditstext.TLabel")
-                label = ttk.Label(frame,text="   \n")
-                grp_name = ttk.Label(frame,text="1337 INCORPORATED",style="creditstext2.TLabel")
-                rights = ttk.Label(frame,text="ALL RIGHTS RESERVED",style="creditstext2.TLabel")
-                cap = ttk.Label(frame,text="Captain!! IS A TRADEMARK OF 1337 ",style="creditstext2.TLabel")
-                license_ = ttk.Label(frame,text="INCORPORATED IN INDIA, USED UNDER",style="creditstext2.TLabel")
-                grp = ttk.Label(frame,text="LICENSE BY 1337 INCORPORATED ENTERTAINMENT",style="creditstext2.TLabel")
-                # placingthe lables
-                cap_title.grid(row=0,column=0,padx=40,pady=15)
-                developed.grid(row=1,column=0,pady=10,padx=10)
-                team.grid(row=2,column=0,pady=20,sticky=tk.S)
-                abhi.grid(row=3,column=0)
-                david.grid(row=4,column=0,pady=5)
-                me.grid(row=5,column=0,pady=5)
-                rahul.grid(row=6,column=0,pady=5)
-                special.grid(row=7,column=0,pady=20,sticky=tk.S)
-                rinu.grid(row=8,column=0)
-                parents.grid(row=9,column=0,pady=5)
-                internet.grid(row=10,column=0,pady=5)
-                websites.grid(row=11,column=0,pady=20,sticky=tk.S)
-                stack.grid(row=12,column=0)
-                programiz.grid(row=13,column=0,pady=5)
-                reddit.grid(row=14,column=0,pady=5)
-                w3school.grid(row=15,column=0,pady=5)
-                geeks.grid(row=16,column=0,pady=5)
-                youtube.grid(row=17,column=0,pady=5)
-                logo.grid(row=18,column=0,pady=5)
-                music.grid(row=19,column=0,pady=20,sticky=tk.S)
-                signal.grid(row=20,column=0)
-                motion1.grid(row=21,column=0,pady=5)
-                motion2.grid(row=22,column=0,pady=5)
-                star.grid(row=23,column=0,pady=5)
-                video.grid(row=24,column=0,pady=20,sticky=tk.S)
-                glitch.grid(row=25,column=0)
-                crawl.grid(row=26,column=0,pady=5)
-                label.grid(row=27,column=0,pady=10)
-                grp_name.grid(row=28,column=0,pady=5)
-                rights.grid(row=29,column=0,pady=5)
-                cap.grid(row=30,column=0,pady=5)
-                license_.grid(row=31,column=0,pady=5)
-                grp.grid(row=32,column=0,pady=5)
+            def credits(frame) :
+                def populate(tple) :
+                    label = ttk.Label(frame,text=tple[0],style=tple[1])
+                    label.grid(row=lst.index(tple),column=0,padx=tple[2],pady=tple[3],sticky=tple[4])
 
-            def about_populate(frame) :
-                """Putting in the text box in the about page."""
+                tk.Grid.columnconfigure(frame, 0, weight=1)
+                lst = [("Captain!!","death.TLabel",40,15,None),
+                    ("Developed by 1337 incorporated","creditshead1.TLabel",10,10,None),
+                    ("OUR TEAM","creditshead2.TLabel",0,20,None),
+                    ("• Abhinand D Manoj        ","creditstext.TLabel",0,0,None),
+                    ("• David Tony Veliath       ","creditstext.TLabel",0,5,None),
+                    ("• Jovan George Zacharia","creditstext.TLabel",0,5,None),
+                    ("• Rahul Dinesh                 ","creditstext.TLabel",0,5,None),
+                    ("SPECIAL THANKS","creditshead2.TLabel",0,20,tk.S),
+                    ("Mrs Rinu Mary Joy, our Teacher","creditstext.TLabel",0,0,None),
+                    ("Our Parents and Friends","creditstext.TLabel",0,5,None),
+                    ("The Internet","creditstext.TLabel",0,5,None),
+                    ("WEBSITES","creditshead2.TLabel",0,20,tk.S),
+                    ("1.Logomakr.com           ","creditstext.TLabel",0,5,None),
+                    ("MUSIC AND SOUND EFFECTS","creditshead2.TLabel",0,20,tk.S),
+                    ("Signal by drkmnd","creditstext.TLabel",0,0,None),
+                    ("Sad Violin by MOTION ARRAY ","creditstext.TLabel",0,5,None),
+                    ("Glitch sound effects by MOTION ARRAY ","creditstext.TLabel",0,5,None),
+                    ("Star Wars Theme Song By John Williams","creditstext.TLabel",0,5,None),
+                    ("VIDEO","creditshead2.TLabel",0,20,tk.S),
+                    ("Game Over Glitch by MOTION ARRAY","creditstext.TLabel",0,0,None),
+                    ("Star Wars Intro Creator by Kassel Labs","creditstext.TLabel",0,5,None),
+                    ("   \n",None,0,10,None),
+                    ("1337 INCORPORATED","creditstext2.TLabel",0,5,None),
+                    ("ALL RIGHTS RESERVED","creditstext2.TLabel",0,5,None),
+                    ("Captain!! IS A TRADEMARK OF 1337 ","creditstext2.TLabel",0,5,None),
+                    ("INCORPORATED IN INDIA, USED UNDER","creditstext2.TLabel",0,5,None),
+                    ("LICENSE BY 1337 INCORPORATED ENTERTAINMENT","creditstext2.TLabel",0,5,None)]
+                for i in lst :
+                    populate(i)
+
+            def about(frame) :
+                def populate() :
+                    text.insert(txt_line[i],txt_list[i])
+                    if i != (len(txt_list)-1) and i != 0 :
+                        text.tag_add(f"{i+1}", str(float(txt_line[i])+1), txt_line[i+1])
+                    elif i == 0 :
+                        text.tag_add(f"{i+1}", "1.0", txt_line[i+1])
+                    else :
+                        text.tag_add(f"{i+1}", str(float(txt_line[i])+1), tk.END)
+                    text.tag_config(f"{i+1}", foreground="white", font=txt_dict[i+1])
+                
                 tk.Grid.columnconfigure(frame, 0, weight=1)
                 cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
-                cap_title.grid(row=0,column=0,padx=40,pady=30)
-                # the text to display in text box
-                text1 = "CAPTAIN IS A FREE TO PLAY, CHOICE-BASED GAME WHERE THE PLAYER HAS 2 CHOICES TO ANSWER THE GIVEN QUESTIONS AND WORK THEIR WAY TO REACH THE FINAL ENDING OF THE GAME, WHILE STAYING IN POWER.THERE ARE ALSO 20+ DIFFERENT ENDINGS THAT YOU CAN ENCOUNTER IN THE GAME, DEPENDING ON THE CHOICES YOU MAKE."
-                text2 = "\n\nFIND YOUR WAY THROUGH THE GAME TO REACH THE FINAL ENDING OR UNCOVER DIFFERENT ENDINGS OF THE GAME AS YOU PLAY, WHILE YOU ARE IN POWER."
-                text3 = "\n\n\n\nNOTE: CAPTAIN!! REQUIRES YOU TO START THE SERVER APPLICATION, SEPERATELY WITH THE GAME (INSTALLED WITH THE GAME) INORDER TO SAVE YOUR PROGRESS IN THE GAME."
-                text4 = "\n\n\n\nHOW TO PLAY:"
-                text5 = "\n\n• THE AIM OF THE GAME IS SIMPLE: TO CHOOSE ANY OF THE 2 OPTIONS (THAT YOU THINK IS RIGHT) FOR THE GIVEN QUESTIONS AND TRY TO DISCOVER THE FINAL ENDING AMONG THE DIFFERENT POSSIBLE ENDINGS OF THE GAME."
-                text6 = "\n\n• WHILE DECIDING TO CHOOSE AN OPTION FOR A GIVEN QUESTION, THE PLAYER HAS TO KEEP TRACK OF THE PROGRESS METER/BAR METER LOCATED ON THE RIGHT SIDE OF THE GAME."
-                text7 = "\n\n• THE PLAYER STATUS TELLS YOU THE NUMBER OF DAYS YOU HAVE BEEN IN POWER.EACH DAY IS CALCULATED PER QUESTION. ONCE YOU DIE AND RESPAWN, YOUR PLAYER STATUS WILL RESTART TO 'DAYS IN POWER: 1'."
-                text8 = "\n\nYOUR HIGHSCORE IS CALCULATED BY KEEPING TRACK OF YOUR PLAYER STATUS. SO TRY TO SURVIVE FOR AS LONG AS YOU CAN!"
-                text9 = "\n\n\n\nTHE PROGRESS METER/BAR METER KEEPS A TRACK ON HOW WELL YOU ARE SERVING EACH SECTOR OF THE SOCIETY."
-                text10 = "\n\nTHE 4 PROGRESS METERS ARE: "
-                text11 = "\n\n1) RESEARCH PROGRESS METER"
-                text12 = "\n\n2) COMMON PUBLIC PROGRESS METER"
-                text13 = "\n\n3) TREASURY/MONEY PROGRESS METER"
-                text14 = "\n\n4) ARMY PROGRESS METER"
-                text15 = "\n\nTHE PLAYER HAS TO KEEP THE 4 BARS BALANCED WHILE CHOOSING THE APPROPRIATE/LOGICAL OPTIONS FOR A GIVEN QUESTION AND MUST MAKE SURE THAT NONE OF THE BARS BECOME FULL OR EMPTY."
-                text16 = "\n\nIN CASE ANY OF THE 4 BARS BECOME FULL OR EMPTY, YOU WILL IMMEDIATELY LOSE THE GAME."
-                text17 = "\n\n\n\nTRY TO STAY IN POWER AS LONG AS YOU CAN, DISCOVER THE ULTIMATE ENDING AMONG THE DIFFERENT ENDINGS IN THE GAME, AND SHOW YOUR FELLOW CAPTAINS WHO THE REAL CAPTAIN IS!"
-                # adding \n wherever required
-                text1 = game.checkstr(text1, 70)
-                text2 = game.checkstr(text2, 70)
-                text3 = game.checkstr(text3, 70)
-                text4 = game.checkstr(text4, 70)
-                text5 = game.checkstr(text5, 70)
-                text6 = game.checkstr(text6, 70)
-                text7 = game.checkstr(text7, 70)
-                text8 = game.checkstr(text8, 70)
-                text9 = game.checkstr(text9, 70)
-                text10 = game.checkstr(text10, 70)
-                text11 = game.checkstr(text11, 70)
-                text12 = game.checkstr(text12, 70)
-                text13 = game.checkstr(text13, 70)
-                text14 = game.checkstr(text14, 70)
-                text15 = game.checkstr(text15, 70)
-                text16 = game.checkstr(text16, 70)
-                text17 = game.checkstr(text17, 70)
-                # Determining line number of text
-                text1_line = "1.0"
-                text2_line = str(text1.count("\n") + 2) + ".0"
-                text3_line = str(text2.count("\n") + int(float(text2_line))) + ".0"
-                text4_line = str(text3.count("\n") + int(float(text3_line))) + ".0"
-                text5_line = str(text4.count("\n") + int(float(text4_line))) + ".0"
-                text6_line = str(text5.count("\n") + int(float(text5_line))) + ".0"
-                text7_line = str(text6.count("\n") + int(float(text6_line))) + ".0"
-                text8_line = str(text7.count("\n") + int(float(text7_line))) + ".0"
-                text9_line = str(text8.count("\n") + int(float(text8_line))) + ".0"
-                text10_line = str(text9.count("\n") + int(float(text9_line))) + ".0"
-                text11_line = str(text10.count("\n") + int(float(text10_line))) + ".0"
-                text12_line = str(text11.count("\n") + int(float(text11_line))) + ".0"
-                text13_line = str(text12.count("\n") + int(float(text12_line))) + ".0"
-                text14_line = str(text13.count("\n") + int(float(text13_line))) + ".0"
-                text15_line = str(text14.count("\n") + int(float(text14_line))) + ".0"
-                text16_line = str(text15.count("\n") + int(float(text15_line))) + ".0"
-                text17_line = str(text16.count("\n") + int(float(text16_line))) + ".0"
-                # Creating text widget and insterting text into it
+                # Creating the text widget
                 text = tk.Text(frame,bg="#424242",width=108,height=50,relief=tk.FLAT)
-                text.insert(text1_line, text1)
-                text.insert(text2_line, text2)
-                text.insert(text3_line, text3)
-                text.insert(text4_line, text4)
-                text.insert(text5_line, text5)
-                text.insert(text6_line, text6)
-                text.insert(text7_line, text7)
-                text.insert(text8_line, text8)
-                text.insert(text9_line, text9)
-                text.insert(text10_line, text10)
-                text.insert(text11_line, text11)
-                text.insert(text12_line, text12)
-                text.insert(text13_line, text13)
-                text.insert(text14_line, text14)
-                text.insert(text15_line, text15)
-                text.insert(text16_line, text16)
-                text.insert(text17_line, text17)
+                cap_title.grid(row=0,column=0,padx=40,pady=30)
                 text.grid(sticky="nsew",pady=20)
-                # adding tags according to previously determined line numbers
-                text.tag_add("1", "1.0", text2_line)
-                text.tag_add("2", str(float(text2_line)+1), text3_line)
-                text.tag_add("3", str(float(text3_line)+1), text4_line)
-                text.tag_add("4", str(float(text4_line)+1), text5_line)
-                text.tag_add("5", str(float(text5_line)+1), text6_line)
-                text.tag_add("6", str(float(text6_line)+1), text7_line)
-                text.tag_add("7", str(float(text7_line)+1), text8_line)
-                text.tag_add("8", str(float(text8_line)+1), text9_line)
-                text.tag_add("9", str(float(text9_line)+1), text10_line)
-                text.tag_add("10", str(float(text10_line)+1), text11_line)
-                text.tag_add("11", str(float(text11_line)+1), text12_line)
-                text.tag_add("12", str(float(text12_line)+1), text13_line)
-                text.tag_add("13", str(float(text13_line)+1), text14_line)
-                text.tag_add("14", str(float(text14_line)+1), text15_line)
-                text.tag_add("15", str(float(text15_line)+1), text16_line)
-                text.tag_add("16", str(float(text16_line)+1), text17_line)
-                text.tag_add("17", str(float(text17_line)+1), tk.END)
-                # configuring tags
+                txt_lst = [
+                    "CAPTAIN IS A FREE TO PLAY, CHOICE-BASED GAME WHERE THE PLAYER HAS 2 CHOICES TO ANSWER THE GIVEN QUESTIONS AND WORK THEIR WAY TO REACH THE FINAL ENDING OF THE GAME, WHILE STAYING IN POWER.THERE ARE ALSO 20+ DIFFERENT ENDINGS THAT YOU CAN ENCOUNTER IN THE GAME, DEPENDING ON THE CHOICES YOU MAKE.",
+                    "\n\nFIND YOUR WAY THROUGH THE GAME TO REACH THE FINAL ENDING OR UNCOVER DIFFERENT ENDINGS OF THE GAME AS YOU PLAY, WHILE YOU ARE IN POWER.",
+                    "\n\n\n\nNOTE: CAPTAIN!! REQUIRES YOU TO START THE SERVER APPLICATION, SEPERATELY WITH THE GAME (INSTALLED WITH THE GAME) INORDER TO SAVE YOUR PROGRESS IN THE ",
+                    "\n\n\n\nHOW TO PLAY:",
+                    "\n\n• THE AIM OF THE GAME IS SIMPLE: TO CHOOSE ANY OF THE 2 OPTIONS (THAT YOU THINK IS RIGHT) FOR THE GIVEN QUESTIONS AND TRY TO DISCOVER THE FINAL ENDING AMONG THE DIFFERENT POSSIBLE ENDINGS OF THE ",
+                    "\n\n• WHILE DECIDING TO CHOOSE AN OPTION FOR A GIVEN QUESTION, THE PLAYER HAS TO KEEP TRACK OF THE PROGRESS METER/BAR METER LOCATED ON THE RIGHT SIDE OF THE ",
+                    "\n\n• THE PLAYER STATUS TELLS YOU THE NUMBER OF DAYS YOU HAVE BEEN IN POWER.EACH DAY IS CALCULATED PER QUESTION. ONCE YOU DIE AND RESPAWN, YOUR PLAYER STATUS WILL RESTART TO 'DAYS IN POWER: 1'.",
+                    "\n\nYOUR HIGHSCORE IS CALCULATED BY KEEPING TRACK OF YOUR PLAYER STATUS. SO TRY TO SURVIVE FOR AS LONG AS YOU CAN!",
+                    "\n\n\n\nTHE PROGRESS METER/BAR METER KEEPS A TRACK ON HOW WELL YOU ARE SERVING EACH SECTOR OF THE SOCIETY.",
+                    "\n\nTHE 4 PROGRESS METERS ARE: ",
+                    "\n\n1) RESEARCH PROGRESS METER",
+                    "\n\n2) COMMON PUBLIC PROGRESS METER",
+                    "\n\n3) TREASURY/MONEY PROGRESS METER",
+                    "\n\n4) ARMY PROGRESS METER",
+                    "\n\nTHE PLAYER HAS TO KEEP THE 4 BARS BALANCED WHILE CHOOSING THE APPROPRIATE/LOGICAL OPTIONS FOR A GIVEN QUESTION AND MUST MAKE SURE THAT NONE OF THE BARS BECOME FULL OR EMPTY.",
+                    "\n\nIN CASE ANY OF THE 4 BARS BECOME FULL OR EMPTY, YOU WILL IMMEDIATELY LOSE THE ",
+                    "\n\n\n\nTRY TO STAY IN POWER AS LONG AS YOU CAN, DISCOVER THE ULTIMATE ENDING AMONG THE DIFFERENT ENDINGS IN THE GAME, AND SHOW YOUR FELLOW CAPTAINS WHO THE REAL CAPTAIN IS!"
+                ]
+                txt_list = list(map(game.checkstr,txt_lst))
+                txt_list += ["\n\n\n\nTo know more about the game, visit our GitHub repo:\n https://www.github.com/1337-inc/Captain\n or, visit our website:\n http://1337inc-captain.website2.me "]
                 text_font = ("HP Simplified Hans",18)
                 heading_font = ("bahnschrift",18,"underline","bold")
                 custom_font1 = ("bahnschrift",18,"bold")
-                text.tag_config("1", foreground="white", font=text_font)
-                text.tag_config("2", foreground="white", font=text_font)
-                text.tag_config("3", foreground="white", font=custom_font1)
-                text.tag_config("4", foreground="white", font=heading_font)
-                text.tag_config("5", foreground="white", font=text_font)
-                text.tag_config("6", foreground="white", font=text_font)
-                text.tag_config("7", foreground="white", font=text_font)
-                text.tag_config("8", foreground="white", font=text_font)
-                text.tag_config("9", foreground="white", font=text_font)
-                text.tag_config("10", foreground="white", font=text_font)
-                text.tag_config("11", foreground="white", font=custom_font1)
-                text.tag_config("12", foreground="white", font=custom_font1)
-                text.tag_config("13", foreground="white", font=custom_font1)
-                text.tag_config("14", foreground="white", font=custom_font1)
-                text.tag_config("15", foreground="white", font=text_font)
-                text.tag_config("16", foreground="white", font=custom_font1)
-                text.tag_config("17", foreground="white", font=text_font)
+                txt_line = ["1.0"]
+                txt_dict = {1:text_font,2:text_font,
+                    3:custom_font1,4:heading_font,
+                    5:text_font,6:text_font,
+                    7:text_font,8:text_font,
+                    9:text_font,10:text_font,
+                    11:custom_font1,12:custom_font1,
+                    13:custom_font1,14:custom_font1,
+                    15:text_font,16:custom_font1,
+                    17:text_font,18:custom_font1}
+                for i in range(1,len(txt_list)) :
+                    if i != 1 :
+                        txt_line += [str(txt_list[i-1].count("\n") + int(float(txt_line[i-1]))) + ".0"]
+                    else :
+                        txt_line += [str(txt_list[0].count("\n") + 2) + ".0"]
+                for i in range(len(txt_list)) :
+                    populate()
                 text.configure(state=tk.DISABLED)
 
             def onFrameConfigure(canvas):
@@ -440,9 +344,9 @@ class Root(ThemedTk) :
             frame.bind("<Configure>", lambda event, canvas=canvas: onFrameConfigure(canvas))
 
             if help_type == "Credits" :
-                credits_populate(frame)
+                credits(frame)
             else :
-                about_populate(frame)
+                about(frame)
 
         def profile() :
             profile = tk.Toplevel(self)
@@ -1098,7 +1002,7 @@ class Game :
         #    self.qn_func(file="project_data\\death.txt")
             self.qn_func("project_data\\death.txt")
 
-    def checkstr(self, text:str, index:int) : #t is the text variable
+    def checkstr(self, text:str, index=70) : #t is the text variable
         if len(text) > index:
             if not text[index-1].isspace():
                 ind = index-1

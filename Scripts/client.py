@@ -9,18 +9,8 @@ class Client :
         self.DISCONNECT_MESSAGE = "!DISCONNECT"
         self.SERVER = None
         self.connected = False
-        # self.SERVER = socket.gethostbyname(socket.gethostname())
-        # self.ADDR = (self.SERVER, self.PORT)
-        # self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # try :
-        #     self.client.connect(self.ADDR)
-        #     self.connected = True
-        # except (ConnectionRefusedError,ConnectionError) as exception :
-        #     print(exception)
-        #     self.connected = False
 
     def start_socket(self,server_ip) :
-        # self.SERVER = socket.gethostbyname(socket.gethostname())
         self.SERVER = server_ip
         print(f"code showing in client side is {self.SERVER}")
         self.ADDR = (self.SERVER, self.PORT)
