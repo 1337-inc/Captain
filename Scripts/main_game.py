@@ -214,7 +214,7 @@ class Root(ThemedTk) :
 
     def menu(self) :
         def menu_help(help_type) :
-            def credits(frame) :
+            def credits_(frame) :
                 def populate(tple) :
                     label = ttk.Label(frame,text=tple[0],style=tple[1])
                     label.grid(row=lst.index(tple),column=0,padx=tple[2],pady=tple[3],sticky=tple[4])
@@ -260,7 +260,7 @@ class Root(ThemedTk) :
                     else :
                         text.tag_add(f"{i+1}", str(float(txt_line[i])+1), tk.END)
                     text.tag_config(f"{i+1}", foreground="white", font=txt_dict[i+1])
-                
+
                 tk.Grid.columnconfigure(frame, 0, weight=1)
                 cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
                 # Creating the text widget
@@ -344,7 +344,7 @@ class Root(ThemedTk) :
             frame.bind("<Configure>", lambda event, canvas=canvas: onFrameConfigure(canvas))
 
             if help_type == "Credits" :
-                credits(frame)
+                credits_(frame)
             else :
                 about(frame)
 
