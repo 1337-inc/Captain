@@ -106,7 +106,7 @@ class Root(ThemedTk) :
         # defining the menubar
         self.menu()
         # setup stuff goes here
-        self.configure(bg = "#424242")
+        self.configure(bg = "black")
         self.columnconfigure(0,weight=1)
         self.title("Captain!!")
         self.iconbitmap("project_pics\\cap_desktop.ico")
@@ -115,17 +115,17 @@ class Root(ThemedTk) :
         # side bar
         self.side_bar = ttk.Frame(self,height=700,width=120,style="var.TFrame")
         # defining the objects for the progress bars
-        self.bar1 = MyBar(self.side_bar, shape="project_pics\\research.png", value=50, bg="#424242", trough_color='white', bar_color='gray54')
-        self.bar2 = MyBar(self.side_bar, shape="project_pics\\man.png", value=50, bg="#424242", trough_color='lavender', bar_color='gray54')
-        self.bar3 = MyBar(self.side_bar, shape="project_pics\\dollar.png", value=50, bg="#424242", trough_color='lavender', bar_color='gray54')
-        self.bar4 = MyBar(self.side_bar, shape="project_pics\\sword.png", value=50, bg="#424242", trough_color='lavender', bar_color='gray54')
+        self.bar1 = MyBar(self.side_bar, shape="project_pics\\research.png", value=50, bg="black", trough_color='white', bar_color='gray54')
+        self.bar2 = MyBar(self.side_bar, shape="project_pics\\man.png", value=50, bg="black", trough_color='lavender', bar_color='gray54')
+        self.bar3 = MyBar(self.side_bar, shape="project_pics\\dollar.png", value=50, bg="black", trough_color='lavender', bar_color='gray54')
+        self.bar4 = MyBar(self.side_bar, shape="project_pics\\sword.png", value=50, bg="black", trough_color='lavender', bar_color='gray54')
         # the exit protocol
         self.protocol("WM_DELETE_WINDOW",lambda: self.exit(leave=False))
         self.enter = True
         # Background image of existing page and its Canvas
         self.bg_image = None
         self.canvas_exists = True
-        self.bg_canvas = tk.Canvas(self,bg="#424242",width=self.window_width,height=self.window_height)
+        self.bg_canvas = tk.Canvas(self,bg="black",width=self.window_width,height=self.window_height)
         self.bg_canvas.bind('<Configure>',self.resizeimage)
         self.bg_img = self.bg_canvas.create_image(0, 0, anchor = tk.NW)
 
@@ -166,7 +166,7 @@ class Root(ThemedTk) :
         top_win = tk.Toplevel(self)
         top_win.geometry("500x200")
         top_win.resizable(0,0)
-        top_win.config(bg="#424242")
+        top_win.config(bg="black")
         # tk.Grid.columnconfigure(top_win,0,weight=1)
         lbl_text = ttk.Label(top_win,
                         text="To establish a connection with the server, please enter\n the code given in the server interface. \nIf you wish to play the game without connecting, \nsimply press the proceed button",
@@ -197,7 +197,7 @@ class Root(ThemedTk) :
             ttk.Button(mssgwin,text="dammit",command=mssgwin.destroy,style="mssg.TButton").place(relx=0.27,rely=0.78)
         # Toplevel window
         mssgwin = tk.Toplevel(self)
-        mssgwin["bg"] = "#424242"
+        mssgwin["bg"] = "black"
         mssgwin.title("[System Message...]")
         # opening background image
         img = Image.open("project_pics\\mail.png")
@@ -264,7 +264,7 @@ class Root(ThemedTk) :
                 tk.Grid.columnconfigure(frame, 0, weight=1)
                 cap_title = ttk.Label(frame,text="Captain!!",style="death.TLabel")
                 # Creating the text widget
-                text = tk.Text(frame,bg="#424242",width=108,height=50,relief=tk.FLAT)
+                text = tk.Text(frame,bg="black",width=108,height=50,relief=tk.FLAT)
                 cap_title.grid(row=0,column=0,padx=40,pady=30)
                 text.grid(sticky="nsew",pady=20)
                 txt_lst = [
@@ -324,14 +324,14 @@ class Root(ThemedTk) :
                     canvas.yview_scroll(scroll, "units")
 
             window = tk.Toplevel(self)
-            window["bg"] = "#424242"
+            window["bg"] = "black"
             window.title("Credits")
             window.resizable(0,0)
             if help_type == "Credits" :
                 width, height = 500, 500
             else :
                 width, height = 870, 600
-            canvas = tk.Canvas(window, background="#424242", width=width, height=height)
+            canvas = tk.Canvas(window, background="black", width=width, height=height)
             canvas.bind_all("<MouseWheel>", on_mousewheel)
             frame = ttk.Frame(canvas)
             vsb = ttk.Scrollbar(window, orient="vertical", command=canvas.yview)
@@ -353,7 +353,7 @@ class Root(ThemedTk) :
             profile.title("Player Profile")
             profile.resizable(0,0)
             profile.geometry("500x500")
-            profile["bg"] = "#424242"
+            profile["bg"] = "black"
             # Text box
             text_box = Image.open("project_pics\\text_box1.png")
             width,height = text_box.size
@@ -392,19 +392,19 @@ class Root(ThemedTk) :
 
         self.menubar = tk.Menu(self)
         # The Game Menu
-        gamebar = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
+        gamebar = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="black")
         gamebar.add_command(label="Player Profile",command=profile)
         gamebar.add_command(label="Save data",command=partial(self.s_msg,"e_save"))
         gamebar.add_separator()
         gamebar.add_command(label="Quit",command=partial(self.exit,False))
         self.menubar.add_cascade(label="Game",menu=gamebar)
         # The About Menu
-        aboutmenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
+        aboutmenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="black")
         aboutmenu.add_command(label="Credits",command=partial(menu_help,help_type="Credits"))
         aboutmenu.add_command(label="About",command=partial(menu_help,help_type="About"))
         self.menubar.add_cascade(label="Help",menu=aboutmenu)
         # The Server Menu
-        servermenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="#424242")
+        servermenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="black")
         servermenu.add_command(label="Connect to Server",command=self.connect_display)
         self.menubar.add_cascade(label="Server",menu=servermenu)
 
@@ -545,7 +545,7 @@ class Root(ThemedTk) :
 
     def main_page(self) :
         if self.canvas_exists == False :
-            self.bg_canvas = tk.Canvas(self,width=self.window_width,height=self.window_height,bg="#424242")
+            self.bg_canvas = tk.Canvas(self,width=self.window_width,height=self.window_height,bg="black")
             self.bg_canvas.bind('<Configure>',self.resizeimage)
         self.clear()
         self.bg_image = Image.open('project_pics\\main_pg.png')
