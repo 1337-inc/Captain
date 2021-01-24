@@ -10,7 +10,7 @@ class Client :
         self.SERVER = None
         self.connected = False
 
-    def start_socket(self,server_ip) :
+    def start_socket(self,server_ip:str) :
         self.SERVER = server_ip
         print(f"code showing in client side is {self.SERVER}")
         self.ADDR = (self.SERVER, self.PORT)
@@ -26,7 +26,7 @@ class Client :
             print("Connection Failed")
         return self.connected
 
-    def send(self,msg):
+    def send(self,msg:str):
         message = msg.encode(self.FORMAT)
         msg_length = len(message)
         send_length = str(msg_length).encode(self.FORMAT)

@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 
 # The Custom Variable Widgets
 class MyBar(tk.Canvas) :
-    def __init__(self, master, shape, value=0, maximum=100,
+    def __init__(self, master:object, shape:object, value=0, maximum=100,
                  bg="#231303", trough_color='#8a7852', bar_color='#f7f4bf'):
         """Creating the alpha mask and creating a custom widget of the given shape and dimensions."""
         # open shape mask with PIL
@@ -37,7 +37,7 @@ class MyBar(tk.Canvas) :
         return self._value
 
     @value.setter
-    def value(self, value):
+    def value(self, value:int):
         """Set bar's value."""
         self._value = value
         # adjust bar height to value

@@ -8,7 +8,7 @@ class MusicPlayer :
         # starting music
         self.music_control("project_media\\signal.ogg",False,-1,0)
 
-    def music_control(self,track_loc,stop,loop,channel) :
+    def music_control(self,track_loc:str,stop:bool,loop:int,channel:int) :
         if stop == True :
             mixer.Channel(channel).stop()
         elif stop == None :

@@ -4,7 +4,7 @@ import tkinter.ttk as ttk
 from ttkthemes import ThemedTk
 
 class SplashScreen :
-    def __init__(self,parent,nxt_func) :
+    def __init__(self,parent:object,nxt_func:object) :
         """Initialize main background image and set widow size."""
         self.parent = parent
         self.parent.overrideredirect(True)

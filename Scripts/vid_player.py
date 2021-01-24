@@ -9,12 +9,12 @@ from Scripts.music_player import m_player
 
 # The Video Player
 class VideoPlayer :
-    def __init__(self,parent) :
+    def __init__(self,parent:object) :
         """Initialize the parent window and set play to false."""
         self.parent = parent
         self.play = False
 
-    def player(self,vid_file,m_file,nxt_func):
+    def player(self,vid_file:str,m_file:str,nxt_func:object):
         def get_frame():
             ret,frame = vid.read()
             if ret and self.play :
