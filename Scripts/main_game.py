@@ -438,7 +438,7 @@ class Root(ThemedTk) :
         self.resizeimage()
         self.bg_canvas.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
         # frame and text
-        frame = ttk.Frame(self,width=500,height=400,style="start.TFrame")
+        frame = ttk.Frame(self,width=500,height=400,style="header.TFrame")
         frame.grid_propagate(0)
         frame.place(relx=0.325,rely=0.2)
         ttk.Label(frame,text="[System Initiating...]",style="start_text.TLabel").grid(row=0,column=0,pady=30,padx=30,sticky="w",columnspan=2)
