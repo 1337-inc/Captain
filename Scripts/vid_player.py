@@ -31,10 +31,9 @@ class VideoPlayer :
                 self.canvas.image=photo
                 self.parent.after(delay,update)
             else :
-                time.sleep(0.01)
                 # stopping vid_music and starting game music
-                m_player.music_control(m_file,True,-1,0)
-                m_player.music_control("project_media\\signal.ogg",False,-1,0)
+                m_player.playing = ""
+                time.sleep(0.01)
                 nxt_func()
 
         def skip() :
@@ -44,9 +43,7 @@ class VideoPlayer :
         self.play = True
 
         # starting music
-        m_player.music_control("project_media\\signal.ogg",True,-1,0)
-        m_player.music_control(m_file,False,-1,0)
-
+        m_player.playing = m_file
         vid = cv2.VideoCapture(vid_file)
         width = vid.get(cv2.CAP_PROP_FRAME_WIDTH)
         height = vid.get(cv2.CAP_PROP_FRAME_HEIGHT)

@@ -76,3 +76,7 @@ class Styles(ttk.Style) :
         self.configure("creditstext.TLabel",font=("bahnschrift",20,"italic"),background="black")
 
         self.configure("creditstext2.TLabel",font=("HP Simplified Hans",15),background="black")
+
+        self.configure("music.TRadiobutton", background="black", font=("HP Simplified Hans",20))
+
+        self.configure("music.TLabel",background="black",font=("lucida console",15),foreground="white")

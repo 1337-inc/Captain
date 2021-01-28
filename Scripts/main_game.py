@@ -150,6 +150,29 @@ class Root(ThemedTk) :
         setwinheight = (self.window_height-height)//2
         return f"{width}x{height}+{setwinwidth}+{setwinheight}"
 
+    def music_display(self) :
+        def set_music():
+            new_music = var.get()
+            m_player.playing = music_dict[new_music]
+            label.config(text=f"Now playing... {new_music}")
+        music_dict = {"Signal - DRKMND":"project_media\\signal.ogg","Jarico-island":"project_media\\vlog.ogg","Overdrive - Corbyn Kites":"project_media\\overdrive.ogg"}
+        win = tk.Toplevel(self)
+        win.geometry("500x600")
+        win.config(background="black")
+        head_label = ttk.Label(win,text="Choose your rhythm",style="head_label.TLabel")
+        head_label.place(relx=0.5,rely=0.1,anchor=tk.CENTER)
+        var = tk.StringVar()
+        m_frame = tk.Frame(win,width=200,height=300,background="black")
+        m_frame.place(relx=0.5,rely=0.5,anchor=tk.CENTER)
+        music1 = ttk.Radiobutton(m_frame, text="Signal - DRKMND", variable=var, value="Signal - DRKMND", command=set_music, style="music.TRadiobutton")
+        music1.grid(sticky="nsew",pady=20)
+        music2 = ttk.Radiobutton(m_frame, text="Jarico-island", variable=var, value="Jarico-island", command=set_music, style="music.TRadiobutton")
+        music2.grid(sticky="nsew",pady=20)
+        music3 = ttk.Radiobutton(m_frame, text="Overdrive - Corbyn Kites", variable=var, value="Overdrive - Corbyn Kites", command=set_music, style="music.TRadiobutton")
+        music3.grid(sticky="nsew",pady=20)
+        label = ttk.Label(win,text=f"Now playing... {list(music_dict.keys())[list(music_dict.values()).index(m_player.playing)]}",style="music.TLabel")
+        label.place(relx=0.5,rely=0.8,anchor=tk.CENTER)
+
     def connect_display(self) :
         def connect_server() :
             server_ip = code.get().strip()
@@ -333,7 +356,7 @@ class Root(ThemedTk) :
                 width, height = 870, 600
             canvas = tk.Canvas(window, background="black", width=width, height=height)
             canvas.bind_all("<MouseWheel>", on_mousewheel)
-            frame = ttk.Frame(canvas)
+            frame = ttk.Frame(canvas,style="var.TFrame")
             vsb = ttk.Scrollbar(window, orient="vertical", command=canvas.yview)
             canvas.configure(yscrollcommand=vsb.set)
 
@@ -358,7 +381,7 @@ class Root(ThemedTk) :
             text_box = Image.open("project_pics\\text_box1.png")
             width,height = text_box.size
             text_box = ImageTk.PhotoImage(text_box)
-            frame = ttk.Frame(profile,width=width,height=height,style="pframe.TFrame")
+            frame = ttk.Frame(profile,width=width,height=height,style="header.TFrame")
             frame.place(relx=0.5,rely=0.55,anchor=tk.CENTER)
             frame.grid_propagate(False)
             txt_box = ttk.Label(frame,image=text_box)
@@ -407,14 +430,17 @@ class Root(ThemedTk) :
         servermenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="black")
         servermenu.add_command(label="Connect to Server",command=self.connect_display)
         self.menubar.add_cascade(label="Server",menu=servermenu)
+        # Music menu
+        musicmenu = tk.Menu(self.menubar,tearoff=0,bg="gray15",fg="white",activebackground="black")
+        musicmenu.add_command(label="Change Music",command=self.music_display)
+        self.menubar.add_cascade(label="Music",menu=musicmenu)
 
     def btn_click(self,nxt_func:object) :
-        btn_thread = Thread(target=m_player.music_control,args=("project_media\\button_sound.ogg",False,0,1))
-        btn_thread.start()
-        btn_thread.join()
+        # Play the button click sound
+        m_player.bg_sounds("project_media\\button_sound.ogg")
         if nxt_func == "Starting_game_again" :
-            m_player.music_control("project_media\\signal.ogg",True,-1,0)
-            m_player.music_control("project_media\\signal.ogg",False,-1,0)
+            # Start music in playlist
+            m_player.playing = ""
             nxt_func = self.main_page
         nxt_func()
 
@@ -568,9 +594,9 @@ class Root(ThemedTk) :
         self.clear()
         # adding \n wherever required
         d_text = game.checkstr(d_text,30)
-        # stopping current music and plying new one
-        m_player.music_control("project_media\\signal.ogg",True,-1,0)
-        m_player.music_control("project_media\\game_over.ogg",False,-1,0)
+        # Start the game over music
+        m_player.loop = -1
+        m_player.playing = "project_media\\game_over.ogg"
         # header frame
         header_frame = ttk.Frame(self,height=30,width=1280,style="header.TFrame")
         header_frame.grid(row=0,columnspan=2,sticky=tk.E+tk.N+tk.W)
@@ -911,7 +937,8 @@ class Game :
             root.canvas_exists = False
         print("entered game.const_qn")
         if self.dead != 0 and iteration == 1 :
-            m_player.music_control("project_media\\signal.ogg",False,-1,0)
+            # Start music in playlist
+            m_player.playing = ""
         with open("project_data\\const_file.txt") as c_file :
             c_list = c_file.readlines()
         c_text = c_list[self.const_num].strip().split("$")[3]
